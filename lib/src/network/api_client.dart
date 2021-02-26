@@ -1,7 +1,7 @@
 import 'package:nyt_app/models/news_item.dart';
-import 'package:nyt_app/scr/network/interceptors/dio_logging_interceptor.dart';
-import 'package:nyt_app/scr/network/interceptors/headers_interceptor.dart';
-import 'package:nyt_app/scr/network/responses/token_auth.dart';
+import 'package:nyt_app/src/network/interceptors/dio_logging_interceptor.dart';
+import 'package:nyt_app/src/network/interceptors/headers_interceptor.dart';
+import 'package:nyt_app/src/network/responses/token_auth.dart';
 import 'package:retrofit/http.dart';
 import 'package:dio/dio.dart';
 
