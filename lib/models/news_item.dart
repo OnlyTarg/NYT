@@ -1,3 +1,8 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'news_item.g.dart';
+
+@JsonSerializable()
 class NewsItem {
   final String title;
   final String description;
@@ -10,4 +15,9 @@ class NewsItem {
     this.url,
     this.imageUrl,
   );
+
+  factory NewsItem.fromJson(Map<String, dynamic> json) =>
+      _$NewsItemFromJson(json);
+
+  Map<String, dynamic> toJson() => _$NewsItemToJson(this);
 }
