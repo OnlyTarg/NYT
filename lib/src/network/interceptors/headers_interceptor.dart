@@ -2,8 +2,8 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:nyt_app/scr/repositories/base_news_repo.dart';
-import 'package:nyt_app/scr/repositories/base_user_repo.dart';
+import 'package:nyt_app/src/repositories/base_news_repo.dart';
+import 'package:nyt_app/src/repositories/base_user_repo.dart';
 
 class HeadersInterceptor extends Interceptor {
   @override

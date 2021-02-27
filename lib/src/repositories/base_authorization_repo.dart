@@ -1,6 +1,6 @@
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:nyt_app/models/user.dart';
-import 'package:nyt_app/scr/network/requests/registration.dart';
+import 'package:nyt_app/src/network/requests/registration.dart';
 
 abstract class BaseAuthorizationRepo {
   Future<String> forgotPassword(String email);
