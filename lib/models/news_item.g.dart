@@ -8,10 +8,10 @@ part of 'news_item.dart';
 
 NewsItem _$NewsItemFromJson(Map<String, dynamic> json) {
   return NewsItem(
-    json['title'] as String,
-    json['description'] as String,
-    json['url'] as String,
-    json['imageUrl'] as String,
+    title: json['title'] as String,
+    description: json['description'] as String,
+    url: json['url'] as String,
+    imageUrl: json['imageUrl'] as String,
   );
 }
 

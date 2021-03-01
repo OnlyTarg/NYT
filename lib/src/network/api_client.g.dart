@@ -17,12 +17,14 @@ class _ApiClient implements ApiClient {
   String baseUrl;
 
   @override
-  Future<List<NewsItem>> getNews() async {
+  Future<MainResponse> getNews(
+      {apikey = 'lYqK2GWQD4Z1KAL0sAGWGYgek3utMRtG'}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'api-key': apikey};
+    queryParameters.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<List<dynamic>>(
-        'svc/topstories/v2/home.json',
+    final _result = await _dio.request<Map<String, dynamic>>(
+        '/svc/topstories/v2/home.json',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'GET',
@@ -30,33 +32,7 @@ class _ApiClient implements ApiClient {
             extra: _extra,
             baseUrl: baseUrl),
         data: _data);
-    var value = _result.data
-        .map((dynamic i) => NewsItem.fromJson(i as Map<String, dynamic>))
-        .toList();
-    return value;
-  }
-
-  @override
-  Future<TokenAuthResponse> googleAuth({accessToken, idToken, code}) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    queryParameters.removeWhere((k, v) => v == null);
-    final _data = {
-      'access_token': accessToken,
-      'id_token': idToken,
-      'code': code
-    };
-    _data.removeWhere((k, v) => v == null);
-    final _result = await _dio.request<Map<String, dynamic>>(
-        '/api/v1/user/auth/google',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'POST',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            baseUrl: baseUrl),
-        data: _data);
-    final value = TokenAuthResponse.fromJson(_result.data);
+    final value = MainResponse.fromJson(_result.data);
     return value;
   }
 }

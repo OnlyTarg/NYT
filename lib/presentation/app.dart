@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nyt_app/src/repositories/news_repo.dart';
 
 class NewYorkTimesApp extends StatefulWidget {
   @override
@@ -6,9 +7,14 @@ class NewYorkTimesApp extends StatefulWidget {
 }
 
 class _NewYorkTimesAppState extends State<NewYorkTimesApp> {
+  NewsRepo newsRepo = NewsRepo();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: newsRepo.getNews,
+        child: Icon(Icons.search),
+      ),
       appBar: AppBar(
         title: Text('New York Times News'),
       ),
@@ -16,9 +22,6 @@ class _NewYorkTimesAppState extends State<NewYorkTimesApp> {
         itemBuilder: (context, index) => Card(
           child: InkWell(
             splashColor: Colors.blue.withAlpha(30),
-            onTap: () {
-              print('Card tapped.');
-            },
             child: Container(
               width: 300,
               height: 100,
