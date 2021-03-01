@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:nyt_app/models/news_item.dart';
+import 'package:nyt_app/src/repositories/news_repo.dart';
 
 part 'news.freezed.dart';
 
@@ -22,7 +23,8 @@ abstract class NewsState with _$NewsState {
 }
 
 class NewsBLoC extends Bloc<NewsEvent, NewsState> {
-  NewsBLoC() : super(const InitialNewsState());
+  NewsRepo newsRepo;
+  NewsBLoC(this.newsRepo) : super(const InitialNewsState());
 
   @override
   Stream<NewsState> mapEventToState(NewsEvent event) =>
@@ -30,5 +32,9 @@ class NewsBLoC extends Bloc<NewsEvent, NewsState> {
         fetch: _fetch,
       );
 
-  Stream<NewsState> _fetch() async* {}
+  Stream<NewsState> _fetch() async* {
+    yield NewsState.loading();
+    final _newsList = await newsRepo.getNews();
+    yield NewsState.loaded(_newsList);
+  }
 }
