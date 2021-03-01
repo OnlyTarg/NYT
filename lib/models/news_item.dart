@@ -1,12 +1,18 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive/hive.dart';
 
 part 'news_item.g.dart';
 
 @JsonSerializable()
+@HiveType(typeId: 0)
 class NewsItem {
+  @HiveField(1)
   final String title;
+  @HiveField(2)
   final String description;
+  @HiveField(3)
   final String url;
+  @HiveField(4)
   final String imageUrl;
 
   NewsItem({

@@ -10,7 +10,11 @@ class NewYorkTimesApp extends StatefulWidget {
 }
 
 class _NewYorkTimesAppState extends State<NewYorkTimesApp> {
-  NewsRepo newsRepo = NewsRepo();
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
