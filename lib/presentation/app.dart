@@ -26,7 +26,9 @@ class _NewYorkTimesAppState extends State<NewYorkTimesApp> {
       body: BlocBuilder<NewsBLoC, NewsState>(
         builder: (context, state) {
           if (state is LoadingNewsState) {
-            return Center(child: CircularProgressIndicator());
+            return Center(
+              child: CircularProgressIndicator(),
+            );
           }
           if (state is LoadedNewsState) {
             List<NewsItem> listOfNews = state.item;
