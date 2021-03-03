@@ -17,6 +17,11 @@ class _$NewsEventTearOff {
   FetchNewsEvent fetch() {
     return const FetchNewsEvent();
   }
+
+// ignore: unused_element
+  FetchLocalNewsEvent fetchLocal() {
+    return const FetchLocalNewsEvent();
+  }
 }
 
 /// @nodoc
@@ -28,19 +33,23 @@ mixin _$NewsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult fetch(),
+    @required TResult fetchLocal(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult fetch(),
+    TResult fetchLocal(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult fetch(FetchNewsEvent value),
+    @required TResult fetchLocal(FetchLocalNewsEvent value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult fetch(FetchNewsEvent value),
+    TResult fetchLocal(FetchLocalNewsEvent value),
     @required TResult orElse(),
   });
 }
@@ -99,8 +108,10 @@ class _$FetchNewsEvent extends FetchNewsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult fetch(),
+    @required TResult fetchLocal(),
   }) {
     assert(fetch != null);
+    assert(fetchLocal != null);
     return fetch();
   }
 
@@ -108,6 +119,7 @@ class _$FetchNewsEvent extends FetchNewsEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult fetch(),
+    TResult fetchLocal(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -121,8 +133,10 @@ class _$FetchNewsEvent extends FetchNewsEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult fetch(FetchNewsEvent value),
+    @required TResult fetchLocal(FetchLocalNewsEvent value),
   }) {
     assert(fetch != null);
+    assert(fetchLocal != null);
     return fetch(this);
   }
 
@@ -130,6 +144,7 @@ class _$FetchNewsEvent extends FetchNewsEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult fetch(FetchNewsEvent value),
+    TResult fetchLocal(FetchLocalNewsEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -143,6 +158,98 @@ class _$FetchNewsEvent extends FetchNewsEvent {
 abstract class FetchNewsEvent extends NewsEvent {
   const FetchNewsEvent._() : super._();
   const factory FetchNewsEvent() = _$FetchNewsEvent;
+}
+
+/// @nodoc
+abstract class $FetchLocalNewsEventCopyWith<$Res> {
+  factory $FetchLocalNewsEventCopyWith(
+          FetchLocalNewsEvent value, $Res Function(FetchLocalNewsEvent) then) =
+      _$FetchLocalNewsEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$FetchLocalNewsEventCopyWithImpl<$Res>
+    extends _$NewsEventCopyWithImpl<$Res>
+    implements $FetchLocalNewsEventCopyWith<$Res> {
+  _$FetchLocalNewsEventCopyWithImpl(
+      FetchLocalNewsEvent _value, $Res Function(FetchLocalNewsEvent) _then)
+      : super(_value, (v) => _then(v as FetchLocalNewsEvent));
+
+  @override
+  FetchLocalNewsEvent get _value => super._value as FetchLocalNewsEvent;
+}
+
+/// @nodoc
+class _$FetchLocalNewsEvent extends FetchLocalNewsEvent {
+  const _$FetchLocalNewsEvent() : super._();
+
+  @override
+  String toString() {
+    return 'NewsEvent.fetchLocal()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is FetchLocalNewsEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult fetch(),
+    @required TResult fetchLocal(),
+  }) {
+    assert(fetch != null);
+    assert(fetchLocal != null);
+    return fetchLocal();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult fetch(),
+    TResult fetchLocal(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (fetchLocal != null) {
+      return fetchLocal();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult fetch(FetchNewsEvent value),
+    @required TResult fetchLocal(FetchLocalNewsEvent value),
+  }) {
+    assert(fetch != null);
+    assert(fetchLocal != null);
+    return fetchLocal(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult fetch(FetchNewsEvent value),
+    TResult fetchLocal(FetchLocalNewsEvent value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (fetchLocal != null) {
+      return fetchLocal(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchLocalNewsEvent extends NewsEvent {
+  const FetchLocalNewsEvent._() : super._();
+  const factory FetchLocalNewsEvent() = _$FetchLocalNewsEvent;
 }
 
 /// @nodoc

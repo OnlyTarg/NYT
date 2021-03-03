@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:nyt_app/presentation/app.dart';
+//import 'package:hive_flutter/hive_flutter.dart';
+import 'package:path_provider/path_provider.dart';
+
 import 'package:nyt_app/src/bloc/news.dart';
 import 'package:nyt_app/src/bloc/observer.dart';
 import 'package:nyt_app/src/repositories/news_repo.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = SimpleBlocObserver();
-  await Hive.initFlutter();
+  final appDocumentDir = await getApplicationDocumentsDirectory();
+  Hive.init(appDocumentDir.path);
   runApp(MyApp());
 }
 

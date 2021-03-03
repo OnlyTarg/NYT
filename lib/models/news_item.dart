@@ -41,7 +41,7 @@ class NewsItem {
     );
   }
 
-  Map<String, dynamic> toMap() {
+  /*  Map<String, dynamic> toMap() {
     return {
       'title': title,
       'description': description,
@@ -59,7 +59,7 @@ class NewsItem {
       url: map['url'],
       imageUrl: map['imageUrl'],
     );
-  }
+  } */
 
   @override
   String toString() {

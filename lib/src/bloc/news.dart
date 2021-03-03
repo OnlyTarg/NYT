@@ -10,6 +10,7 @@ abstract class NewsEvent with _$NewsEvent {
   const NewsEvent._();
 
   const factory NewsEvent.fetch() = FetchNewsEvent;
+  const factory NewsEvent.fetchLocal() = FetchLocalNewsEvent;
 }
 
 @freezed
@@ -29,6 +30,7 @@ class NewsBLoC extends Bloc<NewsEvent, NewsState> {
   @override
   Stream<NewsState> mapEventToState(NewsEvent event) =>
       event.when<Stream<NewsState>>(
+        fetchLocal: _fetchLocal,
         fetch: _fetch,
       );
 
@@ -40,7 +42,8 @@ class NewsBLoC extends Bloc<NewsEvent, NewsState> {
 
   Stream<NewsState> _fetchLocal() async* {
     yield NewsState.loading();
-    final _newsList = await newsRepo.getNews();
+
+    final _newsList = await newsRepo.getNewsLocaly();
     yield NewsState.loaded(_newsList);
   }
 }

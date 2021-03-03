@@ -14,9 +14,13 @@ class NewsRepo extends BaseNewsRepo {
 
   @override
   Future<List<NewsItem>> getNews() async {
-    MainResponse _response = await ApiClient.instance.getNews();
+    MainResponse _response =
+        await ApiClient.instance.getNews().timeout(Duration(seconds: 30));
 
-    return _convertFromResposeToNewsItemList(_response);
+    if (_response.status == 'OK') {
+      return _convertFromResposeToNewsItemList(_response);
+    }
+    return [];
   }
 
   List<NewsItem> _convertFromResposeToNewsItemList(MainResponse response) {
@@ -29,7 +33,7 @@ class NewsRepo extends BaseNewsRepo {
       );
       _list.add(_item);
     });
-    print(_list);
+
     saveNewsLocally(_list);
 
     return _list;
@@ -37,16 +41,22 @@ class NewsRepo extends BaseNewsRepo {
 
   @override
   Future<List<NewsItem>> getNewsLocaly() async {
-    final box = await Hive.openBox<List<NewsItem>>(BaseNewsRepo.newsBox);
-
-    List<NewsItem> _list = box.get(0) ?? [];
-    throw _list;
+    final box = await Hive.openBox<NewsItem>(BaseNewsRepo.newsBox);
+    final List<NewsItem> _list = [];
+    for (var item in box.values) {
+      _list.add(item);
+    }
+    box.close();
+    return _list;
   }
 
   @override
   Future<void> saveNewsLocally(List<NewsItem> listNews) async {
-    final box = await Hive.openBox<List<NewsItem>>(BaseNewsRepo.newsBox);
-    await box.putAt(0, listNews);
-    await box.close();
+    final box = await Hive.openBox<NewsItem>(BaseNewsRepo.newsBox);
+    box.clear();
+    for (var i = 0; i < listNews.length; i++) {
+      await box.add(listNews[i]);
+    }
+    box.close();
   }
 }

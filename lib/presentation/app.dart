@@ -20,7 +20,7 @@ class _NewYorkTimesAppState extends State<NewYorkTimesApp> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () => BlocProvider.of<NewsBLoC>(context).add(
-          NewsEvent.fetch(),
+          NewsEvent.fetchLocal(),
         ),
         child: Icon(Icons.search),
       ),
