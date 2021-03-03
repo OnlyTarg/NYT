@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:nyt_app/src/repositories/auth_repo.dart';
 
 part 'auth_bloc.freezed.dart';
 
@@ -31,7 +32,8 @@ abstract class AuthState with _$AuthState {
 }
 
 class AuthBLoC extends Bloc<AuthEvent, AuthState> {
-  AuthBLoC() : super(const InitialAuthState());
+  AuthRepo authRepo;
+  AuthBLoC(this.authRepo) : super(const InitialAuthState());
 
   @override
   Stream<AuthState> mapEventToState(AuthEvent event) =>
@@ -47,17 +49,13 @@ class AuthBLoC extends Bloc<AuthEvent, AuthState> {
   }
 
   Stream<AuthState> _signUp(
-    String email,
-    String password,
-    String confirmPassword,
-  ) async* {
-    // ...
+      String email, String password, String confirmPassword) async* {
+    authRepo
+        .createAccount(email: email, password: password)
+        .timeout(Duration(seconds: 30));
   }
 
-  Stream<AuthState> _signIn(
-    String email,
-    String password,
-  ) async* {
+  Stream<AuthState> _signIn(String email, String password) async* {
     // ...
   }
 

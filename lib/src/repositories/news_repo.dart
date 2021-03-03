@@ -1,7 +1,6 @@
 import 'package:hive/hive.dart';
 import 'package:nyt_app/models/main_response/main_response.dart';
 import 'package:nyt_app/models/news_item.dart';
-import 'package:nyt_app/models/user.dart';
 import 'package:nyt_app/src/network/api_client.dart';
 import 'package:nyt_app/src/repositories/base_news_repo.dart';
 
