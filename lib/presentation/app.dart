@@ -1,59 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nyt_app/models/news_item.dart';
-import 'package:nyt_app/src/bloc/news.dart';
-import 'package:nyt_app/src/repositories/news_repo.dart';
 
-class NewYorkTimesApp extends StatefulWidget {
-  @override
-  _NewYorkTimesAppState createState() => _NewYorkTimesAppState();
-}
+// Import the firebase_core plugin
+import 'package:firebase_core/firebase_core.dart';
+import 'package:nyt_app/presentation/screens/home_screen.dart';
 
-class _NewYorkTimesAppState extends State<NewYorkTimesApp> {
-  @override
-  void initState() {
-    super.initState();
-  }
+class NYTApp extends StatelessWidget {
+  // Create the initialization Future outside of `build`:
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => BlocProvider.of<NewsBLoC>(context).add(
-          NewsEvent.fetchLocal(),
-        ),
-        child: Icon(Icons.search),
-      ),
-      appBar: AppBar(
-        title: Text('New York Times News'),
-      ),
-      body: BlocBuilder<NewsBLoC, NewsState>(
-        builder: (context, state) {
-          if (state is LoadingNewsState) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          if (state is LoadedNewsState) {
-            List<NewsItem> listOfNews = state.item;
-            return ListView.builder(
-              itemCount: listOfNews.length,
-              itemBuilder: (context, index) => Card(
-                child: InkWell(
-                  splashColor: Colors.blue.withAlpha(30),
-                  child: ListTile(
-                    title: Text('${listOfNews[index].title}'),
-                    subtitle: Text(
-                      '${listOfNews[index].description}',
-                    ),
-                  ),
-                ),
-              ),
-            );
-          }
-          return SizedBox.shrink();
-        },
-      ),
+    return FutureBuilder(
+      // Initialize FlutterFire:
+      future: _initialization,
+      builder: (context, snapshot) {
+        // Check for errors
+        if (snapshot.hasError) {
+          //TODO
+
+          return null;
+        }
+
+        // Once complete, show your application
+        if (snapshot.connectionState == ConnectionState.done) {
+          return HomeScreen();
+        }
+
+        // Otherwise, show something whilst waiting for initialization to complete
+        return const SizedBox.shrink();
+      },
     );
   }
 }
