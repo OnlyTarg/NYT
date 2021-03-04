@@ -6,9 +6,9 @@ import 'package:nyt_app/src/repositories/base_news_repo.dart';
 
 class NewsRepo extends BaseNewsRepo {
   NewsRepo() {
-    Hive.registerAdapter<NewsItem>(
-      NewsItemAdapter(),
-    );
+    if (!Hive.isAdapterRegistered(0)) {
+      Hive.registerAdapter<NewsItem>(NewsItemAdapter());
+    }
   }
 
   @override

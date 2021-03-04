@@ -6,6 +6,7 @@ part of 'results.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+// ignore: non_constant_identifier_names
 _$_Results _$_$_ResultsFromJson(Map<String, dynamic> json) {
   return _$_Results(
     section: json['section'] as String,
@@ -39,6 +40,7 @@ _$_Results _$_$_ResultsFromJson(Map<String, dynamic> json) {
   );
 }
 
+// ignore: non_constant_identifier_names
 Map<String, dynamic> _$_$_ResultsToJson(_$_Results instance) =>
     <String, dynamic>{
       'section': instance.section,
