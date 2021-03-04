@@ -3,6 +3,9 @@ import 'package:nyt_app/constants/routers_name.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class InitialScreen extends StatefulWidget {
+  const InitialScreen({
+    Key key,
+  }) : super(key: key);
   @override
   _InitialScreenState createState() => _InitialScreenState();
 }
@@ -11,7 +14,7 @@ class _InitialScreenState extends State<InitialScreen> {
   @override
   Widget build(BuildContext context) {
     FirebaseAuth.instance.authStateChanges().listen(
-      (User user) {
+      (user) {
         if (user == null) {
           print('User is currently signed out!');
           Navigator.of(context).pushReplacementNamed(authRoute);
@@ -21,6 +24,6 @@ class _InitialScreenState extends State<InitialScreen> {
         }
       },
     );
-    return SizedBox.shrink();
+    return const SizedBox.shrink();
   }
 }

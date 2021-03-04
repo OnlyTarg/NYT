@@ -6,7 +6,6 @@ part of 'main_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-// ignore: non_constant_identifier_names
 _$_MainResponse _$_$_MainResponseFromJson(Map<String, dynamic> json) {
   return _$_MainResponse(
     status: json['status'] as String,
@@ -23,7 +22,6 @@ _$_MainResponse _$_$_MainResponseFromJson(Map<String, dynamic> json) {
   );
 }
 
-// ignore: non_constant_identifier_names
 Map<String, dynamic> _$_$_MainResponseToJson(_$_MainResponse instance) =>
     <String, dynamic>{
       'status': instance.status,

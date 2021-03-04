@@ -18,30 +18,30 @@ class _$ResultsTearOff {
 
 // ignore: unused_element
   _Results call(
-      {@JsonKey(name: "section") String section,
-      @JsonKey(name: "subsection") dynamic subsection,
-      @JsonKey(name: "title") String title,
-      @JsonKey(name: "abstract") String abstract,
-      @JsonKey(name: "url") String url,
-      @JsonKey(name: "uri") String uri,
-      @JsonKey(name: "byline") String byline,
-      @JsonKey(name: "item_type") String itemType,
-      @JsonKey(name: "updated_date") DateTime updatedDate,
-      @JsonKey(name: "created_date") DateTime createdDate,
-      @JsonKey(name: "published_date") DateTime publishedDate,
-      @JsonKey(name: "material_type_facet") dynamic materialTypeFacet,
-      @JsonKey(name: "kicker") dynamic kicker,
-      @JsonKey(name: "des_facet") List<String> desFacet,
-      @JsonKey(name: "org_facet") List<dynamic> orgFacet,
-      @JsonKey(name: "per_facet") List<dynamic> perFacet,
-      @JsonKey(name: "geo_facet") List<String> geoFacet,
-      @JsonKey(name: "multimedia") List<Multimedia> multimedia,
-      @JsonKey(name: "short_url") String shortUrl}) {
+      {@JsonKey(name: 'section') String section,
+      @JsonKey(name: 'subsection') dynamic subsection,
+      @JsonKey(name: 'title') String title,
+      @JsonKey(name: 'abstract') String description,
+      @JsonKey(name: 'url') String url,
+      @JsonKey(name: 'uri') String uri,
+      @JsonKey(name: 'byline') String byline,
+      @JsonKey(name: 'item_type') String itemType,
+      @JsonKey(name: 'updated_date') DateTime updatedDate,
+      @JsonKey(name: 'created_date') DateTime createdDate,
+      @JsonKey(name: 'published_date') DateTime publishedDate,
+      @JsonKey(name: 'material_type_facet') dynamic materialTypeFacet,
+      @JsonKey(name: 'kicker') dynamic kicker,
+      @JsonKey(name: 'des_facet') List<String> desFacet,
+      @JsonKey(name: 'org_facet') List<dynamic> orgFacet,
+      @JsonKey(name: 'per_facet') List<dynamic> perFacet,
+      @JsonKey(name: 'geo_facet') List<String> geoFacet,
+      @JsonKey(name: 'multimedia') List<Multimedia> multimedia,
+      @JsonKey(name: 'short_url') String shortUrl}) {
     return _Results(
       section: section,
       subsection: subsection,
       title: title,
-      abstract: abstract,
+      description: description,
       url: url,
       uri: uri,
       byline: byline,
@@ -72,43 +72,43 @@ const $Results = _$ResultsTearOff();
 
 /// @nodoc
 mixin _$Results {
-  @JsonKey(name: "section")
+  @JsonKey(name: 'section')
   String get section;
-  @JsonKey(name: "subsection")
+  @JsonKey(name: 'subsection')
   dynamic get subsection;
-  @JsonKey(name: "title")
+  @JsonKey(name: 'title')
   String get title;
-  @JsonKey(name: "abstract")
-  String get abstract;
-  @JsonKey(name: "url")
+  @JsonKey(name: 'abstract')
+  String get description;
+  @JsonKey(name: 'url')
   String get url;
-  @JsonKey(name: "uri")
+  @JsonKey(name: 'uri')
   String get uri;
-  @JsonKey(name: "byline")
+  @JsonKey(name: 'byline')
   String get byline;
-  @JsonKey(name: "item_type")
+  @JsonKey(name: 'item_type')
   String get itemType;
-  @JsonKey(name: "updated_date")
+  @JsonKey(name: 'updated_date')
   DateTime get updatedDate;
-  @JsonKey(name: "created_date")
+  @JsonKey(name: 'created_date')
   DateTime get createdDate;
-  @JsonKey(name: "published_date")
+  @JsonKey(name: 'published_date')
   DateTime get publishedDate;
-  @JsonKey(name: "material_type_facet")
+  @JsonKey(name: 'material_type_facet')
   dynamic get materialTypeFacet;
-  @JsonKey(name: "kicker")
+  @JsonKey(name: 'kicker')
   dynamic get kicker;
-  @JsonKey(name: "des_facet")
+  @JsonKey(name: 'des_facet')
   List<String> get desFacet;
-  @JsonKey(name: "org_facet")
+  @JsonKey(name: 'org_facet')
   List<dynamic> get orgFacet;
-  @JsonKey(name: "per_facet")
+  @JsonKey(name: 'per_facet')
   List<dynamic> get perFacet;
-  @JsonKey(name: "geo_facet")
+  @JsonKey(name: 'geo_facet')
   List<String> get geoFacet;
-  @JsonKey(name: "multimedia")
+  @JsonKey(name: 'multimedia')
   List<Multimedia> get multimedia;
-  @JsonKey(name: "short_url")
+  @JsonKey(name: 'short_url')
   String get shortUrl;
 
   Map<String, dynamic> toJson();
@@ -121,25 +121,25 @@ abstract class $ResultsCopyWith<$Res> {
   factory $ResultsCopyWith(Results value, $Res Function(Results) then) =
       _$ResultsCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: "section") String section,
-      @JsonKey(name: "subsection") dynamic subsection,
-      @JsonKey(name: "title") String title,
-      @JsonKey(name: "abstract") String abstract,
-      @JsonKey(name: "url") String url,
-      @JsonKey(name: "uri") String uri,
-      @JsonKey(name: "byline") String byline,
-      @JsonKey(name: "item_type") String itemType,
-      @JsonKey(name: "updated_date") DateTime updatedDate,
-      @JsonKey(name: "created_date") DateTime createdDate,
-      @JsonKey(name: "published_date") DateTime publishedDate,
-      @JsonKey(name: "material_type_facet") dynamic materialTypeFacet,
-      @JsonKey(name: "kicker") dynamic kicker,
-      @JsonKey(name: "des_facet") List<String> desFacet,
-      @JsonKey(name: "org_facet") List<dynamic> orgFacet,
-      @JsonKey(name: "per_facet") List<dynamic> perFacet,
-      @JsonKey(name: "geo_facet") List<String> geoFacet,
-      @JsonKey(name: "multimedia") List<Multimedia> multimedia,
-      @JsonKey(name: "short_url") String shortUrl});
+      {@JsonKey(name: 'section') String section,
+      @JsonKey(name: 'subsection') dynamic subsection,
+      @JsonKey(name: 'title') String title,
+      @JsonKey(name: 'abstract') String description,
+      @JsonKey(name: 'url') String url,
+      @JsonKey(name: 'uri') String uri,
+      @JsonKey(name: 'byline') String byline,
+      @JsonKey(name: 'item_type') String itemType,
+      @JsonKey(name: 'updated_date') DateTime updatedDate,
+      @JsonKey(name: 'created_date') DateTime createdDate,
+      @JsonKey(name: 'published_date') DateTime publishedDate,
+      @JsonKey(name: 'material_type_facet') dynamic materialTypeFacet,
+      @JsonKey(name: 'kicker') dynamic kicker,
+      @JsonKey(name: 'des_facet') List<String> desFacet,
+      @JsonKey(name: 'org_facet') List<dynamic> orgFacet,
+      @JsonKey(name: 'per_facet') List<dynamic> perFacet,
+      @JsonKey(name: 'geo_facet') List<String> geoFacet,
+      @JsonKey(name: 'multimedia') List<Multimedia> multimedia,
+      @JsonKey(name: 'short_url') String shortUrl});
 }
 
 /// @nodoc
@@ -155,7 +155,7 @@ class _$ResultsCopyWithImpl<$Res> implements $ResultsCopyWith<$Res> {
     Object section = freezed,
     Object subsection = freezed,
     Object title = freezed,
-    Object abstract = freezed,
+    Object description = freezed,
     Object url = freezed,
     Object uri = freezed,
     Object byline = freezed,
@@ -177,7 +177,8 @@ class _$ResultsCopyWithImpl<$Res> implements $ResultsCopyWith<$Res> {
       subsection:
           subsection == freezed ? _value.subsection : subsection as dynamic,
       title: title == freezed ? _value.title : title as String,
-      abstract: abstract == freezed ? _value.abstract : abstract as String,
+      description:
+          description == freezed ? _value.description : description as String,
       url: url == freezed ? _value.url : url as String,
       uri: uri == freezed ? _value.uri : uri as String,
       byline: byline == freezed ? _value.byline : byline as String,
@@ -215,25 +216,25 @@ abstract class _$ResultsCopyWith<$Res> implements $ResultsCopyWith<$Res> {
       __$ResultsCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: "section") String section,
-      @JsonKey(name: "subsection") dynamic subsection,
-      @JsonKey(name: "title") String title,
-      @JsonKey(name: "abstract") String abstract,
-      @JsonKey(name: "url") String url,
-      @JsonKey(name: "uri") String uri,
-      @JsonKey(name: "byline") String byline,
-      @JsonKey(name: "item_type") String itemType,
-      @JsonKey(name: "updated_date") DateTime updatedDate,
-      @JsonKey(name: "created_date") DateTime createdDate,
-      @JsonKey(name: "published_date") DateTime publishedDate,
-      @JsonKey(name: "material_type_facet") dynamic materialTypeFacet,
-      @JsonKey(name: "kicker") dynamic kicker,
-      @JsonKey(name: "des_facet") List<String> desFacet,
-      @JsonKey(name: "org_facet") List<dynamic> orgFacet,
-      @JsonKey(name: "per_facet") List<dynamic> perFacet,
-      @JsonKey(name: "geo_facet") List<String> geoFacet,
-      @JsonKey(name: "multimedia") List<Multimedia> multimedia,
-      @JsonKey(name: "short_url") String shortUrl});
+      {@JsonKey(name: 'section') String section,
+      @JsonKey(name: 'subsection') dynamic subsection,
+      @JsonKey(name: 'title') String title,
+      @JsonKey(name: 'abstract') String description,
+      @JsonKey(name: 'url') String url,
+      @JsonKey(name: 'uri') String uri,
+      @JsonKey(name: 'byline') String byline,
+      @JsonKey(name: 'item_type') String itemType,
+      @JsonKey(name: 'updated_date') DateTime updatedDate,
+      @JsonKey(name: 'created_date') DateTime createdDate,
+      @JsonKey(name: 'published_date') DateTime publishedDate,
+      @JsonKey(name: 'material_type_facet') dynamic materialTypeFacet,
+      @JsonKey(name: 'kicker') dynamic kicker,
+      @JsonKey(name: 'des_facet') List<String> desFacet,
+      @JsonKey(name: 'org_facet') List<dynamic> orgFacet,
+      @JsonKey(name: 'per_facet') List<dynamic> perFacet,
+      @JsonKey(name: 'geo_facet') List<String> geoFacet,
+      @JsonKey(name: 'multimedia') List<Multimedia> multimedia,
+      @JsonKey(name: 'short_url') String shortUrl});
 }
 
 /// @nodoc
@@ -250,7 +251,7 @@ class __$ResultsCopyWithImpl<$Res> extends _$ResultsCopyWithImpl<$Res>
     Object section = freezed,
     Object subsection = freezed,
     Object title = freezed,
-    Object abstract = freezed,
+    Object description = freezed,
     Object url = freezed,
     Object uri = freezed,
     Object byline = freezed,
@@ -272,7 +273,8 @@ class __$ResultsCopyWithImpl<$Res> extends _$ResultsCopyWithImpl<$Res>
       subsection:
           subsection == freezed ? _value.subsection : subsection as dynamic,
       title: title == freezed ? _value.title : title as String,
-      abstract: abstract == freezed ? _value.abstract : abstract as String,
+      description:
+          description == freezed ? _value.description : description as String,
       url: url == freezed ? _value.url : url as String,
       uri: uri == freezed ? _value.uri : uri as String,
       byline: byline == freezed ? _value.byline : byline as String,
@@ -309,90 +311,90 @@ class __$ResultsCopyWithImpl<$Res> extends _$ResultsCopyWithImpl<$Res>
 /// @nodoc
 class _$_Results implements _Results {
   const _$_Results(
-      {@JsonKey(name: "section") this.section,
-      @JsonKey(name: "subsection") this.subsection,
-      @JsonKey(name: "title") this.title,
-      @JsonKey(name: "abstract") this.abstract,
-      @JsonKey(name: "url") this.url,
-      @JsonKey(name: "uri") this.uri,
-      @JsonKey(name: "byline") this.byline,
-      @JsonKey(name: "item_type") this.itemType,
-      @JsonKey(name: "updated_date") this.updatedDate,
-      @JsonKey(name: "created_date") this.createdDate,
-      @JsonKey(name: "published_date") this.publishedDate,
-      @JsonKey(name: "material_type_facet") this.materialTypeFacet,
-      @JsonKey(name: "kicker") this.kicker,
-      @JsonKey(name: "des_facet") this.desFacet,
-      @JsonKey(name: "org_facet") this.orgFacet,
-      @JsonKey(name: "per_facet") this.perFacet,
-      @JsonKey(name: "geo_facet") this.geoFacet,
-      @JsonKey(name: "multimedia") this.multimedia,
-      @JsonKey(name: "short_url") this.shortUrl});
+      {@JsonKey(name: 'section') this.section,
+      @JsonKey(name: 'subsection') this.subsection,
+      @JsonKey(name: 'title') this.title,
+      @JsonKey(name: 'abstract') this.description,
+      @JsonKey(name: 'url') this.url,
+      @JsonKey(name: 'uri') this.uri,
+      @JsonKey(name: 'byline') this.byline,
+      @JsonKey(name: 'item_type') this.itemType,
+      @JsonKey(name: 'updated_date') this.updatedDate,
+      @JsonKey(name: 'created_date') this.createdDate,
+      @JsonKey(name: 'published_date') this.publishedDate,
+      @JsonKey(name: 'material_type_facet') this.materialTypeFacet,
+      @JsonKey(name: 'kicker') this.kicker,
+      @JsonKey(name: 'des_facet') this.desFacet,
+      @JsonKey(name: 'org_facet') this.orgFacet,
+      @JsonKey(name: 'per_facet') this.perFacet,
+      @JsonKey(name: 'geo_facet') this.geoFacet,
+      @JsonKey(name: 'multimedia') this.multimedia,
+      @JsonKey(name: 'short_url') this.shortUrl});
 
   factory _$_Results.fromJson(Map<String, dynamic> json) =>
       _$_$_ResultsFromJson(json);
 
   @override
-  @JsonKey(name: "section")
+  @JsonKey(name: 'section')
   final String section;
   @override
-  @JsonKey(name: "subsection")
+  @JsonKey(name: 'subsection')
   final dynamic subsection;
   @override
-  @JsonKey(name: "title")
+  @JsonKey(name: 'title')
   final String title;
   @override
-  @JsonKey(name: "abstract")
-  final String abstract;
+  @JsonKey(name: 'abstract')
+  final String description;
   @override
-  @JsonKey(name: "url")
+  @JsonKey(name: 'url')
   final String url;
   @override
-  @JsonKey(name: "uri")
+  @JsonKey(name: 'uri')
   final String uri;
   @override
-  @JsonKey(name: "byline")
+  @JsonKey(name: 'byline')
   final String byline;
   @override
-  @JsonKey(name: "item_type")
+  @JsonKey(name: 'item_type')
   final String itemType;
   @override
-  @JsonKey(name: "updated_date")
+  @JsonKey(name: 'updated_date')
   final DateTime updatedDate;
   @override
-  @JsonKey(name: "created_date")
+  @JsonKey(name: 'created_date')
   final DateTime createdDate;
   @override
-  @JsonKey(name: "published_date")
+  @JsonKey(name: 'published_date')
   final DateTime publishedDate;
   @override
-  @JsonKey(name: "material_type_facet")
+  @JsonKey(name: 'material_type_facet')
   final dynamic materialTypeFacet;
   @override
-  @JsonKey(name: "kicker")
+  @JsonKey(name: 'kicker')
   final dynamic kicker;
   @override
-  @JsonKey(name: "des_facet")
+  @JsonKey(name: 'des_facet')
   final List<String> desFacet;
   @override
-  @JsonKey(name: "org_facet")
+  @JsonKey(name: 'org_facet')
   final List<dynamic> orgFacet;
   @override
-  @JsonKey(name: "per_facet")
+  @JsonKey(name: 'per_facet')
   final List<dynamic> perFacet;
   @override
-  @JsonKey(name: "geo_facet")
+  @JsonKey(name: 'geo_facet')
   final List<String> geoFacet;
   @override
-  @JsonKey(name: "multimedia")
+  @JsonKey(name: 'multimedia')
   final List<Multimedia> multimedia;
   @override
-  @JsonKey(name: "short_url")
+  @JsonKey(name: 'short_url')
   final String shortUrl;
 
   @override
   String toString() {
-    return 'Results(section: $section, subsection: $subsection, title: $title, abstract: $abstract, url: $url, uri: $uri, byline: $byline, itemType: $itemType, updatedDate: $updatedDate, createdDate: $createdDate, publishedDate: $publishedDate, materialTypeFacet: $materialTypeFacet, kicker: $kicker, desFacet: $desFacet, orgFacet: $orgFacet, perFacet: $perFacet, geoFacet: $geoFacet, multimedia: $multimedia, shortUrl: $shortUrl)';
+    return 'Results(section: $section, subsection: $subsection, title: $title, description: $description, url: $url, uri: $uri, byline: $byline, itemType: $itemType, updatedDate: $updatedDate, createdDate: $createdDate, publishedDate: $publishedDate, materialTypeFacet: $materialTypeFacet, kicker: $kicker, desFacet: $desFacet, orgFacet: $orgFacet, perFacet: $perFacet, geoFacet: $geoFacet, multimedia: $multimedia, shortUrl: $shortUrl)';
   }
 
   @override
@@ -407,9 +409,9 @@ class _$_Results implements _Results {
                     .equals(other.subsection, subsection)) &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
-            (identical(other.abstract, abstract) ||
+            (identical(other.description, description) ||
                 const DeepCollectionEquality()
-                    .equals(other.abstract, abstract)) &&
+                    .equals(other.description, description)) &&
             (identical(other.url, url) ||
                 const DeepCollectionEquality().equals(other.url, url)) &&
             (identical(other.uri, uri) ||
@@ -459,7 +461,7 @@ class _$_Results implements _Results {
       const DeepCollectionEquality().hash(section) ^
       const DeepCollectionEquality().hash(subsection) ^
       const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(abstract) ^
+      const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(url) ^
       const DeepCollectionEquality().hash(uri) ^
       const DeepCollectionEquality().hash(byline) ^
@@ -489,84 +491,84 @@ class _$_Results implements _Results {
 
 abstract class _Results implements Results {
   const factory _Results(
-      {@JsonKey(name: "section") String section,
-      @JsonKey(name: "subsection") dynamic subsection,
-      @JsonKey(name: "title") String title,
-      @JsonKey(name: "abstract") String abstract,
-      @JsonKey(name: "url") String url,
-      @JsonKey(name: "uri") String uri,
-      @JsonKey(name: "byline") String byline,
-      @JsonKey(name: "item_type") String itemType,
-      @JsonKey(name: "updated_date") DateTime updatedDate,
-      @JsonKey(name: "created_date") DateTime createdDate,
-      @JsonKey(name: "published_date") DateTime publishedDate,
-      @JsonKey(name: "material_type_facet") dynamic materialTypeFacet,
-      @JsonKey(name: "kicker") dynamic kicker,
-      @JsonKey(name: "des_facet") List<String> desFacet,
-      @JsonKey(name: "org_facet") List<dynamic> orgFacet,
-      @JsonKey(name: "per_facet") List<dynamic> perFacet,
-      @JsonKey(name: "geo_facet") List<String> geoFacet,
-      @JsonKey(name: "multimedia") List<Multimedia> multimedia,
-      @JsonKey(name: "short_url") String shortUrl}) = _$_Results;
+      {@JsonKey(name: 'section') String section,
+      @JsonKey(name: 'subsection') dynamic subsection,
+      @JsonKey(name: 'title') String title,
+      @JsonKey(name: 'abstract') String description,
+      @JsonKey(name: 'url') String url,
+      @JsonKey(name: 'uri') String uri,
+      @JsonKey(name: 'byline') String byline,
+      @JsonKey(name: 'item_type') String itemType,
+      @JsonKey(name: 'updated_date') DateTime updatedDate,
+      @JsonKey(name: 'created_date') DateTime createdDate,
+      @JsonKey(name: 'published_date') DateTime publishedDate,
+      @JsonKey(name: 'material_type_facet') dynamic materialTypeFacet,
+      @JsonKey(name: 'kicker') dynamic kicker,
+      @JsonKey(name: 'des_facet') List<String> desFacet,
+      @JsonKey(name: 'org_facet') List<dynamic> orgFacet,
+      @JsonKey(name: 'per_facet') List<dynamic> perFacet,
+      @JsonKey(name: 'geo_facet') List<String> geoFacet,
+      @JsonKey(name: 'multimedia') List<Multimedia> multimedia,
+      @JsonKey(name: 'short_url') String shortUrl}) = _$_Results;
 
   factory _Results.fromJson(Map<String, dynamic> json) = _$_Results.fromJson;
 
   @override
-  @JsonKey(name: "section")
+  @JsonKey(name: 'section')
   String get section;
   @override
-  @JsonKey(name: "subsection")
+  @JsonKey(name: 'subsection')
   dynamic get subsection;
   @override
-  @JsonKey(name: "title")
+  @JsonKey(name: 'title')
   String get title;
   @override
-  @JsonKey(name: "abstract")
-  String get abstract;
+  @JsonKey(name: 'abstract')
+  String get description;
   @override
-  @JsonKey(name: "url")
+  @JsonKey(name: 'url')
   String get url;
   @override
-  @JsonKey(name: "uri")
+  @JsonKey(name: 'uri')
   String get uri;
   @override
-  @JsonKey(name: "byline")
+  @JsonKey(name: 'byline')
   String get byline;
   @override
-  @JsonKey(name: "item_type")
+  @JsonKey(name: 'item_type')
   String get itemType;
   @override
-  @JsonKey(name: "updated_date")
+  @JsonKey(name: 'updated_date')
   DateTime get updatedDate;
   @override
-  @JsonKey(name: "created_date")
+  @JsonKey(name: 'created_date')
   DateTime get createdDate;
   @override
-  @JsonKey(name: "published_date")
+  @JsonKey(name: 'published_date')
   DateTime get publishedDate;
   @override
-  @JsonKey(name: "material_type_facet")
+  @JsonKey(name: 'material_type_facet')
   dynamic get materialTypeFacet;
   @override
-  @JsonKey(name: "kicker")
+  @JsonKey(name: 'kicker')
   dynamic get kicker;
   @override
-  @JsonKey(name: "des_facet")
+  @JsonKey(name: 'des_facet')
   List<String> get desFacet;
   @override
-  @JsonKey(name: "org_facet")
+  @JsonKey(name: 'org_facet')
   List<dynamic> get orgFacet;
   @override
-  @JsonKey(name: "per_facet")
+  @JsonKey(name: 'per_facet')
   List<dynamic> get perFacet;
   @override
-  @JsonKey(name: "geo_facet")
+  @JsonKey(name: 'geo_facet')
   List<String> get geoFacet;
   @override
-  @JsonKey(name: "multimedia")
+  @JsonKey(name: 'multimedia')
   List<Multimedia> get multimedia;
   @override
-  @JsonKey(name: "short_url")
+  @JsonKey(name: 'short_url')
   String get shortUrl;
   @override
   @JsonKey(ignore: true)

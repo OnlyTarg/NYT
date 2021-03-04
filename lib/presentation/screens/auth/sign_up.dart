@@ -4,6 +4,9 @@ import 'package:nyt_app/constants/routers_name.dart';
 import 'package:nyt_app/src/bloc/auth/auth_bloc.dart';
 
 class SignUp extends StatefulWidget {
+  const SignUp({
+    Key key,
+  }) : super(key: key);
   @override
   _SignUpState createState() => _SignUpState();
 }
@@ -12,7 +15,7 @@ class _SignUpState extends State<SignUp> {
   TextEditingController emailController;
   TextEditingController passwordController;
   TextEditingController confirmPasswordController;
-  GlobalKey<FormState> _key = GlobalKey<FormState>();
+  GlobalKey<FormState> key = GlobalKey<FormState>();
   FocusNode emailFocus;
   FocusNode passwordFocus;
   FocusNode confirmPasswordFocus;
@@ -32,7 +35,7 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Form(
-      key: _key,
+      key: key,
       child: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -64,7 +67,7 @@ class _SignUpState extends State<SignUp> {
 
                 //_key.currentState.save();
               },
-              child: Text('Submit'),
+              child: const Text('Submit'),
             )
           ],
         ),
@@ -105,10 +108,10 @@ class _SignUpState extends State<SignUp> {
 
 class InputField extends StatelessWidget {
   const InputField({
-    Key key,
     @required this.controller,
     @required this.focusNode,
     @required this.title,
+    Key key,
   }) : super(key: key);
 
   final TextEditingController controller;
@@ -120,12 +123,11 @@ class InputField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
-        decoration: new InputDecoration(
+        decoration: InputDecoration(
           labelText: title,
           fillColor: Colors.white,
-          border: new OutlineInputBorder(
-            borderRadius: new BorderRadius.circular(25.0),
-            borderSide: new BorderSide(),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(25.0),
           ),
           //fillColor: Colors.green
         ),

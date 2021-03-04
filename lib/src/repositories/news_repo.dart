@@ -13,8 +13,8 @@ class NewsRepo extends BaseNewsRepo {
 
   @override
   Future<List<NewsItem>> getNews() async {
-    MainResponse _response =
-        await ApiClient.instance.getNews().timeout(Duration(seconds: 30));
+    final MainResponse _response =
+        await ApiClient.instance.getNews().timeout(const Duration(seconds: 30));
 
     if (_response.status == 'OK') {
       return _convertFromResposeToNewsItemList(_response);
@@ -23,12 +23,14 @@ class NewsRepo extends BaseNewsRepo {
   }
 
   List<NewsItem> _convertFromResposeToNewsItemList(MainResponse response) {
-    List<NewsItem> _list = [];
+    final List<NewsItem> _list = [];
+    //TODO: find why using forEach is depricated acordingly to linter
+    // ignore: avoid_function_literals_in_foreach_calls
     response.results.forEach((value) {
-      NewsItem _item = NewsItem(
+      final NewsItem _item = NewsItem(
         title: value.title,
         url: value.url,
-        description: value.abstract,
+        description: value.description,
       );
       _list.add(_item);
     });
@@ -42,7 +44,7 @@ class NewsRepo extends BaseNewsRepo {
   Future<List<NewsItem>> getNewsLocaly() async {
     final box = await Hive.openBox<NewsItem>(BaseNewsRepo.newsBox);
     final List<NewsItem> _list = [];
-    for (var item in box.values) {
+    for (final item in box.values) {
       _list.add(item);
     }
     box.close();

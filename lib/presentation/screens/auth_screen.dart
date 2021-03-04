@@ -3,6 +3,9 @@ import 'package:nyt_app/constants/routers_name.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthScreen extends StatefulWidget {
+  const AuthScreen({
+    Key key,
+  }) : super(key: key);
   @override
   _AuthScreenState createState() => _AuthScreenState();
 }
@@ -12,37 +15,36 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: SizedBox.shrink(),
-        title: Text('Auth screen'),
+        leading: const SizedBox.shrink(),
+        title: const Text('Auth screen'),
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
             RaisedButton(
               onPressed: () {
                 Navigator.of(context).pushNamed(signIn);
               },
-              child: Text('Sign IN'),
+              child: const Text('Sign IN'),
             ),
             RaisedButton(
               onPressed: () {
                 Navigator.of(context).pushNamed(signUp);
               },
-              child: Text('Sign UP'),
+              child: const Text('Sign UP'),
             ),
             RaisedButton(
               onPressed: () {
                 //TODO:
               },
-              child: Text('Sign with Google'),
+              child: const Text('Sign with Google'),
             ),
             RaisedButton(
               onPressed: () async {
                 await FirebaseAuth.instance.signOut();
               },
-              child: Text('Sign OUT'),
+              child: const Text('Sign OUT'),
             ),
           ],
         ),

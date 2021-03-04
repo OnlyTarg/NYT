@@ -6,6 +6,10 @@ import 'package:nyt_app/src/bloc/news.dart';
 import 'package:nyt_app/src/repositories/news_repo.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({
+    Key key,
+  }) : super(key: key);
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -35,43 +39,53 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       appBar: AppBar(
-        leading: SizedBox.shrink(),
+        leading: const SizedBox.shrink(),
         actions: [
           IconButton(
-            icon: Icon(Icons.account_box),
+            icon: const Icon(Icons.account_box),
             onPressed: () {
               Navigator.of(context).pushNamed(authRoute);
             },
           )
         ],
-        title: Text('New York Times News'),
+        title: const Text('New York Times News'),
       ),
       body: BlocBuilder<NewsBLoC, NewsState>(
         cubit: _newsBLoC,
         builder: (context, state) {
-          if (state is LoadingNewsState) {
+          if (state is InitialNewsState) {
             return Center(
+              child: RaisedButton(
+                onPressed: () => _newsBLoC.add(
+                  const NewsEvent.fetch(),
+                ),
+                child: const Text('Get News'),
+              ),
+            );
+          }
+          if (state is LoadingNewsState) {
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }
           if (state is LoadedNewsState) {
-            List<NewsItem> listOfNews = state.item;
+            final List<NewsItem> listOfNews = state.item;
             return ListView.builder(
               itemCount: listOfNews.length,
               itemBuilder: (context, index) => Card(
                 child: InkWell(
                   splashColor: Colors.blue.withAlpha(30),
                   child: ListTile(
-                    title: Text('${listOfNews[index].title}'),
+                    title: Text(listOfNews[index].title),
                     subtitle: Text(
-                      '${listOfNews[index].description}',
+                      listOfNews[index].description,
                     ),
                   ),
                 ),
               ),
             );
           }
-          return SizedBox.shrink();
+          return const SizedBox.shrink();
         },
       ),
     );

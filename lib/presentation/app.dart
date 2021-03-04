@@ -8,6 +8,10 @@ import 'package:nyt_app/src/repositories/auth_repo.dart';
 import 'package:nyt_app/src/utils/router.dart';
 
 class NYTApp extends StatelessWidget {
+  NYTApp({
+    Key key,
+  }) : super(key: key);
+
   // Create the initialization Future outside of `build`:
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
 
@@ -44,7 +48,7 @@ class NYTApp extends StatelessWidget {
           ); */
         }
 
-        // Otherwise, show something whilst waiting for initialization to complete
+        // Otherwise, show something whilst
         return const SizedBox.shrink();
       },
     );

@@ -6,7 +6,6 @@ part of 'multimedia.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-// ignore: non_constant_identifier_names
 _$_Multimedia _$_$_MultimediaFromJson(Map<String, dynamic> json) {
   return _$_Multimedia(
     url: json['url'] as String,
@@ -20,7 +19,6 @@ _$_Multimedia _$_$_MultimediaFromJson(Map<String, dynamic> json) {
   );
 }
 
-// ignore: non_constant_identifier_names
 Map<String, dynamic> _$_$_MultimediaToJson(_$_Multimedia instance) =>
     <String, dynamic>{
       'url': instance.url,

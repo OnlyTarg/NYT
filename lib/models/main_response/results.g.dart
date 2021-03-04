@@ -6,13 +6,12 @@ part of 'results.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-// ignore: non_constant_identifier_names
 _$_Results _$_$_ResultsFromJson(Map<String, dynamic> json) {
   return _$_Results(
     section: json['section'] as String,
     subsection: json['subsection'],
     title: json['title'] as String,
-    abstract: json['abstract'] as String,
+    description: json['abstract'] as String,
     url: json['url'] as String,
     uri: json['uri'] as String,
     byline: json['byline'] as String,
@@ -40,13 +39,12 @@ _$_Results _$_$_ResultsFromJson(Map<String, dynamic> json) {
   );
 }
 
-// ignore: non_constant_identifier_names
 Map<String, dynamic> _$_$_ResultsToJson(_$_Results instance) =>
     <String, dynamic>{
       'section': instance.section,
       'subsection': instance.subsection,
       'title': instance.title,
-      'abstract': instance.abstract,
+      'abstract': instance.description,
       'url': instance.url,
       'uri': instance.uri,
       'byline': instance.byline,

@@ -59,19 +59,19 @@ class AuthBLoC extends Bloc<AuthEvent, AuthState> {
     String password,
     String confirmPassword,
   ) async* {
-    yield InitialAuthState();
+    yield const InitialAuthState();
     try {
       await authRepo.createAccount(email: email, password: password).timeout(
-            Duration(seconds: 30),
+            const Duration(seconds: 30),
           );
-      yield AuthState.authorized();
+      yield const AuthState.authorized();
 
       //TODO: add unaftorized case
     } on TimeoutException {
-      yield ErrorAuthState();
+      yield const ErrorAuthState();
       print('Time OUT!');
     } on dynamic catch (_) {
-      yield ErrorAuthState();
+      yield const ErrorAuthState();
       print('Server Exeption');
       rethrow;
     }

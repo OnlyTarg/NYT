@@ -12,8 +12,8 @@ class AuthRepo extends BaseAuthorizationRepo {
   @override
   Future<void> createAccount({String email, String password}) async {
     try {
-      UserCredential userCredential =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      /*  UserCredential userCredential = */
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -24,7 +24,7 @@ class AuthRepo extends BaseAuthorizationRepo {
       } else if (e.code == 'email-already-in-use') {
         print('The account already exists for that email.');
       }
-    } catch (e) {
+    } on dynamic catch (e) {
       print(e);
     }
   }
