@@ -15,12 +15,15 @@ class _InitialScreenState extends State<InitialScreen> {
   Widget build(BuildContext context) {
     FirebaseAuth.instance.authStateChanges().listen(
       (user) {
+        //FIXME: Find way to avoid second executing screen
         if (user == null) {
           print('User is currently signed out!');
-          Navigator.of(context).pushReplacementNamed(authRoute);
+          Navigator.of(context)
+              .pushNamedAndRemoveUntil(authRoute, (r) => false);
         } else {
           print('User is sign in!');
-          Navigator.of(context).pushReplacementNamed(homeRoute);
+          Navigator.of(context)
+              .pushNamedAndRemoveUntil(homeRoute, (r) => false);
         }
       },
     );
