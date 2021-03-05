@@ -63,25 +63,7 @@ class NewsItem {
 
   @override
   String toString() {
-    return 'NewsItem(title: $title, description: $description, url: $url, imageUrl: $imageUrl)';
-  }
-
-  @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
-
-    return o is NewsItem &&
-        o.title == title &&
-        o.description == description &&
-        o.url == url &&
-        o.imageUrl == imageUrl;
-  }
-
-  @override
-  int get hashCode {
-    return title.hashCode ^
-        description.hashCode ^
-        url.hashCode ^
-        imageUrl.hashCode;
+    return 'NewsItem(title: $title, description: $description,'
+        'url: $url, imageUrl: $imageUrl)';
   }
 }

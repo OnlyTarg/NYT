@@ -18,12 +18,12 @@ class _$MainResponseTearOff {
 
 // ignore: unused_element
   _MainResponse call(
-      {@JsonKey(name: "status") String status,
-      @JsonKey(name: "copyright") String copyright,
-      @JsonKey(name: "section") String section,
-      @JsonKey(name: "last_updated") DateTime lastUpdated,
-      @JsonKey(name: "num_results") int numResults,
-      @JsonKey(name: "results") List<Results> results}) {
+      {@JsonKey(name: 'status') String status,
+      @JsonKey(name: 'copyright') String copyright,
+      @JsonKey(name: 'section') String section,
+      @JsonKey(name: 'last_updated') DateTime lastUpdated,
+      @JsonKey(name: 'num_results') int numResults,
+      @JsonKey(name: 'results') List<Results> results}) {
     return _MainResponse(
       status: status,
       copyright: copyright,
@@ -46,17 +46,17 @@ const $MainResponse = _$MainResponseTearOff();
 
 /// @nodoc
 mixin _$MainResponse {
-  @JsonKey(name: "status")
+  @JsonKey(name: 'status')
   String get status;
-  @JsonKey(name: "copyright")
+  @JsonKey(name: 'copyright')
   String get copyright;
-  @JsonKey(name: "section")
+  @JsonKey(name: 'section')
   String get section;
-  @JsonKey(name: "last_updated")
+  @JsonKey(name: 'last_updated')
   DateTime get lastUpdated;
-  @JsonKey(name: "num_results")
+  @JsonKey(name: 'num_results')
   int get numResults;
-  @JsonKey(name: "results")
+  @JsonKey(name: 'results')
   List<Results> get results;
 
   Map<String, dynamic> toJson();
@@ -70,12 +70,12 @@ abstract class $MainResponseCopyWith<$Res> {
           MainResponse value, $Res Function(MainResponse) then) =
       _$MainResponseCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: "status") String status,
-      @JsonKey(name: "copyright") String copyright,
-      @JsonKey(name: "section") String section,
-      @JsonKey(name: "last_updated") DateTime lastUpdated,
-      @JsonKey(name: "num_results") int numResults,
-      @JsonKey(name: "results") List<Results> results});
+      {@JsonKey(name: 'status') String status,
+      @JsonKey(name: 'copyright') String copyright,
+      @JsonKey(name: 'section') String section,
+      @JsonKey(name: 'last_updated') DateTime lastUpdated,
+      @JsonKey(name: 'num_results') int numResults,
+      @JsonKey(name: 'results') List<Results> results});
 }
 
 /// @nodoc
@@ -115,12 +115,12 @@ abstract class _$MainResponseCopyWith<$Res>
       __$MainResponseCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: "status") String status,
-      @JsonKey(name: "copyright") String copyright,
-      @JsonKey(name: "section") String section,
-      @JsonKey(name: "last_updated") DateTime lastUpdated,
-      @JsonKey(name: "num_results") int numResults,
-      @JsonKey(name: "results") List<Results> results});
+      {@JsonKey(name: 'status') String status,
+      @JsonKey(name: 'copyright') String copyright,
+      @JsonKey(name: 'section') String section,
+      @JsonKey(name: 'last_updated') DateTime lastUpdated,
+      @JsonKey(name: 'num_results') int numResults,
+      @JsonKey(name: 'results') List<Results> results});
 }
 
 /// @nodoc
@@ -159,33 +159,33 @@ class __$MainResponseCopyWithImpl<$Res> extends _$MainResponseCopyWithImpl<$Res>
 /// @nodoc
 class _$_MainResponse implements _MainResponse {
   const _$_MainResponse(
-      {@JsonKey(name: "status") this.status,
-      @JsonKey(name: "copyright") this.copyright,
-      @JsonKey(name: "section") this.section,
-      @JsonKey(name: "last_updated") this.lastUpdated,
-      @JsonKey(name: "num_results") this.numResults,
-      @JsonKey(name: "results") this.results});
+      {@JsonKey(name: 'status') this.status,
+      @JsonKey(name: 'copyright') this.copyright,
+      @JsonKey(name: 'section') this.section,
+      @JsonKey(name: 'last_updated') this.lastUpdated,
+      @JsonKey(name: 'num_results') this.numResults,
+      @JsonKey(name: 'results') this.results});
 
   factory _$_MainResponse.fromJson(Map<String, dynamic> json) =>
       _$_$_MainResponseFromJson(json);
 
   @override
-  @JsonKey(name: "status")
+  @JsonKey(name: 'status')
   final String status;
   @override
-  @JsonKey(name: "copyright")
+  @JsonKey(name: 'copyright')
   final String copyright;
   @override
-  @JsonKey(name: "section")
+  @JsonKey(name: 'section')
   final String section;
   @override
-  @JsonKey(name: "last_updated")
+  @JsonKey(name: 'last_updated')
   final DateTime lastUpdated;
   @override
-  @JsonKey(name: "num_results")
+  @JsonKey(name: 'num_results')
   final int numResults;
   @override
-  @JsonKey(name: "results")
+  @JsonKey(name: 'results')
   final List<Results> results;
 
   @override
@@ -238,33 +238,33 @@ class _$_MainResponse implements _MainResponse {
 
 abstract class _MainResponse implements MainResponse {
   const factory _MainResponse(
-      {@JsonKey(name: "status") String status,
-      @JsonKey(name: "copyright") String copyright,
-      @JsonKey(name: "section") String section,
-      @JsonKey(name: "last_updated") DateTime lastUpdated,
-      @JsonKey(name: "num_results") int numResults,
-      @JsonKey(name: "results") List<Results> results}) = _$_MainResponse;
+      {@JsonKey(name: 'status') String status,
+      @JsonKey(name: 'copyright') String copyright,
+      @JsonKey(name: 'section') String section,
+      @JsonKey(name: 'last_updated') DateTime lastUpdated,
+      @JsonKey(name: 'num_results') int numResults,
+      @JsonKey(name: 'results') List<Results> results}) = _$_MainResponse;
 
   factory _MainResponse.fromJson(Map<String, dynamic> json) =
       _$_MainResponse.fromJson;
 
   @override
-  @JsonKey(name: "status")
+  @JsonKey(name: 'status')
   String get status;
   @override
-  @JsonKey(name: "copyright")
+  @JsonKey(name: 'copyright')
   String get copyright;
   @override
-  @JsonKey(name: "section")
+  @JsonKey(name: 'section')
   String get section;
   @override
-  @JsonKey(name: "last_updated")
+  @JsonKey(name: 'last_updated')
   DateTime get lastUpdated;
   @override
-  @JsonKey(name: "num_results")
+  @JsonKey(name: 'num_results')
   int get numResults;
   @override
-  @JsonKey(name: "results")
+  @JsonKey(name: 'results')
   List<Results> get results;
   @override
   @JsonKey(ignore: true)

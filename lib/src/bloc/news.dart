@@ -35,13 +35,13 @@ class NewsBLoC extends Bloc<NewsEvent, NewsState> {
       );
 
   Stream<NewsState> _fetch() async* {
-    yield NewsState.loading();
+    yield const NewsState.loading();
     final _newsList = await newsRepo.getNews();
     yield NewsState.loaded(_newsList);
   }
 
   Stream<NewsState> _fetchLocal() async* {
-    yield NewsState.loading();
+    yield const NewsState.loading();
 
     final _newsList = await newsRepo.getNewsLocaly();
     yield NewsState.loaded(_newsList);

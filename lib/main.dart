@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:nyt_app/presentation/app.dart';
 
-import 'package:nyt_app/presentation/screens/home_screen.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'package:nyt_app/src/bloc/observer.dart';
@@ -14,5 +14,5 @@ Future<void> main() async {
   await Firebase.initializeApp();
   final appDocumentDir = await getApplicationDocumentsDirectory();
   Hive.init(appDocumentDir.path);
-  runApp(HomeScreen());
+  runApp(NYTApp());
 }

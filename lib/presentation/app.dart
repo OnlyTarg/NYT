@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 
-// Import the firebase_core plugin
 import 'package:firebase_core/firebase_core.dart';
-import 'package:nyt_app/presentation/screens/home_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nyt_app/presentation/flows/initial_flow.dart';
+import 'package:nyt_app/src/bloc/auth/auth_bloc.dart';
+import 'package:nyt_app/src/navigation_bloc/auth_navigator.dart';
+import 'package:nyt_app/src/navigation_bloc/home_navigator.dart';
+import 'package:nyt_app/src/navigation_bloc/initial_navigator.dart';
+import 'package:nyt_app/src/repositories/auth_repo.dart';
 
 class NYTApp extends StatelessWidget {
+  NYTApp({
+    Key key,
+  }) : super(key: key);
+
   // Create the initialization Future outside of `build`:
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
 
@@ -16,17 +25,45 @@ class NYTApp extends StatelessWidget {
       builder: (context, snapshot) {
         // Check for errors
         if (snapshot.hasError) {
-          //TODO
-
           return null;
         }
 
         // Once complete, show your application
         if (snapshot.connectionState == ConnectionState.done) {
-          return HomeScreen();
+          return BlocProvider<AuthBLoC>(
+            create: (context) => AuthBLoC(AuthRepo()),
+            child: MaterialApp(
+              title: 'Flutter Demo',
+              theme: ThemeData(
+                primarySwatch: Colors.blue,
+                visualDensity: VisualDensity.adaptivePlatformDensity,
+              ),
+              debugShowCheckedModeBanner: false,
+              home: MultiBlocProvider(
+                providers: [
+                  BlocProvider<AuthNavigatorBLoC>(
+                    create: (context) => AuthNavigatorBLoC(),
+                  ),
+                  BlocProvider<InitialNavigatorBLoC>(
+                    create: (context) => InitialNavigatorBLoC()
+                      ..add(const InitialNavigatorEvent.init()),
+                  ),
+                  BlocProvider<HomeNavigatorBLoC>(
+                    create: (context) => HomeNavigatorBLoC(),
+                  ),
+                ],
+                child: const InitialFlow(),
+              ),
+            ),
+          );
+
+          /* return BlocProvider<AuthBLoC>(
+            create: (context) => AuthBLoC(AuthRepo()),
+            child: InitialScreen(),
+          ); */
         }
 
-        // Otherwise, show something whilst waiting for initialization to complete
+        // Otherwise, show something whilst
         return const SizedBox.shrink();
       },
     );

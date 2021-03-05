@@ -28,6 +28,7 @@ dependencies:
   # presentation
   cupertino_icons: ^1.0.0
   flutter_share: ^1.0.5
+  
 
   # utils
   flutter_bloc: ^6.1.1
@@ -48,6 +49,7 @@ dev_dependencies:
 
   #firebase
   firebase_core: "0.7.0"
+  firebase_auth: ^0.20.1
  # firebase_messaging: ^7.0.3
   #firebase_core: ^0.5.0+1
   #firebase_crashlytics: ^0.2.4

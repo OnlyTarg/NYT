@@ -9,7 +9,6 @@ part 'api_client.g.dart';
   baseUrl: 'https://api.nytimes.com',
 )
 abstract class ApiClient {
-  static final String apiKey = 'lYqK2GWQD4Z1KAL0sAGWGYgek3utMRtG';
   static final ApiClient instance = _buildClient();
   static Dio _dio;
 
@@ -33,24 +32,6 @@ abstract class ApiClient {
 
   @GET('/svc/topstories/v2/home.json')
   Future<MainResponse> getNews(
+      //FIXME: find way to keep apikey localy privatlly
       {@Query('api-key') String apikey = 'lYqK2GWQD4Z1KAL0sAGWGYgek3utMRtG'});
 }
-
-/* class NewsItemResponse {
-
-   @JsonKey(name: 'result')
-  final NewsResultResponse result;
-
-  NewsItemResponse(this.result);
-
-
-
-}
-
-class NewsResultResponse {
-      List<Map<<String,String>> 
-
-}
-
-
- */

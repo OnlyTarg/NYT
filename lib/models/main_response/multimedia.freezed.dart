@@ -18,14 +18,14 @@ class _$MultimediaTearOff {
 
 // ignore: unused_element
   _Multimedia call(
-      {@JsonKey(name: "url") String url,
-      @JsonKey(name: "format") String format,
-      @JsonKey(name: "height") int height,
-      @JsonKey(name: "width") int width,
-      @JsonKey(name: "type") String type,
-      @JsonKey(name: "subtype") String subtype,
-      @JsonKey(name: "caption") String caption,
-      @JsonKey(name: "copyright") String copyright}) {
+      {@JsonKey(name: 'url') String url,
+      @JsonKey(name: 'format') String format,
+      @JsonKey(name: 'height') int height,
+      @JsonKey(name: 'width') int width,
+      @JsonKey(name: 'type') String type,
+      @JsonKey(name: 'subtype') String subtype,
+      @JsonKey(name: 'caption') String caption,
+      @JsonKey(name: 'copyright') String copyright}) {
     return _Multimedia(
       url: url,
       format: format,
@@ -50,21 +50,21 @@ const $Multimedia = _$MultimediaTearOff();
 
 /// @nodoc
 mixin _$Multimedia {
-  @JsonKey(name: "url")
+  @JsonKey(name: 'url')
   String get url;
-  @JsonKey(name: "format")
+  @JsonKey(name: 'format')
   String get format;
-  @JsonKey(name: "height")
+  @JsonKey(name: 'height')
   int get height;
-  @JsonKey(name: "width")
+  @JsonKey(name: 'width')
   int get width;
-  @JsonKey(name: "type")
+  @JsonKey(name: 'type')
   String get type;
-  @JsonKey(name: "subtype")
+  @JsonKey(name: 'subtype')
   String get subtype;
-  @JsonKey(name: "caption")
+  @JsonKey(name: 'caption')
   String get caption;
-  @JsonKey(name: "copyright")
+  @JsonKey(name: 'copyright')
   String get copyright;
 
   Map<String, dynamic> toJson();
@@ -78,14 +78,14 @@ abstract class $MultimediaCopyWith<$Res> {
           Multimedia value, $Res Function(Multimedia) then) =
       _$MultimediaCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: "url") String url,
-      @JsonKey(name: "format") String format,
-      @JsonKey(name: "height") int height,
-      @JsonKey(name: "width") int width,
-      @JsonKey(name: "type") String type,
-      @JsonKey(name: "subtype") String subtype,
-      @JsonKey(name: "caption") String caption,
-      @JsonKey(name: "copyright") String copyright});
+      {@JsonKey(name: 'url') String url,
+      @JsonKey(name: 'format') String format,
+      @JsonKey(name: 'height') int height,
+      @JsonKey(name: 'width') int width,
+      @JsonKey(name: 'type') String type,
+      @JsonKey(name: 'subtype') String subtype,
+      @JsonKey(name: 'caption') String caption,
+      @JsonKey(name: 'copyright') String copyright});
 }
 
 /// @nodoc
@@ -127,14 +127,14 @@ abstract class _$MultimediaCopyWith<$Res> implements $MultimediaCopyWith<$Res> {
       __$MultimediaCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: "url") String url,
-      @JsonKey(name: "format") String format,
-      @JsonKey(name: "height") int height,
-      @JsonKey(name: "width") int width,
-      @JsonKey(name: "type") String type,
-      @JsonKey(name: "subtype") String subtype,
-      @JsonKey(name: "caption") String caption,
-      @JsonKey(name: "copyright") String copyright});
+      {@JsonKey(name: 'url') String url,
+      @JsonKey(name: 'format') String format,
+      @JsonKey(name: 'height') int height,
+      @JsonKey(name: 'width') int width,
+      @JsonKey(name: 'type') String type,
+      @JsonKey(name: 'subtype') String subtype,
+      @JsonKey(name: 'caption') String caption,
+      @JsonKey(name: 'copyright') String copyright});
 }
 
 /// @nodoc
@@ -176,41 +176,41 @@ class __$MultimediaCopyWithImpl<$Res> extends _$MultimediaCopyWithImpl<$Res>
 /// @nodoc
 class _$_Multimedia implements _Multimedia {
   const _$_Multimedia(
-      {@JsonKey(name: "url") this.url,
-      @JsonKey(name: "format") this.format,
-      @JsonKey(name: "height") this.height,
-      @JsonKey(name: "width") this.width,
-      @JsonKey(name: "type") this.type,
-      @JsonKey(name: "subtype") this.subtype,
-      @JsonKey(name: "caption") this.caption,
-      @JsonKey(name: "copyright") this.copyright});
+      {@JsonKey(name: 'url') this.url,
+      @JsonKey(name: 'format') this.format,
+      @JsonKey(name: 'height') this.height,
+      @JsonKey(name: 'width') this.width,
+      @JsonKey(name: 'type') this.type,
+      @JsonKey(name: 'subtype') this.subtype,
+      @JsonKey(name: 'caption') this.caption,
+      @JsonKey(name: 'copyright') this.copyright});
 
   factory _$_Multimedia.fromJson(Map<String, dynamic> json) =>
       _$_$_MultimediaFromJson(json);
 
   @override
-  @JsonKey(name: "url")
+  @JsonKey(name: 'url')
   final String url;
   @override
-  @JsonKey(name: "format")
+  @JsonKey(name: 'format')
   final String format;
   @override
-  @JsonKey(name: "height")
+  @JsonKey(name: 'height')
   final int height;
   @override
-  @JsonKey(name: "width")
+  @JsonKey(name: 'width')
   final int width;
   @override
-  @JsonKey(name: "type")
+  @JsonKey(name: 'type')
   final String type;
   @override
-  @JsonKey(name: "subtype")
+  @JsonKey(name: 'subtype')
   final String subtype;
   @override
-  @JsonKey(name: "caption")
+  @JsonKey(name: 'caption')
   final String caption;
   @override
-  @JsonKey(name: "copyright")
+  @JsonKey(name: 'copyright')
   final String copyright;
 
   @override
@@ -268,41 +268,41 @@ class _$_Multimedia implements _Multimedia {
 
 abstract class _Multimedia implements Multimedia {
   const factory _Multimedia(
-      {@JsonKey(name: "url") String url,
-      @JsonKey(name: "format") String format,
-      @JsonKey(name: "height") int height,
-      @JsonKey(name: "width") int width,
-      @JsonKey(name: "type") String type,
-      @JsonKey(name: "subtype") String subtype,
-      @JsonKey(name: "caption") String caption,
-      @JsonKey(name: "copyright") String copyright}) = _$_Multimedia;
+      {@JsonKey(name: 'url') String url,
+      @JsonKey(name: 'format') String format,
+      @JsonKey(name: 'height') int height,
+      @JsonKey(name: 'width') int width,
+      @JsonKey(name: 'type') String type,
+      @JsonKey(name: 'subtype') String subtype,
+      @JsonKey(name: 'caption') String caption,
+      @JsonKey(name: 'copyright') String copyright}) = _$_Multimedia;
 
   factory _Multimedia.fromJson(Map<String, dynamic> json) =
       _$_Multimedia.fromJson;
 
   @override
-  @JsonKey(name: "url")
+  @JsonKey(name: 'url')
   String get url;
   @override
-  @JsonKey(name: "format")
+  @JsonKey(name: 'format')
   String get format;
   @override
-  @JsonKey(name: "height")
+  @JsonKey(name: 'height')
   int get height;
   @override
-  @JsonKey(name: "width")
+  @JsonKey(name: 'width')
   int get width;
   @override
-  @JsonKey(name: "type")
+  @JsonKey(name: 'type')
   String get type;
   @override
-  @JsonKey(name: "subtype")
+  @JsonKey(name: 'subtype')
   String get subtype;
   @override
-  @JsonKey(name: "caption")
+  @JsonKey(name: 'caption')
   String get caption;
   @override
-  @JsonKey(name: "copyright")
+  @JsonKey(name: 'copyright')
   String get copyright;
   @override
   @JsonKey(ignore: true)
