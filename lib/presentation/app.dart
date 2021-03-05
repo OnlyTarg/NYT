@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nyt_app/constants/routers_name.dart';
+import 'package:nyt_app/presentation/flows/initial_flow.dart';
 import 'package:nyt_app/src/bloc/auth/auth_bloc.dart';
+import 'package:nyt_app/src/navigation_bloc/auth_navigator.dart';
+import 'package:nyt_app/src/navigation_bloc/home_navigator.dart';
+import 'package:nyt_app/src/navigation_bloc/initial_navigator.dart';
 import 'package:nyt_app/src/repositories/auth_repo.dart';
-import 'package:nyt_app/src/utils/router.dart';
 
 class NYTApp extends StatelessWidget {
   NYTApp({
@@ -37,8 +39,21 @@ class NYTApp extends StatelessWidget {
                 visualDensity: VisualDensity.adaptivePlatformDensity,
               ),
               debugShowCheckedModeBanner: false,
-              onGenerateRoute: Routers.generateRoute,
-              initialRoute: initial,
+              home: MultiBlocProvider(
+                providers: [
+                  BlocProvider<AuthNavigatorBLoC>(
+                    create: (context) => AuthNavigatorBLoC(),
+                  ),
+                  BlocProvider<InitialNavigatorBLoC>(
+                    create: (context) => InitialNavigatorBLoC()
+                      ..add(const InitialNavigatorEvent.init()),
+                  ),
+                  BlocProvider<HomeNavigatorBLoC>(
+                    create: (context) => HomeNavigatorBLoC(),
+                  ),
+                ],
+                child: const InitialFlow(),
+              ),
             ),
           );
 

@@ -28,6 +28,7 @@ dependencies:
   # presentation
   cupertino_icons: ^1.0.0
   flutter_share: ^1.0.5
+  
 
   # utils
   flutter_bloc: ^6.1.1

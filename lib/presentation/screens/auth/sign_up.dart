@@ -4,6 +4,7 @@ import 'package:nyt_app/constants/routers_name.dart';
 import 'package:nyt_app/src/bloc/auth/auth_bloc.dart';
 
 class SignUp extends StatefulWidget {
+  static Page page() => const MaterialPage<void>(child: SignUp());
   const SignUp({
     Key key,
   }) : super(key: key);

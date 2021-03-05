@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nyt_app/constants/routers_name.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:nyt_app/src/navigation_bloc/auth_navigator.dart';
 
 class AuthScreen extends StatefulWidget {
+  static Page page() => const MaterialPage<void>(child: AuthScreen());
+
   const AuthScreen({
     Key key,
   }) : super(key: key);
+
   @override
   _AuthScreenState createState() => _AuthScreenState();
 }
@@ -24,7 +29,8 @@ class _AuthScreenState extends State<AuthScreen> {
           children: [
             RaisedButton(
               onPressed: () {
-                Navigator.of(context).pushNamed(signIn);
+                BlocProvider.of<AuthNavigatorBLoC>(context)
+                    .add(const AuthNavigatorEvent.signUp());
               },
               child: const Text('Sign IN'),
             ),

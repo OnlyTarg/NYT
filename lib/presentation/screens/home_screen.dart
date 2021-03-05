@@ -6,6 +6,7 @@ import 'package:nyt_app/src/bloc/news.dart';
 import 'package:nyt_app/src/repositories/news_repo.dart';
 
 class HomeScreen extends StatefulWidget {
+  static Page page() => const MaterialPage<void>(child: HomeScreen());
   const HomeScreen({
     Key key,
   }) : super(key: key);
