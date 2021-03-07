@@ -55,10 +55,7 @@ class AuthBLoC extends Bloc<AuthEvent, AuthState> {
   }
 
   Stream<AuthState> _signUp(
-    String email,
-    String password,
-    String confirmPassword,
-  ) async* {
+      String email, String password, String confirmPassword) async* {
     yield const InitialAuthState();
     try {
       await authRepo.createAccount(email: email, password: password).timeout(

@@ -43,9 +43,11 @@ class _AuthFlowState extends State<AuthFlow> {
           controller: flowController,
           onGeneratePages: (authFlowState, pages) {
             return [
-              AuthScreen.page(),
+              SignIn.page(),
+
+              //AuthScreen.page(),
               if (authFlowState is SignUpAuthFlowState) SignUp.page(),
-              if (authFlowState is SignInAuthFlowState) SignIn.page(),
+              //if (authFlowState is SignInAuthFlowState) SignIn.page(),
             ];
           },
         );

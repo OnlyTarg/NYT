@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:nyt_app/src/bloc/forms/login_form_bloc.dart';
+import 'package:nyt_app/src/navigation_bloc/auth_navigator.dart';
 
 class SignIn extends StatefulWidget {
-  static Page page() => const MaterialPage<void>(child: SignIn());
+  static Page page() => const MaterialPage<void>(
+        child: SignIn(),
+      );
 
   const SignIn({
     Key key,
@@ -14,33 +17,18 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
-  TextEditingController emailController;
-  TextEditingController passwordController;
-  GlobalKey<FormState> key = GlobalKey<FormState>();
-  FocusNode emailFocus;
-  FocusNode passwordFocus;
-
-  @override
-  void initState() {
-    super.initState();
-    emailController = TextEditingController();
-    passwordController = TextEditingController();
-    emailFocus = FocusNode();
-    passwordFocus = FocusNode();
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LoginForm(),
+      create: (context) => LoginFormBloC(),
       child: Builder(
         builder: (context) {
-          final loginFormBloc = context.read<LoginForm>();
+          final loginFormBloc = context.read<LoginFormBloC>();
 
           return Scaffold(
             resizeToAvoidBottomInset: false,
             appBar: AppBar(title: const Text('Login')),
-            body: FormBlocListener<LoginForm, String, String>(
+            body: FormBlocListener<LoginFormBloC, String, String>(
               onSubmitting: (context, state) {
                 //LoadingDialog.show(context);
               },
@@ -80,6 +68,14 @@ class _SignInState extends State<SignIn> {
                       onPressed: loginFormBloc.submit,
                       child: const Text('LOGIN'),
                     ),
+                    const Divider(),
+                    RaisedButton(
+                      onPressed: () {
+                        BlocProvider.of<AuthFlowBLoC>(context)
+                            .add(const AuthFlowEvent.signUp());
+                      },
+                      child: const Text('Sign UP'),
+                    ),
                   ],
                 ),
               ),
@@ -88,14 +84,5 @@ class _SignInState extends State<SignIn> {
         },
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
-    emailFocus.dispose();
-    passwordFocus.dispose();
-    super.dispose();
   }
 }
