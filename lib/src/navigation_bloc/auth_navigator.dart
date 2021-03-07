@@ -4,53 +4,46 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'auth_navigator.freezed.dart';
 
 @freezed
-abstract class AuthNavigatorEvent with _$AuthNavigatorEvent {
-  const AuthNavigatorEvent._();
+abstract class AuthFlowEvent with _$AuthFlowEvent {
+  const AuthFlowEvent._();
 
-  const factory AuthNavigatorEvent.init() = InitAuthNavigatorEvent;
+  const factory AuthFlowEvent.init() = InitAuthFlowEvent;
 
-  const factory AuthNavigatorEvent.signIn() = SignInAuthNavigatorEvent;
-  const factory AuthNavigatorEvent.signUp() = SignUpAuthNavigatorEvent;
+  const factory AuthFlowEvent.signIn() = SignInAuthFlowEvent;
+  const factory AuthFlowEvent.signUp() = SignUpAuthFlowEvent;
 }
 
 @freezed
-abstract class AuthNavigatorState with _$AuthNavigatorState {
-  const AuthNavigatorState._();
+abstract class AuthFlowState with _$AuthFlowState {
+  const AuthFlowState._();
 
-  const factory AuthNavigatorState.initial() = InitialAuthNavigatorState;
-  const factory AuthNavigatorState.authorized() = AuthorizedAuthNavigatorState;
-  const factory AuthNavigatorState.unauthorized() =
-      UnauthorizedAuthNavigatorState;
+  const factory AuthFlowState.initial() = InitialAuthFlowEvent;
+  const factory AuthFlowState.authorized() = AuthorizedAuthFlowEvent;
+  const factory AuthFlowState.unauthorized() =
+      UnauthorizedAuthFlowState;
 }
 
-class AuthNavigatorBLoC extends Bloc<AuthNavigatorEvent, AuthNavigatorState> {
-  AuthNavigatorBLoC() : super(const InitialAuthNavigatorState());
+class AuthFlowBLoC extends Bloc<AuthFlowEvent, AuthFlowState> {
+  AuthFlowBLoC() : super(const InitialAuthFlowEvent());
 
   @override
-  Stream<AuthNavigatorState> mapEventToState(AuthNavigatorEvent event) =>
-      event.when<Stream<AuthNavigatorState>>(
+  Stream<AuthFlowState> mapEventToState(AuthFlowEvent event) =>
+      event.when<Stream<AuthFlowState>>(
         init: _init,
         signIn: _signIn,
         signUp: _signUp,
       );
 
-  Stream<AuthNavigatorState> _signIn() async* {
-    yield const AuthNavigatorState.authorized();
+  Stream<AuthFlowState> _signIn() async* {
+    yield const AuthFlowState.authorized();
   }
 
-  Stream<AuthNavigatorState> _signUp() async* {
-    yield const AuthNavigatorState.authorized();
+  Stream<AuthFlowState> _signUp() async* {
+    yield const AuthFlowState.authorized();
   }
 
-  Stream<AuthNavigatorState> _init() async* {
+  Stream<AuthFlowState> _init() async* {
     // ...
   }
 
-  /* Stream<AuthNavigatorState> _update() async* {
-    // ...
-  }
-
-  Stream<AuthNavigatorState> _delete() async* {
-    // ...
-  } */
 }

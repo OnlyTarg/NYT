@@ -10,21 +10,21 @@ part of 'initial_navigator.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-class _$InitialNavigatorEventTearOff {
-  const _$InitialNavigatorEventTearOff();
+class _$InitialFlowEventTearOff {
+  const _$InitialFlowEventTearOff();
 
 // ignore: unused_element
-  InitInitialNavigatorEvent init() {
-    return const InitInitialNavigatorEvent();
+  InitInitialFlowEvent init() {
+    return const InitInitialFlowEvent();
   }
 }
 
 /// @nodoc
 // ignore: unused_element
-const $InitialNavigatorEvent = _$InitialNavigatorEventTearOff();
+const $InitialFlowEvent = _$InitialFlowEventTearOff();
 
 /// @nodoc
-mixin _$InitialNavigatorEvent {
+mixin _$InitialFlowEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult init(),
@@ -36,64 +36,63 @@ mixin _$InitialNavigatorEvent {
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult init(InitInitialNavigatorEvent value),
+    @required TResult init(InitInitialFlowEvent value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult init(InitInitialNavigatorEvent value),
+    TResult init(InitInitialFlowEvent value),
     @required TResult orElse(),
   });
 }
 
 /// @nodoc
-abstract class $InitialNavigatorEventCopyWith<$Res> {
-  factory $InitialNavigatorEventCopyWith(InitialNavigatorEvent value,
-          $Res Function(InitialNavigatorEvent) then) =
-      _$InitialNavigatorEventCopyWithImpl<$Res>;
+abstract class $InitialFlowEventCopyWith<$Res> {
+  factory $InitialFlowEventCopyWith(
+          InitialFlowEvent value, $Res Function(InitialFlowEvent) then) =
+      _$InitialFlowEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$InitialNavigatorEventCopyWithImpl<$Res>
-    implements $InitialNavigatorEventCopyWith<$Res> {
-  _$InitialNavigatorEventCopyWithImpl(this._value, this._then);
+class _$InitialFlowEventCopyWithImpl<$Res>
+    implements $InitialFlowEventCopyWith<$Res> {
+  _$InitialFlowEventCopyWithImpl(this._value, this._then);
 
-  final InitialNavigatorEvent _value;
+  final InitialFlowEvent _value;
   // ignore: unused_field
-  final $Res Function(InitialNavigatorEvent) _then;
+  final $Res Function(InitialFlowEvent) _then;
 }
 
 /// @nodoc
-abstract class $InitInitialNavigatorEventCopyWith<$Res> {
-  factory $InitInitialNavigatorEventCopyWith(InitInitialNavigatorEvent value,
-          $Res Function(InitInitialNavigatorEvent) then) =
-      _$InitInitialNavigatorEventCopyWithImpl<$Res>;
+abstract class $InitInitialFlowEventCopyWith<$Res> {
+  factory $InitInitialFlowEventCopyWith(InitInitialFlowEvent value,
+          $Res Function(InitInitialFlowEvent) then) =
+      _$InitInitialFlowEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$InitInitialNavigatorEventCopyWithImpl<$Res>
-    extends _$InitialNavigatorEventCopyWithImpl<$Res>
-    implements $InitInitialNavigatorEventCopyWith<$Res> {
-  _$InitInitialNavigatorEventCopyWithImpl(InitInitialNavigatorEvent _value,
-      $Res Function(InitInitialNavigatorEvent) _then)
-      : super(_value, (v) => _then(v as InitInitialNavigatorEvent));
+class _$InitInitialFlowEventCopyWithImpl<$Res>
+    extends _$InitialFlowEventCopyWithImpl<$Res>
+    implements $InitInitialFlowEventCopyWith<$Res> {
+  _$InitInitialFlowEventCopyWithImpl(
+      InitInitialFlowEvent _value, $Res Function(InitInitialFlowEvent) _then)
+      : super(_value, (v) => _then(v as InitInitialFlowEvent));
 
   @override
-  InitInitialNavigatorEvent get _value =>
-      super._value as InitInitialNavigatorEvent;
+  InitInitialFlowEvent get _value => super._value as InitInitialFlowEvent;
 }
 
 /// @nodoc
-class _$InitInitialNavigatorEvent extends InitInitialNavigatorEvent {
-  const _$InitInitialNavigatorEvent() : super._();
+class _$InitInitialFlowEvent extends InitInitialFlowEvent {
+  const _$InitInitialFlowEvent() : super._();
 
   @override
   String toString() {
-    return 'InitialNavigatorEvent.init()';
+    return 'InitialFlowEvent.init()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is InitInitialNavigatorEvent);
+    return identical(this, other) || (other is InitInitialFlowEvent);
   }
 
   @override
@@ -124,7 +123,7 @@ class _$InitInitialNavigatorEvent extends InitInitialNavigatorEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult init(InitInitialNavigatorEvent value),
+    @required TResult init(InitInitialFlowEvent value),
   }) {
     assert(init != null);
     return init(this);
@@ -133,7 +132,7 @@ class _$InitInitialNavigatorEvent extends InitInitialNavigatorEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult init(InitInitialNavigatorEvent value),
+    TResult init(InitInitialFlowEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -144,37 +143,37 @@ class _$InitInitialNavigatorEvent extends InitInitialNavigatorEvent {
   }
 }
 
-abstract class InitInitialNavigatorEvent extends InitialNavigatorEvent {
-  const InitInitialNavigatorEvent._() : super._();
-  const factory InitInitialNavigatorEvent() = _$InitInitialNavigatorEvent;
+abstract class InitInitialFlowEvent extends InitialFlowEvent {
+  const InitInitialFlowEvent._() : super._();
+  const factory InitInitialFlowEvent() = _$InitInitialFlowEvent;
 }
 
 /// @nodoc
-class _$InitialNavigatorStateTearOff {
-  const _$InitialNavigatorStateTearOff();
+class _$InitialFlowStateTearOff {
+  const _$InitialFlowStateTearOff();
 
 // ignore: unused_element
-  PrimaryInitialNavigatorState primary() {
-    return const PrimaryInitialNavigatorState();
+  PrimaryInitialFlowState primary() {
+    return const PrimaryInitialFlowState();
   }
 
 // ignore: unused_element
-  AuthorizedInitialNavigatorState authorized() {
-    return const AuthorizedInitialNavigatorState();
+  AuthorizedInitialFlowState authorized() {
+    return const AuthorizedInitialFlowState();
   }
 
 // ignore: unused_element
-  UnAuthorizedInitialNavigatorState unAuthorized() {
-    return const UnAuthorizedInitialNavigatorState();
+  UnAuthorizedInitialFlowState unAuthorized() {
+    return const UnAuthorizedInitialFlowState();
   }
 }
 
 /// @nodoc
 // ignore: unused_element
-const $InitialNavigatorState = _$InitialNavigatorStateTearOff();
+const $InitialFlowState = _$InitialFlowStateTearOff();
 
 /// @nodoc
-mixin _$InitialNavigatorState {
+mixin _$InitialFlowState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult primary(),
@@ -190,70 +189,67 @@ mixin _$InitialNavigatorState {
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult primary(PrimaryInitialNavigatorState value),
-    @required TResult authorized(AuthorizedInitialNavigatorState value),
-    @required TResult unAuthorized(UnAuthorizedInitialNavigatorState value),
+    @required TResult primary(PrimaryInitialFlowState value),
+    @required TResult authorized(AuthorizedInitialFlowState value),
+    @required TResult unAuthorized(UnAuthorizedInitialFlowState value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult primary(PrimaryInitialNavigatorState value),
-    TResult authorized(AuthorizedInitialNavigatorState value),
-    TResult unAuthorized(UnAuthorizedInitialNavigatorState value),
+    TResult primary(PrimaryInitialFlowState value),
+    TResult authorized(AuthorizedInitialFlowState value),
+    TResult unAuthorized(UnAuthorizedInitialFlowState value),
     @required TResult orElse(),
   });
 }
 
 /// @nodoc
-abstract class $InitialNavigatorStateCopyWith<$Res> {
-  factory $InitialNavigatorStateCopyWith(InitialNavigatorState value,
-          $Res Function(InitialNavigatorState) then) =
-      _$InitialNavigatorStateCopyWithImpl<$Res>;
+abstract class $InitialFlowStateCopyWith<$Res> {
+  factory $InitialFlowStateCopyWith(
+          InitialFlowState value, $Res Function(InitialFlowState) then) =
+      _$InitialFlowStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$InitialNavigatorStateCopyWithImpl<$Res>
-    implements $InitialNavigatorStateCopyWith<$Res> {
-  _$InitialNavigatorStateCopyWithImpl(this._value, this._then);
+class _$InitialFlowStateCopyWithImpl<$Res>
+    implements $InitialFlowStateCopyWith<$Res> {
+  _$InitialFlowStateCopyWithImpl(this._value, this._then);
 
-  final InitialNavigatorState _value;
+  final InitialFlowState _value;
   // ignore: unused_field
-  final $Res Function(InitialNavigatorState) _then;
+  final $Res Function(InitialFlowState) _then;
 }
 
 /// @nodoc
-abstract class $PrimaryInitialNavigatorStateCopyWith<$Res> {
-  factory $PrimaryInitialNavigatorStateCopyWith(
-          PrimaryInitialNavigatorState value,
-          $Res Function(PrimaryInitialNavigatorState) then) =
-      _$PrimaryInitialNavigatorStateCopyWithImpl<$Res>;
+abstract class $PrimaryInitialFlowStateCopyWith<$Res> {
+  factory $PrimaryInitialFlowStateCopyWith(PrimaryInitialFlowState value,
+          $Res Function(PrimaryInitialFlowState) then) =
+      _$PrimaryInitialFlowStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$PrimaryInitialNavigatorStateCopyWithImpl<$Res>
-    extends _$InitialNavigatorStateCopyWithImpl<$Res>
-    implements $PrimaryInitialNavigatorStateCopyWith<$Res> {
-  _$PrimaryInitialNavigatorStateCopyWithImpl(
-      PrimaryInitialNavigatorState _value,
-      $Res Function(PrimaryInitialNavigatorState) _then)
-      : super(_value, (v) => _then(v as PrimaryInitialNavigatorState));
+class _$PrimaryInitialFlowStateCopyWithImpl<$Res>
+    extends _$InitialFlowStateCopyWithImpl<$Res>
+    implements $PrimaryInitialFlowStateCopyWith<$Res> {
+  _$PrimaryInitialFlowStateCopyWithImpl(PrimaryInitialFlowState _value,
+      $Res Function(PrimaryInitialFlowState) _then)
+      : super(_value, (v) => _then(v as PrimaryInitialFlowState));
 
   @override
-  PrimaryInitialNavigatorState get _value =>
-      super._value as PrimaryInitialNavigatorState;
+  PrimaryInitialFlowState get _value => super._value as PrimaryInitialFlowState;
 }
 
 /// @nodoc
-class _$PrimaryInitialNavigatorState extends PrimaryInitialNavigatorState {
-  const _$PrimaryInitialNavigatorState() : super._();
+class _$PrimaryInitialFlowState extends PrimaryInitialFlowState {
+  const _$PrimaryInitialFlowState() : super._();
 
   @override
   String toString() {
-    return 'InitialNavigatorState.primary()';
+    return 'InitialFlowState.primary()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is PrimaryInitialNavigatorState);
+    return identical(this, other) || (other is PrimaryInitialFlowState);
   }
 
   @override
@@ -290,9 +286,9 @@ class _$PrimaryInitialNavigatorState extends PrimaryInitialNavigatorState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult primary(PrimaryInitialNavigatorState value),
-    @required TResult authorized(AuthorizedInitialNavigatorState value),
-    @required TResult unAuthorized(UnAuthorizedInitialNavigatorState value),
+    @required TResult primary(PrimaryInitialFlowState value),
+    @required TResult authorized(AuthorizedInitialFlowState value),
+    @required TResult unAuthorized(UnAuthorizedInitialFlowState value),
   }) {
     assert(primary != null);
     assert(authorized != null);
@@ -303,9 +299,9 @@ class _$PrimaryInitialNavigatorState extends PrimaryInitialNavigatorState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult primary(PrimaryInitialNavigatorState value),
-    TResult authorized(AuthorizedInitialNavigatorState value),
-    TResult unAuthorized(UnAuthorizedInitialNavigatorState value),
+    TResult primary(PrimaryInitialFlowState value),
+    TResult authorized(AuthorizedInitialFlowState value),
+    TResult unAuthorized(UnAuthorizedInitialFlowState value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -316,46 +312,43 @@ class _$PrimaryInitialNavigatorState extends PrimaryInitialNavigatorState {
   }
 }
 
-abstract class PrimaryInitialNavigatorState extends InitialNavigatorState {
-  const PrimaryInitialNavigatorState._() : super._();
-  const factory PrimaryInitialNavigatorState() = _$PrimaryInitialNavigatorState;
+abstract class PrimaryInitialFlowState extends InitialFlowState {
+  const PrimaryInitialFlowState._() : super._();
+  const factory PrimaryInitialFlowState() = _$PrimaryInitialFlowState;
 }
 
 /// @nodoc
-abstract class $AuthorizedInitialNavigatorStateCopyWith<$Res> {
-  factory $AuthorizedInitialNavigatorStateCopyWith(
-          AuthorizedInitialNavigatorState value,
-          $Res Function(AuthorizedInitialNavigatorState) then) =
-      _$AuthorizedInitialNavigatorStateCopyWithImpl<$Res>;
+abstract class $AuthorizedInitialFlowStateCopyWith<$Res> {
+  factory $AuthorizedInitialFlowStateCopyWith(AuthorizedInitialFlowState value,
+          $Res Function(AuthorizedInitialFlowState) then) =
+      _$AuthorizedInitialFlowStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AuthorizedInitialNavigatorStateCopyWithImpl<$Res>
-    extends _$InitialNavigatorStateCopyWithImpl<$Res>
-    implements $AuthorizedInitialNavigatorStateCopyWith<$Res> {
-  _$AuthorizedInitialNavigatorStateCopyWithImpl(
-      AuthorizedInitialNavigatorState _value,
-      $Res Function(AuthorizedInitialNavigatorState) _then)
-      : super(_value, (v) => _then(v as AuthorizedInitialNavigatorState));
+class _$AuthorizedInitialFlowStateCopyWithImpl<$Res>
+    extends _$InitialFlowStateCopyWithImpl<$Res>
+    implements $AuthorizedInitialFlowStateCopyWith<$Res> {
+  _$AuthorizedInitialFlowStateCopyWithImpl(AuthorizedInitialFlowState _value,
+      $Res Function(AuthorizedInitialFlowState) _then)
+      : super(_value, (v) => _then(v as AuthorizedInitialFlowState));
 
   @override
-  AuthorizedInitialNavigatorState get _value =>
-      super._value as AuthorizedInitialNavigatorState;
+  AuthorizedInitialFlowState get _value =>
+      super._value as AuthorizedInitialFlowState;
 }
 
 /// @nodoc
-class _$AuthorizedInitialNavigatorState
-    extends AuthorizedInitialNavigatorState {
-  const _$AuthorizedInitialNavigatorState() : super._();
+class _$AuthorizedInitialFlowState extends AuthorizedInitialFlowState {
+  const _$AuthorizedInitialFlowState() : super._();
 
   @override
   String toString() {
-    return 'InitialNavigatorState.authorized()';
+    return 'InitialFlowState.authorized()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is AuthorizedInitialNavigatorState);
+    return identical(this, other) || (other is AuthorizedInitialFlowState);
   }
 
   @override
@@ -392,9 +385,9 @@ class _$AuthorizedInitialNavigatorState
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult primary(PrimaryInitialNavigatorState value),
-    @required TResult authorized(AuthorizedInitialNavigatorState value),
-    @required TResult unAuthorized(UnAuthorizedInitialNavigatorState value),
+    @required TResult primary(PrimaryInitialFlowState value),
+    @required TResult authorized(AuthorizedInitialFlowState value),
+    @required TResult unAuthorized(UnAuthorizedInitialFlowState value),
   }) {
     assert(primary != null);
     assert(authorized != null);
@@ -405,9 +398,9 @@ class _$AuthorizedInitialNavigatorState
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult primary(PrimaryInitialNavigatorState value),
-    TResult authorized(AuthorizedInitialNavigatorState value),
-    TResult unAuthorized(UnAuthorizedInitialNavigatorState value),
+    TResult primary(PrimaryInitialFlowState value),
+    TResult authorized(AuthorizedInitialFlowState value),
+    TResult unAuthorized(UnAuthorizedInitialFlowState value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -418,48 +411,45 @@ class _$AuthorizedInitialNavigatorState
   }
 }
 
-abstract class AuthorizedInitialNavigatorState extends InitialNavigatorState {
-  const AuthorizedInitialNavigatorState._() : super._();
-  const factory AuthorizedInitialNavigatorState() =
-      _$AuthorizedInitialNavigatorState;
+abstract class AuthorizedInitialFlowState extends InitialFlowState {
+  const AuthorizedInitialFlowState._() : super._();
+  const factory AuthorizedInitialFlowState() = _$AuthorizedInitialFlowState;
 }
 
 /// @nodoc
-abstract class $UnAuthorizedInitialNavigatorStateCopyWith<$Res> {
-  factory $UnAuthorizedInitialNavigatorStateCopyWith(
-          UnAuthorizedInitialNavigatorState value,
-          $Res Function(UnAuthorizedInitialNavigatorState) then) =
-      _$UnAuthorizedInitialNavigatorStateCopyWithImpl<$Res>;
+abstract class $UnAuthorizedInitialFlowStateCopyWith<$Res> {
+  factory $UnAuthorizedInitialFlowStateCopyWith(
+          UnAuthorizedInitialFlowState value,
+          $Res Function(UnAuthorizedInitialFlowState) then) =
+      _$UnAuthorizedInitialFlowStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$UnAuthorizedInitialNavigatorStateCopyWithImpl<$Res>
-    extends _$InitialNavigatorStateCopyWithImpl<$Res>
-    implements $UnAuthorizedInitialNavigatorStateCopyWith<$Res> {
-  _$UnAuthorizedInitialNavigatorStateCopyWithImpl(
-      UnAuthorizedInitialNavigatorState _value,
-      $Res Function(UnAuthorizedInitialNavigatorState) _then)
-      : super(_value, (v) => _then(v as UnAuthorizedInitialNavigatorState));
+class _$UnAuthorizedInitialFlowStateCopyWithImpl<$Res>
+    extends _$InitialFlowStateCopyWithImpl<$Res>
+    implements $UnAuthorizedInitialFlowStateCopyWith<$Res> {
+  _$UnAuthorizedInitialFlowStateCopyWithImpl(
+      UnAuthorizedInitialFlowState _value,
+      $Res Function(UnAuthorizedInitialFlowState) _then)
+      : super(_value, (v) => _then(v as UnAuthorizedInitialFlowState));
 
   @override
-  UnAuthorizedInitialNavigatorState get _value =>
-      super._value as UnAuthorizedInitialNavigatorState;
+  UnAuthorizedInitialFlowState get _value =>
+      super._value as UnAuthorizedInitialFlowState;
 }
 
 /// @nodoc
-class _$UnAuthorizedInitialNavigatorState
-    extends UnAuthorizedInitialNavigatorState {
-  const _$UnAuthorizedInitialNavigatorState() : super._();
+class _$UnAuthorizedInitialFlowState extends UnAuthorizedInitialFlowState {
+  const _$UnAuthorizedInitialFlowState() : super._();
 
   @override
   String toString() {
-    return 'InitialNavigatorState.unAuthorized()';
+    return 'InitialFlowState.unAuthorized()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is UnAuthorizedInitialNavigatorState);
+    return identical(this, other) || (other is UnAuthorizedInitialFlowState);
   }
 
   @override
@@ -496,9 +486,9 @@ class _$UnAuthorizedInitialNavigatorState
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult primary(PrimaryInitialNavigatorState value),
-    @required TResult authorized(AuthorizedInitialNavigatorState value),
-    @required TResult unAuthorized(UnAuthorizedInitialNavigatorState value),
+    @required TResult primary(PrimaryInitialFlowState value),
+    @required TResult authorized(AuthorizedInitialFlowState value),
+    @required TResult unAuthorized(UnAuthorizedInitialFlowState value),
   }) {
     assert(primary != null);
     assert(authorized != null);
@@ -509,9 +499,9 @@ class _$UnAuthorizedInitialNavigatorState
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult primary(PrimaryInitialNavigatorState value),
-    TResult authorized(AuthorizedInitialNavigatorState value),
-    TResult unAuthorized(UnAuthorizedInitialNavigatorState value),
+    TResult primary(PrimaryInitialFlowState value),
+    TResult authorized(AuthorizedInitialFlowState value),
+    TResult unAuthorized(UnAuthorizedInitialFlowState value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -522,8 +512,7 @@ class _$UnAuthorizedInitialNavigatorState
   }
 }
 
-abstract class UnAuthorizedInitialNavigatorState extends InitialNavigatorState {
-  const UnAuthorizedInitialNavigatorState._() : super._();
-  const factory UnAuthorizedInitialNavigatorState() =
-      _$UnAuthorizedInitialNavigatorState;
+abstract class UnAuthorizedInitialFlowState extends InitialFlowState {
+  const UnAuthorizedInitialFlowState._() : super._();
+  const factory UnAuthorizedInitialFlowState() = _$UnAuthorizedInitialFlowState;
 }

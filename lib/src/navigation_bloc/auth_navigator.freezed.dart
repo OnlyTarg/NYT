@@ -10,31 +10,31 @@ part of 'auth_navigator.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-class _$AuthNavigatorEventTearOff {
-  const _$AuthNavigatorEventTearOff();
+class _$AuthFlowEventTearOff {
+  const _$AuthFlowEventTearOff();
 
 // ignore: unused_element
-  InitAuthNavigatorEvent init() {
-    return const InitAuthNavigatorEvent();
+  InitAuthFlowEvent init() {
+    return const InitAuthFlowEvent();
   }
 
 // ignore: unused_element
-  SignInAuthNavigatorEvent signIn() {
-    return const SignInAuthNavigatorEvent();
+  SignInAuthFlowEvent signIn() {
+    return const SignInAuthFlowEvent();
   }
 
 // ignore: unused_element
-  SignUpAuthNavigatorEvent signUp() {
-    return const SignUpAuthNavigatorEvent();
+  SignUpAuthFlowEvent signUp() {
+    return const SignUpAuthFlowEvent();
   }
 }
 
 /// @nodoc
 // ignore: unused_element
-const $AuthNavigatorEvent = _$AuthNavigatorEventTearOff();
+const $AuthFlowEvent = _$AuthFlowEventTearOff();
 
 /// @nodoc
-mixin _$AuthNavigatorEvent {
+mixin _$AuthFlowEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult init(),
@@ -50,67 +50,67 @@ mixin _$AuthNavigatorEvent {
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult init(InitAuthNavigatorEvent value),
-    @required TResult signIn(SignInAuthNavigatorEvent value),
-    @required TResult signUp(SignUpAuthNavigatorEvent value),
+    @required TResult init(InitAuthFlowEvent value),
+    @required TResult signIn(SignInAuthFlowEvent value),
+    @required TResult signUp(SignUpAuthFlowEvent value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult init(InitAuthNavigatorEvent value),
-    TResult signIn(SignInAuthNavigatorEvent value),
-    TResult signUp(SignUpAuthNavigatorEvent value),
+    TResult init(InitAuthFlowEvent value),
+    TResult signIn(SignInAuthFlowEvent value),
+    TResult signUp(SignUpAuthFlowEvent value),
     @required TResult orElse(),
   });
 }
 
 /// @nodoc
-abstract class $AuthNavigatorEventCopyWith<$Res> {
-  factory $AuthNavigatorEventCopyWith(
-          AuthNavigatorEvent value, $Res Function(AuthNavigatorEvent) then) =
-      _$AuthNavigatorEventCopyWithImpl<$Res>;
+abstract class $AuthFlowEventCopyWith<$Res> {
+  factory $AuthFlowEventCopyWith(
+          AuthFlowEvent value, $Res Function(AuthFlowEvent) then) =
+      _$AuthFlowEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AuthNavigatorEventCopyWithImpl<$Res>
-    implements $AuthNavigatorEventCopyWith<$Res> {
-  _$AuthNavigatorEventCopyWithImpl(this._value, this._then);
+class _$AuthFlowEventCopyWithImpl<$Res>
+    implements $AuthFlowEventCopyWith<$Res> {
+  _$AuthFlowEventCopyWithImpl(this._value, this._then);
 
-  final AuthNavigatorEvent _value;
+  final AuthFlowEvent _value;
   // ignore: unused_field
-  final $Res Function(AuthNavigatorEvent) _then;
+  final $Res Function(AuthFlowEvent) _then;
 }
 
 /// @nodoc
-abstract class $InitAuthNavigatorEventCopyWith<$Res> {
-  factory $InitAuthNavigatorEventCopyWith(InitAuthNavigatorEvent value,
-          $Res Function(InitAuthNavigatorEvent) then) =
-      _$InitAuthNavigatorEventCopyWithImpl<$Res>;
+abstract class $InitAuthFlowEventCopyWith<$Res> {
+  factory $InitAuthFlowEventCopyWith(
+          InitAuthFlowEvent value, $Res Function(InitAuthFlowEvent) then) =
+      _$InitAuthFlowEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$InitAuthNavigatorEventCopyWithImpl<$Res>
-    extends _$AuthNavigatorEventCopyWithImpl<$Res>
-    implements $InitAuthNavigatorEventCopyWith<$Res> {
-  _$InitAuthNavigatorEventCopyWithImpl(InitAuthNavigatorEvent _value,
-      $Res Function(InitAuthNavigatorEvent) _then)
-      : super(_value, (v) => _then(v as InitAuthNavigatorEvent));
+class _$InitAuthFlowEventCopyWithImpl<$Res>
+    extends _$AuthFlowEventCopyWithImpl<$Res>
+    implements $InitAuthFlowEventCopyWith<$Res> {
+  _$InitAuthFlowEventCopyWithImpl(
+      InitAuthFlowEvent _value, $Res Function(InitAuthFlowEvent) _then)
+      : super(_value, (v) => _then(v as InitAuthFlowEvent));
 
   @override
-  InitAuthNavigatorEvent get _value => super._value as InitAuthNavigatorEvent;
+  InitAuthFlowEvent get _value => super._value as InitAuthFlowEvent;
 }
 
 /// @nodoc
-class _$InitAuthNavigatorEvent extends InitAuthNavigatorEvent {
-  const _$InitAuthNavigatorEvent() : super._();
+class _$InitAuthFlowEvent extends InitAuthFlowEvent {
+  const _$InitAuthFlowEvent() : super._();
 
   @override
   String toString() {
-    return 'AuthNavigatorEvent.init()';
+    return 'AuthFlowEvent.init()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is InitAuthNavigatorEvent);
+    return identical(this, other) || (other is InitAuthFlowEvent);
   }
 
   @override
@@ -147,9 +147,9 @@ class _$InitAuthNavigatorEvent extends InitAuthNavigatorEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult init(InitAuthNavigatorEvent value),
-    @required TResult signIn(SignInAuthNavigatorEvent value),
-    @required TResult signUp(SignUpAuthNavigatorEvent value),
+    @required TResult init(InitAuthFlowEvent value),
+    @required TResult signIn(SignInAuthFlowEvent value),
+    @required TResult signUp(SignUpAuthFlowEvent value),
   }) {
     assert(init != null);
     assert(signIn != null);
@@ -160,9 +160,9 @@ class _$InitAuthNavigatorEvent extends InitAuthNavigatorEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult init(InitAuthNavigatorEvent value),
-    TResult signIn(SignInAuthNavigatorEvent value),
-    TResult signUp(SignUpAuthNavigatorEvent value),
+    TResult init(InitAuthFlowEvent value),
+    TResult signIn(SignInAuthFlowEvent value),
+    TResult signUp(SignUpAuthFlowEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -173,43 +173,42 @@ class _$InitAuthNavigatorEvent extends InitAuthNavigatorEvent {
   }
 }
 
-abstract class InitAuthNavigatorEvent extends AuthNavigatorEvent {
-  const InitAuthNavigatorEvent._() : super._();
-  const factory InitAuthNavigatorEvent() = _$InitAuthNavigatorEvent;
+abstract class InitAuthFlowEvent extends AuthFlowEvent {
+  const InitAuthFlowEvent._() : super._();
+  const factory InitAuthFlowEvent() = _$InitAuthFlowEvent;
 }
 
 /// @nodoc
-abstract class $SignInAuthNavigatorEventCopyWith<$Res> {
-  factory $SignInAuthNavigatorEventCopyWith(SignInAuthNavigatorEvent value,
-          $Res Function(SignInAuthNavigatorEvent) then) =
-      _$SignInAuthNavigatorEventCopyWithImpl<$Res>;
+abstract class $SignInAuthFlowEventCopyWith<$Res> {
+  factory $SignInAuthFlowEventCopyWith(
+          SignInAuthFlowEvent value, $Res Function(SignInAuthFlowEvent) then) =
+      _$SignInAuthFlowEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SignInAuthNavigatorEventCopyWithImpl<$Res>
-    extends _$AuthNavigatorEventCopyWithImpl<$Res>
-    implements $SignInAuthNavigatorEventCopyWith<$Res> {
-  _$SignInAuthNavigatorEventCopyWithImpl(SignInAuthNavigatorEvent _value,
-      $Res Function(SignInAuthNavigatorEvent) _then)
-      : super(_value, (v) => _then(v as SignInAuthNavigatorEvent));
+class _$SignInAuthFlowEventCopyWithImpl<$Res>
+    extends _$AuthFlowEventCopyWithImpl<$Res>
+    implements $SignInAuthFlowEventCopyWith<$Res> {
+  _$SignInAuthFlowEventCopyWithImpl(
+      SignInAuthFlowEvent _value, $Res Function(SignInAuthFlowEvent) _then)
+      : super(_value, (v) => _then(v as SignInAuthFlowEvent));
 
   @override
-  SignInAuthNavigatorEvent get _value =>
-      super._value as SignInAuthNavigatorEvent;
+  SignInAuthFlowEvent get _value => super._value as SignInAuthFlowEvent;
 }
 
 /// @nodoc
-class _$SignInAuthNavigatorEvent extends SignInAuthNavigatorEvent {
-  const _$SignInAuthNavigatorEvent() : super._();
+class _$SignInAuthFlowEvent extends SignInAuthFlowEvent {
+  const _$SignInAuthFlowEvent() : super._();
 
   @override
   String toString() {
-    return 'AuthNavigatorEvent.signIn()';
+    return 'AuthFlowEvent.signIn()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SignInAuthNavigatorEvent);
+    return identical(this, other) || (other is SignInAuthFlowEvent);
   }
 
   @override
@@ -246,9 +245,9 @@ class _$SignInAuthNavigatorEvent extends SignInAuthNavigatorEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult init(InitAuthNavigatorEvent value),
-    @required TResult signIn(SignInAuthNavigatorEvent value),
-    @required TResult signUp(SignUpAuthNavigatorEvent value),
+    @required TResult init(InitAuthFlowEvent value),
+    @required TResult signIn(SignInAuthFlowEvent value),
+    @required TResult signUp(SignUpAuthFlowEvent value),
   }) {
     assert(init != null);
     assert(signIn != null);
@@ -259,9 +258,9 @@ class _$SignInAuthNavigatorEvent extends SignInAuthNavigatorEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult init(InitAuthNavigatorEvent value),
-    TResult signIn(SignInAuthNavigatorEvent value),
-    TResult signUp(SignUpAuthNavigatorEvent value),
+    TResult init(InitAuthFlowEvent value),
+    TResult signIn(SignInAuthFlowEvent value),
+    TResult signUp(SignUpAuthFlowEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -272,43 +271,42 @@ class _$SignInAuthNavigatorEvent extends SignInAuthNavigatorEvent {
   }
 }
 
-abstract class SignInAuthNavigatorEvent extends AuthNavigatorEvent {
-  const SignInAuthNavigatorEvent._() : super._();
-  const factory SignInAuthNavigatorEvent() = _$SignInAuthNavigatorEvent;
+abstract class SignInAuthFlowEvent extends AuthFlowEvent {
+  const SignInAuthFlowEvent._() : super._();
+  const factory SignInAuthFlowEvent() = _$SignInAuthFlowEvent;
 }
 
 /// @nodoc
-abstract class $SignUpAuthNavigatorEventCopyWith<$Res> {
-  factory $SignUpAuthNavigatorEventCopyWith(SignUpAuthNavigatorEvent value,
-          $Res Function(SignUpAuthNavigatorEvent) then) =
-      _$SignUpAuthNavigatorEventCopyWithImpl<$Res>;
+abstract class $SignUpAuthFlowEventCopyWith<$Res> {
+  factory $SignUpAuthFlowEventCopyWith(
+          SignUpAuthFlowEvent value, $Res Function(SignUpAuthFlowEvent) then) =
+      _$SignUpAuthFlowEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SignUpAuthNavigatorEventCopyWithImpl<$Res>
-    extends _$AuthNavigatorEventCopyWithImpl<$Res>
-    implements $SignUpAuthNavigatorEventCopyWith<$Res> {
-  _$SignUpAuthNavigatorEventCopyWithImpl(SignUpAuthNavigatorEvent _value,
-      $Res Function(SignUpAuthNavigatorEvent) _then)
-      : super(_value, (v) => _then(v as SignUpAuthNavigatorEvent));
+class _$SignUpAuthFlowEventCopyWithImpl<$Res>
+    extends _$AuthFlowEventCopyWithImpl<$Res>
+    implements $SignUpAuthFlowEventCopyWith<$Res> {
+  _$SignUpAuthFlowEventCopyWithImpl(
+      SignUpAuthFlowEvent _value, $Res Function(SignUpAuthFlowEvent) _then)
+      : super(_value, (v) => _then(v as SignUpAuthFlowEvent));
 
   @override
-  SignUpAuthNavigatorEvent get _value =>
-      super._value as SignUpAuthNavigatorEvent;
+  SignUpAuthFlowEvent get _value => super._value as SignUpAuthFlowEvent;
 }
 
 /// @nodoc
-class _$SignUpAuthNavigatorEvent extends SignUpAuthNavigatorEvent {
-  const _$SignUpAuthNavigatorEvent() : super._();
+class _$SignUpAuthFlowEvent extends SignUpAuthFlowEvent {
+  const _$SignUpAuthFlowEvent() : super._();
 
   @override
   String toString() {
-    return 'AuthNavigatorEvent.signUp()';
+    return 'AuthFlowEvent.signUp()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SignUpAuthNavigatorEvent);
+    return identical(this, other) || (other is SignUpAuthFlowEvent);
   }
 
   @override
@@ -345,9 +343,9 @@ class _$SignUpAuthNavigatorEvent extends SignUpAuthNavigatorEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult init(InitAuthNavigatorEvent value),
-    @required TResult signIn(SignInAuthNavigatorEvent value),
-    @required TResult signUp(SignUpAuthNavigatorEvent value),
+    @required TResult init(InitAuthFlowEvent value),
+    @required TResult signIn(SignInAuthFlowEvent value),
+    @required TResult signUp(SignUpAuthFlowEvent value),
   }) {
     assert(init != null);
     assert(signIn != null);
@@ -358,9 +356,9 @@ class _$SignUpAuthNavigatorEvent extends SignUpAuthNavigatorEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult init(InitAuthNavigatorEvent value),
-    TResult signIn(SignInAuthNavigatorEvent value),
-    TResult signUp(SignUpAuthNavigatorEvent value),
+    TResult init(InitAuthFlowEvent value),
+    TResult signIn(SignInAuthFlowEvent value),
+    TResult signUp(SignUpAuthFlowEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -371,37 +369,37 @@ class _$SignUpAuthNavigatorEvent extends SignUpAuthNavigatorEvent {
   }
 }
 
-abstract class SignUpAuthNavigatorEvent extends AuthNavigatorEvent {
-  const SignUpAuthNavigatorEvent._() : super._();
-  const factory SignUpAuthNavigatorEvent() = _$SignUpAuthNavigatorEvent;
+abstract class SignUpAuthFlowEvent extends AuthFlowEvent {
+  const SignUpAuthFlowEvent._() : super._();
+  const factory SignUpAuthFlowEvent() = _$SignUpAuthFlowEvent;
 }
 
 /// @nodoc
-class _$AuthNavigatorStateTearOff {
-  const _$AuthNavigatorStateTearOff();
+class _$AuthFlowStateTearOff {
+  const _$AuthFlowStateTearOff();
 
 // ignore: unused_element
-  InitialAuthNavigatorState initial() {
-    return const InitialAuthNavigatorState();
+  InitialAuthFlowEvent initial() {
+    return const InitialAuthFlowEvent();
   }
 
 // ignore: unused_element
-  AuthorizedAuthNavigatorState authorized() {
-    return const AuthorizedAuthNavigatorState();
+  AuthorizedAuthFlowEvent authorized() {
+    return const AuthorizedAuthFlowEvent();
   }
 
 // ignore: unused_element
-  UnauthorizedAuthNavigatorState unauthorized() {
-    return const UnauthorizedAuthNavigatorState();
+  UnauthorizedAuthFlowState unauthorized() {
+    return const UnauthorizedAuthFlowState();
   }
 }
 
 /// @nodoc
 // ignore: unused_element
-const $AuthNavigatorState = _$AuthNavigatorStateTearOff();
+const $AuthFlowState = _$AuthFlowStateTearOff();
 
 /// @nodoc
-mixin _$AuthNavigatorState {
+mixin _$AuthFlowState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
@@ -417,68 +415,67 @@ mixin _$AuthNavigatorState {
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult initial(InitialAuthNavigatorState value),
-    @required TResult authorized(AuthorizedAuthNavigatorState value),
-    @required TResult unauthorized(UnauthorizedAuthNavigatorState value),
+    @required TResult initial(InitialAuthFlowEvent value),
+    @required TResult authorized(AuthorizedAuthFlowEvent value),
+    @required TResult unauthorized(UnauthorizedAuthFlowState value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialAuthNavigatorState value),
-    TResult authorized(AuthorizedAuthNavigatorState value),
-    TResult unauthorized(UnauthorizedAuthNavigatorState value),
+    TResult initial(InitialAuthFlowEvent value),
+    TResult authorized(AuthorizedAuthFlowEvent value),
+    TResult unauthorized(UnauthorizedAuthFlowState value),
     @required TResult orElse(),
   });
 }
 
 /// @nodoc
-abstract class $AuthNavigatorStateCopyWith<$Res> {
-  factory $AuthNavigatorStateCopyWith(
-          AuthNavigatorState value, $Res Function(AuthNavigatorState) then) =
-      _$AuthNavigatorStateCopyWithImpl<$Res>;
+abstract class $AuthFlowStateCopyWith<$Res> {
+  factory $AuthFlowStateCopyWith(
+          AuthFlowState value, $Res Function(AuthFlowState) then) =
+      _$AuthFlowStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AuthNavigatorStateCopyWithImpl<$Res>
-    implements $AuthNavigatorStateCopyWith<$Res> {
-  _$AuthNavigatorStateCopyWithImpl(this._value, this._then);
+class _$AuthFlowStateCopyWithImpl<$Res>
+    implements $AuthFlowStateCopyWith<$Res> {
+  _$AuthFlowStateCopyWithImpl(this._value, this._then);
 
-  final AuthNavigatorState _value;
+  final AuthFlowState _value;
   // ignore: unused_field
-  final $Res Function(AuthNavigatorState) _then;
+  final $Res Function(AuthFlowState) _then;
 }
 
 /// @nodoc
-abstract class $InitialAuthNavigatorStateCopyWith<$Res> {
-  factory $InitialAuthNavigatorStateCopyWith(InitialAuthNavigatorState value,
-          $Res Function(InitialAuthNavigatorState) then) =
-      _$InitialAuthNavigatorStateCopyWithImpl<$Res>;
+abstract class $InitialAuthFlowEventCopyWith<$Res> {
+  factory $InitialAuthFlowEventCopyWith(InitialAuthFlowEvent value,
+          $Res Function(InitialAuthFlowEvent) then) =
+      _$InitialAuthFlowEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$InitialAuthNavigatorStateCopyWithImpl<$Res>
-    extends _$AuthNavigatorStateCopyWithImpl<$Res>
-    implements $InitialAuthNavigatorStateCopyWith<$Res> {
-  _$InitialAuthNavigatorStateCopyWithImpl(InitialAuthNavigatorState _value,
-      $Res Function(InitialAuthNavigatorState) _then)
-      : super(_value, (v) => _then(v as InitialAuthNavigatorState));
+class _$InitialAuthFlowEventCopyWithImpl<$Res>
+    extends _$AuthFlowStateCopyWithImpl<$Res>
+    implements $InitialAuthFlowEventCopyWith<$Res> {
+  _$InitialAuthFlowEventCopyWithImpl(
+      InitialAuthFlowEvent _value, $Res Function(InitialAuthFlowEvent) _then)
+      : super(_value, (v) => _then(v as InitialAuthFlowEvent));
 
   @override
-  InitialAuthNavigatorState get _value =>
-      super._value as InitialAuthNavigatorState;
+  InitialAuthFlowEvent get _value => super._value as InitialAuthFlowEvent;
 }
 
 /// @nodoc
-class _$InitialAuthNavigatorState extends InitialAuthNavigatorState {
-  const _$InitialAuthNavigatorState() : super._();
+class _$InitialAuthFlowEvent extends InitialAuthFlowEvent {
+  const _$InitialAuthFlowEvent() : super._();
 
   @override
   String toString() {
-    return 'AuthNavigatorState.initial()';
+    return 'AuthFlowState.initial()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is InitialAuthNavigatorState);
+    return identical(this, other) || (other is InitialAuthFlowEvent);
   }
 
   @override
@@ -515,9 +512,9 @@ class _$InitialAuthNavigatorState extends InitialAuthNavigatorState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult initial(InitialAuthNavigatorState value),
-    @required TResult authorized(AuthorizedAuthNavigatorState value),
-    @required TResult unauthorized(UnauthorizedAuthNavigatorState value),
+    @required TResult initial(InitialAuthFlowEvent value),
+    @required TResult authorized(AuthorizedAuthFlowEvent value),
+    @required TResult unauthorized(UnauthorizedAuthFlowState value),
   }) {
     assert(initial != null);
     assert(authorized != null);
@@ -528,9 +525,9 @@ class _$InitialAuthNavigatorState extends InitialAuthNavigatorState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialAuthNavigatorState value),
-    TResult authorized(AuthorizedAuthNavigatorState value),
-    TResult unauthorized(UnauthorizedAuthNavigatorState value),
+    TResult initial(InitialAuthFlowEvent value),
+    TResult authorized(AuthorizedAuthFlowEvent value),
+    TResult unauthorized(UnauthorizedAuthFlowState value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -541,45 +538,42 @@ class _$InitialAuthNavigatorState extends InitialAuthNavigatorState {
   }
 }
 
-abstract class InitialAuthNavigatorState extends AuthNavigatorState {
-  const InitialAuthNavigatorState._() : super._();
-  const factory InitialAuthNavigatorState() = _$InitialAuthNavigatorState;
+abstract class InitialAuthFlowEvent extends AuthFlowState {
+  const InitialAuthFlowEvent._() : super._();
+  const factory InitialAuthFlowEvent() = _$InitialAuthFlowEvent;
 }
 
 /// @nodoc
-abstract class $AuthorizedAuthNavigatorStateCopyWith<$Res> {
-  factory $AuthorizedAuthNavigatorStateCopyWith(
-          AuthorizedAuthNavigatorState value,
-          $Res Function(AuthorizedAuthNavigatorState) then) =
-      _$AuthorizedAuthNavigatorStateCopyWithImpl<$Res>;
+abstract class $AuthorizedAuthFlowEventCopyWith<$Res> {
+  factory $AuthorizedAuthFlowEventCopyWith(AuthorizedAuthFlowEvent value,
+          $Res Function(AuthorizedAuthFlowEvent) then) =
+      _$AuthorizedAuthFlowEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AuthorizedAuthNavigatorStateCopyWithImpl<$Res>
-    extends _$AuthNavigatorStateCopyWithImpl<$Res>
-    implements $AuthorizedAuthNavigatorStateCopyWith<$Res> {
-  _$AuthorizedAuthNavigatorStateCopyWithImpl(
-      AuthorizedAuthNavigatorState _value,
-      $Res Function(AuthorizedAuthNavigatorState) _then)
-      : super(_value, (v) => _then(v as AuthorizedAuthNavigatorState));
+class _$AuthorizedAuthFlowEventCopyWithImpl<$Res>
+    extends _$AuthFlowStateCopyWithImpl<$Res>
+    implements $AuthorizedAuthFlowEventCopyWith<$Res> {
+  _$AuthorizedAuthFlowEventCopyWithImpl(AuthorizedAuthFlowEvent _value,
+      $Res Function(AuthorizedAuthFlowEvent) _then)
+      : super(_value, (v) => _then(v as AuthorizedAuthFlowEvent));
 
   @override
-  AuthorizedAuthNavigatorState get _value =>
-      super._value as AuthorizedAuthNavigatorState;
+  AuthorizedAuthFlowEvent get _value => super._value as AuthorizedAuthFlowEvent;
 }
 
 /// @nodoc
-class _$AuthorizedAuthNavigatorState extends AuthorizedAuthNavigatorState {
-  const _$AuthorizedAuthNavigatorState() : super._();
+class _$AuthorizedAuthFlowEvent extends AuthorizedAuthFlowEvent {
+  const _$AuthorizedAuthFlowEvent() : super._();
 
   @override
   String toString() {
-    return 'AuthNavigatorState.authorized()';
+    return 'AuthFlowState.authorized()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is AuthorizedAuthNavigatorState);
+    return identical(this, other) || (other is AuthorizedAuthFlowEvent);
   }
 
   @override
@@ -616,9 +610,9 @@ class _$AuthorizedAuthNavigatorState extends AuthorizedAuthNavigatorState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult initial(InitialAuthNavigatorState value),
-    @required TResult authorized(AuthorizedAuthNavigatorState value),
-    @required TResult unauthorized(UnauthorizedAuthNavigatorState value),
+    @required TResult initial(InitialAuthFlowEvent value),
+    @required TResult authorized(AuthorizedAuthFlowEvent value),
+    @required TResult unauthorized(UnauthorizedAuthFlowState value),
   }) {
     assert(initial != null);
     assert(authorized != null);
@@ -629,9 +623,9 @@ class _$AuthorizedAuthNavigatorState extends AuthorizedAuthNavigatorState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialAuthNavigatorState value),
-    TResult authorized(AuthorizedAuthNavigatorState value),
-    TResult unauthorized(UnauthorizedAuthNavigatorState value),
+    TResult initial(InitialAuthFlowEvent value),
+    TResult authorized(AuthorizedAuthFlowEvent value),
+    TResult unauthorized(UnauthorizedAuthFlowState value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -642,45 +636,43 @@ class _$AuthorizedAuthNavigatorState extends AuthorizedAuthNavigatorState {
   }
 }
 
-abstract class AuthorizedAuthNavigatorState extends AuthNavigatorState {
-  const AuthorizedAuthNavigatorState._() : super._();
-  const factory AuthorizedAuthNavigatorState() = _$AuthorizedAuthNavigatorState;
+abstract class AuthorizedAuthFlowEvent extends AuthFlowState {
+  const AuthorizedAuthFlowEvent._() : super._();
+  const factory AuthorizedAuthFlowEvent() = _$AuthorizedAuthFlowEvent;
 }
 
 /// @nodoc
-abstract class $UnauthorizedAuthNavigatorStateCopyWith<$Res> {
-  factory $UnauthorizedAuthNavigatorStateCopyWith(
-          UnauthorizedAuthNavigatorState value,
-          $Res Function(UnauthorizedAuthNavigatorState) then) =
-      _$UnauthorizedAuthNavigatorStateCopyWithImpl<$Res>;
+abstract class $UnauthorizedAuthFlowStateCopyWith<$Res> {
+  factory $UnauthorizedAuthFlowStateCopyWith(UnauthorizedAuthFlowState value,
+          $Res Function(UnauthorizedAuthFlowState) then) =
+      _$UnauthorizedAuthFlowStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$UnauthorizedAuthNavigatorStateCopyWithImpl<$Res>
-    extends _$AuthNavigatorStateCopyWithImpl<$Res>
-    implements $UnauthorizedAuthNavigatorStateCopyWith<$Res> {
-  _$UnauthorizedAuthNavigatorStateCopyWithImpl(
-      UnauthorizedAuthNavigatorState _value,
-      $Res Function(UnauthorizedAuthNavigatorState) _then)
-      : super(_value, (v) => _then(v as UnauthorizedAuthNavigatorState));
+class _$UnauthorizedAuthFlowStateCopyWithImpl<$Res>
+    extends _$AuthFlowStateCopyWithImpl<$Res>
+    implements $UnauthorizedAuthFlowStateCopyWith<$Res> {
+  _$UnauthorizedAuthFlowStateCopyWithImpl(UnauthorizedAuthFlowState _value,
+      $Res Function(UnauthorizedAuthFlowState) _then)
+      : super(_value, (v) => _then(v as UnauthorizedAuthFlowState));
 
   @override
-  UnauthorizedAuthNavigatorState get _value =>
-      super._value as UnauthorizedAuthNavigatorState;
+  UnauthorizedAuthFlowState get _value =>
+      super._value as UnauthorizedAuthFlowState;
 }
 
 /// @nodoc
-class _$UnauthorizedAuthNavigatorState extends UnauthorizedAuthNavigatorState {
-  const _$UnauthorizedAuthNavigatorState() : super._();
+class _$UnauthorizedAuthFlowState extends UnauthorizedAuthFlowState {
+  const _$UnauthorizedAuthFlowState() : super._();
 
   @override
   String toString() {
-    return 'AuthNavigatorState.unauthorized()';
+    return 'AuthFlowState.unauthorized()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is UnauthorizedAuthNavigatorState);
+    return identical(this, other) || (other is UnauthorizedAuthFlowState);
   }
 
   @override
@@ -717,9 +709,9 @@ class _$UnauthorizedAuthNavigatorState extends UnauthorizedAuthNavigatorState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult initial(InitialAuthNavigatorState value),
-    @required TResult authorized(AuthorizedAuthNavigatorState value),
-    @required TResult unauthorized(UnauthorizedAuthNavigatorState value),
+    @required TResult initial(InitialAuthFlowEvent value),
+    @required TResult authorized(AuthorizedAuthFlowEvent value),
+    @required TResult unauthorized(UnauthorizedAuthFlowState value),
   }) {
     assert(initial != null);
     assert(authorized != null);
@@ -730,9 +722,9 @@ class _$UnauthorizedAuthNavigatorState extends UnauthorizedAuthNavigatorState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialAuthNavigatorState value),
-    TResult authorized(AuthorizedAuthNavigatorState value),
-    TResult unauthorized(UnauthorizedAuthNavigatorState value),
+    TResult initial(InitialAuthFlowEvent value),
+    TResult authorized(AuthorizedAuthFlowEvent value),
+    TResult unauthorized(UnauthorizedAuthFlowState value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -743,8 +735,7 @@ class _$UnauthorizedAuthNavigatorState extends UnauthorizedAuthNavigatorState {
   }
 }
 
-abstract class UnauthorizedAuthNavigatorState extends AuthNavigatorState {
-  const UnauthorizedAuthNavigatorState._() : super._();
-  const factory UnauthorizedAuthNavigatorState() =
-      _$UnauthorizedAuthNavigatorState;
+abstract class UnauthorizedAuthFlowState extends AuthFlowState {
+  const UnauthorizedAuthFlowState._() : super._();
+  const factory UnauthorizedAuthFlowState() = _$UnauthorizedAuthFlowState;
 }

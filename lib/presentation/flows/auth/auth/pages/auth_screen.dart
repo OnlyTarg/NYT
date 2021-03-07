@@ -29,8 +29,8 @@ class _AuthScreenState extends State<AuthScreen> {
           children: [
             RaisedButton(
               onPressed: () {
-                BlocProvider.of<AuthNavigatorBLoC>(context)
-                    .add(const AuthNavigatorEvent.signUp());
+                BlocProvider.of<AuthFlowBLoC>(context)
+                    .add(const AuthFlowEvent.signUp());
               },
               child: const Text('Sign IN'),
             ),

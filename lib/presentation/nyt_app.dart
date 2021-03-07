@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nyt_app/presentation/flows/initial_flow.dart';
+import 'package:nyt_app/presentation/flows/initial/initial_flow.dart';
 import 'package:nyt_app/src/bloc/auth/auth_bloc.dart';
 import 'package:nyt_app/src/navigation_bloc/auth_navigator.dart';
 import 'package:nyt_app/src/navigation_bloc/home_navigator.dart';
@@ -41,15 +41,15 @@ class NYTApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               home: MultiBlocProvider(
                 providers: [
-                  BlocProvider<AuthNavigatorBLoC>(
-                    create: (context) => AuthNavigatorBLoC(),
+                  BlocProvider<AuthFlowBLoC>(
+                    create: (context) => AuthFlowBLoC(),
                   ),
-                  BlocProvider<InitialNavigatorBLoC>(
-                    create: (context) => InitialNavigatorBLoC()
-                      ..add(const InitialNavigatorEvent.init()),
+                  BlocProvider<InitialFlowBLoC>(
+                    create: (context) => InitialFlowBLoC()
+                      ..add(const InitialFlowEvent.init()),
                   ),
-                  BlocProvider<HomeNavigatorBLoC>(
-                    create: (context) => HomeNavigatorBLoC(),
+                  BlocProvider<HomeFlowBLoC>(
+                    create: (context) => HomeFlowBLoC(),
                   ),
                 ],
                 child: const InitialFlow(),

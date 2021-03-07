@@ -44,7 +44,7 @@ class _SignUpState extends State<SignUp> {
             InputField(
               controller: emailController,
               focusNode: emailFocus,
-              title: 'Emaild',
+              title: 'Email',
             ),
             InputField(
               controller: passwordController,

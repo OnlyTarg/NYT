@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flow_builder/flow_builder.dart';
-import 'package:nyt_app/presentation/screens/auth/sign_up.dart';
-import 'package:nyt_app/presentation/screens/auth_screen.dart';
+import 'package:nyt_app/presentation/flows/auth/auth/pages/auth_screen.dart';
+import 'package:nyt_app/presentation/flows/auth/auth/pages/sign_up.dart';
 import 'package:nyt_app/src/navigation_bloc/auth_navigator.dart';
 
 class AuthFlow extends StatefulWidget {
@@ -17,12 +17,11 @@ class _AuthFlowState extends State<AuthFlow> {
   @override
   Widget build(BuildContext context) {
     return FlowBuilder(
-      state: AuthNavigatorState,
-      onGeneratePages: (authNavigatoState, pages) {
+      state: AuthFlowState,
+      onGeneratePages: (authFlowState, pages) {
         return [
-          if (authNavigatoState is UnauthorizedAuthNavigatorState)
-            AuthScreen.page(),
-          if (authNavigatoState is AuthorizedAuthNavigatorState) SignUp.page(),
+          if (authFlowState is UnauthorizedAuthFlowState) AuthScreen.page(),
+          if (authFlowState is AuthorizedAuthFlowEvent) SignUp.page(),
           /* MaterialPage(child: NameForm()),
           if (profile.name != null) MaterialPage(child: AgeForm()), */
         ];

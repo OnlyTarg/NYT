@@ -4,29 +4,29 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'home_navigator.freezed.dart';
 
 @freezed
-abstract class HomeNavigatorEvent with _$HomeNavigatorEvent {
-  const HomeNavigatorEvent._();
+abstract class HomeFlowEvent with _$HomeFlowEvent {
+  const HomeFlowEvent._();
 
-  const factory HomeNavigatorEvent.init() = InitHomeNavigatorEvent;
+  const factory HomeFlowEvent.init() = InitHomeFlowEvent;
 }
 
 @freezed
-abstract class HomeNavigatorState with _$HomeNavigatorState {
-  const HomeNavigatorState._();
+abstract class HomeFlowState with _$HomeFlowState {
+  const HomeFlowState._();
 
-  const factory HomeNavigatorState.initial() = InitialHomeNavigatorState;
+  const factory HomeFlowState.initial() = InitialHomeFlowState;
 }
 
-class HomeNavigatorBLoC extends Bloc<HomeNavigatorEvent, HomeNavigatorState> {
-  HomeNavigatorBLoC() : super(const InitialHomeNavigatorState());
+class HomeFlowBLoC extends Bloc<HomeFlowEvent, HomeFlowState> {
+  HomeFlowBLoC() : super(const InitialHomeFlowState());
 
   @override
-  Stream<HomeNavigatorState> mapEventToState(HomeNavigatorEvent event) =>
-      event.when<Stream<HomeNavigatorState>>(
+  Stream<HomeFlowState> mapEventToState(HomeFlowEvent event) =>
+      event.when<Stream<HomeFlowState>>(
         init: _initial,
       );
 
-  Stream<HomeNavigatorState> _initial() async* {
+  Stream<HomeFlowState> _initial() async* {
     // ...
   }
 }

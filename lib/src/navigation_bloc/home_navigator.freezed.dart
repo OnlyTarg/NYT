@@ -10,21 +10,21 @@ part of 'home_navigator.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-class _$HomeNavigatorEventTearOff {
-  const _$HomeNavigatorEventTearOff();
+class _$HomeFlowEventTearOff {
+  const _$HomeFlowEventTearOff();
 
 // ignore: unused_element
-  InitHomeNavigatorEvent init() {
-    return const InitHomeNavigatorEvent();
+  InitHomeFlowEvent init() {
+    return const InitHomeFlowEvent();
   }
 }
 
 /// @nodoc
 // ignore: unused_element
-const $HomeNavigatorEvent = _$HomeNavigatorEventTearOff();
+const $HomeFlowEvent = _$HomeFlowEventTearOff();
 
 /// @nodoc
-mixin _$HomeNavigatorEvent {
+mixin _$HomeFlowEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult init(),
@@ -36,63 +36,63 @@ mixin _$HomeNavigatorEvent {
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult init(InitHomeNavigatorEvent value),
+    @required TResult init(InitHomeFlowEvent value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult init(InitHomeNavigatorEvent value),
+    TResult init(InitHomeFlowEvent value),
     @required TResult orElse(),
   });
 }
 
 /// @nodoc
-abstract class $HomeNavigatorEventCopyWith<$Res> {
-  factory $HomeNavigatorEventCopyWith(
-          HomeNavigatorEvent value, $Res Function(HomeNavigatorEvent) then) =
-      _$HomeNavigatorEventCopyWithImpl<$Res>;
+abstract class $HomeFlowEventCopyWith<$Res> {
+  factory $HomeFlowEventCopyWith(
+          HomeFlowEvent value, $Res Function(HomeFlowEvent) then) =
+      _$HomeFlowEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$HomeNavigatorEventCopyWithImpl<$Res>
-    implements $HomeNavigatorEventCopyWith<$Res> {
-  _$HomeNavigatorEventCopyWithImpl(this._value, this._then);
+class _$HomeFlowEventCopyWithImpl<$Res>
+    implements $HomeFlowEventCopyWith<$Res> {
+  _$HomeFlowEventCopyWithImpl(this._value, this._then);
 
-  final HomeNavigatorEvent _value;
+  final HomeFlowEvent _value;
   // ignore: unused_field
-  final $Res Function(HomeNavigatorEvent) _then;
+  final $Res Function(HomeFlowEvent) _then;
 }
 
 /// @nodoc
-abstract class $InitHomeNavigatorEventCopyWith<$Res> {
-  factory $InitHomeNavigatorEventCopyWith(InitHomeNavigatorEvent value,
-          $Res Function(InitHomeNavigatorEvent) then) =
-      _$InitHomeNavigatorEventCopyWithImpl<$Res>;
+abstract class $InitHomeFlowEventCopyWith<$Res> {
+  factory $InitHomeFlowEventCopyWith(
+          InitHomeFlowEvent value, $Res Function(InitHomeFlowEvent) then) =
+      _$InitHomeFlowEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$InitHomeNavigatorEventCopyWithImpl<$Res>
-    extends _$HomeNavigatorEventCopyWithImpl<$Res>
-    implements $InitHomeNavigatorEventCopyWith<$Res> {
-  _$InitHomeNavigatorEventCopyWithImpl(InitHomeNavigatorEvent _value,
-      $Res Function(InitHomeNavigatorEvent) _then)
-      : super(_value, (v) => _then(v as InitHomeNavigatorEvent));
+class _$InitHomeFlowEventCopyWithImpl<$Res>
+    extends _$HomeFlowEventCopyWithImpl<$Res>
+    implements $InitHomeFlowEventCopyWith<$Res> {
+  _$InitHomeFlowEventCopyWithImpl(
+      InitHomeFlowEvent _value, $Res Function(InitHomeFlowEvent) _then)
+      : super(_value, (v) => _then(v as InitHomeFlowEvent));
 
   @override
-  InitHomeNavigatorEvent get _value => super._value as InitHomeNavigatorEvent;
+  InitHomeFlowEvent get _value => super._value as InitHomeFlowEvent;
 }
 
 /// @nodoc
-class _$InitHomeNavigatorEvent extends InitHomeNavigatorEvent {
-  const _$InitHomeNavigatorEvent() : super._();
+class _$InitHomeFlowEvent extends InitHomeFlowEvent {
+  const _$InitHomeFlowEvent() : super._();
 
   @override
   String toString() {
-    return 'HomeNavigatorEvent.init()';
+    return 'HomeFlowEvent.init()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is InitHomeNavigatorEvent);
+    return identical(this, other) || (other is InitHomeFlowEvent);
   }
 
   @override
@@ -123,7 +123,7 @@ class _$InitHomeNavigatorEvent extends InitHomeNavigatorEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult init(InitHomeNavigatorEvent value),
+    @required TResult init(InitHomeFlowEvent value),
   }) {
     assert(init != null);
     return init(this);
@@ -132,7 +132,7 @@ class _$InitHomeNavigatorEvent extends InitHomeNavigatorEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult init(InitHomeNavigatorEvent value),
+    TResult init(InitHomeFlowEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -143,27 +143,27 @@ class _$InitHomeNavigatorEvent extends InitHomeNavigatorEvent {
   }
 }
 
-abstract class InitHomeNavigatorEvent extends HomeNavigatorEvent {
-  const InitHomeNavigatorEvent._() : super._();
-  const factory InitHomeNavigatorEvent() = _$InitHomeNavigatorEvent;
+abstract class InitHomeFlowEvent extends HomeFlowEvent {
+  const InitHomeFlowEvent._() : super._();
+  const factory InitHomeFlowEvent() = _$InitHomeFlowEvent;
 }
 
 /// @nodoc
-class _$HomeNavigatorStateTearOff {
-  const _$HomeNavigatorStateTearOff();
+class _$HomeFlowStateTearOff {
+  const _$HomeFlowStateTearOff();
 
 // ignore: unused_element
-  InitialHomeNavigatorState initial() {
-    return const InitialHomeNavigatorState();
+  InitialHomeFlowState initial() {
+    return const InitialHomeFlowState();
   }
 }
 
 /// @nodoc
 // ignore: unused_element
-const $HomeNavigatorState = _$HomeNavigatorStateTearOff();
+const $HomeFlowState = _$HomeFlowStateTearOff();
 
 /// @nodoc
-mixin _$HomeNavigatorState {
+mixin _$HomeFlowState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
@@ -175,64 +175,63 @@ mixin _$HomeNavigatorState {
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult initial(InitialHomeNavigatorState value),
+    @required TResult initial(InitialHomeFlowState value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialHomeNavigatorState value),
+    TResult initial(InitialHomeFlowState value),
     @required TResult orElse(),
   });
 }
 
 /// @nodoc
-abstract class $HomeNavigatorStateCopyWith<$Res> {
-  factory $HomeNavigatorStateCopyWith(
-          HomeNavigatorState value, $Res Function(HomeNavigatorState) then) =
-      _$HomeNavigatorStateCopyWithImpl<$Res>;
+abstract class $HomeFlowStateCopyWith<$Res> {
+  factory $HomeFlowStateCopyWith(
+          HomeFlowState value, $Res Function(HomeFlowState) then) =
+      _$HomeFlowStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$HomeNavigatorStateCopyWithImpl<$Res>
-    implements $HomeNavigatorStateCopyWith<$Res> {
-  _$HomeNavigatorStateCopyWithImpl(this._value, this._then);
+class _$HomeFlowStateCopyWithImpl<$Res>
+    implements $HomeFlowStateCopyWith<$Res> {
+  _$HomeFlowStateCopyWithImpl(this._value, this._then);
 
-  final HomeNavigatorState _value;
+  final HomeFlowState _value;
   // ignore: unused_field
-  final $Res Function(HomeNavigatorState) _then;
+  final $Res Function(HomeFlowState) _then;
 }
 
 /// @nodoc
-abstract class $InitialHomeNavigatorStateCopyWith<$Res> {
-  factory $InitialHomeNavigatorStateCopyWith(InitialHomeNavigatorState value,
-          $Res Function(InitialHomeNavigatorState) then) =
-      _$InitialHomeNavigatorStateCopyWithImpl<$Res>;
+abstract class $InitialHomeFlowStateCopyWith<$Res> {
+  factory $InitialHomeFlowStateCopyWith(InitialHomeFlowState value,
+          $Res Function(InitialHomeFlowState) then) =
+      _$InitialHomeFlowStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$InitialHomeNavigatorStateCopyWithImpl<$Res>
-    extends _$HomeNavigatorStateCopyWithImpl<$Res>
-    implements $InitialHomeNavigatorStateCopyWith<$Res> {
-  _$InitialHomeNavigatorStateCopyWithImpl(InitialHomeNavigatorState _value,
-      $Res Function(InitialHomeNavigatorState) _then)
-      : super(_value, (v) => _then(v as InitialHomeNavigatorState));
+class _$InitialHomeFlowStateCopyWithImpl<$Res>
+    extends _$HomeFlowStateCopyWithImpl<$Res>
+    implements $InitialHomeFlowStateCopyWith<$Res> {
+  _$InitialHomeFlowStateCopyWithImpl(
+      InitialHomeFlowState _value, $Res Function(InitialHomeFlowState) _then)
+      : super(_value, (v) => _then(v as InitialHomeFlowState));
 
   @override
-  InitialHomeNavigatorState get _value =>
-      super._value as InitialHomeNavigatorState;
+  InitialHomeFlowState get _value => super._value as InitialHomeFlowState;
 }
 
 /// @nodoc
-class _$InitialHomeNavigatorState extends InitialHomeNavigatorState {
-  const _$InitialHomeNavigatorState() : super._();
+class _$InitialHomeFlowState extends InitialHomeFlowState {
+  const _$InitialHomeFlowState() : super._();
 
   @override
   String toString() {
-    return 'HomeNavigatorState.initial()';
+    return 'HomeFlowState.initial()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is InitialHomeNavigatorState);
+    return identical(this, other) || (other is InitialHomeFlowState);
   }
 
   @override
@@ -263,7 +262,7 @@ class _$InitialHomeNavigatorState extends InitialHomeNavigatorState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult initial(InitialHomeNavigatorState value),
+    @required TResult initial(InitialHomeFlowState value),
   }) {
     assert(initial != null);
     return initial(this);
@@ -272,7 +271,7 @@ class _$InitialHomeNavigatorState extends InitialHomeNavigatorState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialHomeNavigatorState value),
+    TResult initial(InitialHomeFlowState value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -283,7 +282,7 @@ class _$InitialHomeNavigatorState extends InitialHomeNavigatorState {
   }
 }
 
-abstract class InitialHomeNavigatorState extends HomeNavigatorState {
-  const InitialHomeNavigatorState._() : super._();
-  const factory InitialHomeNavigatorState() = _$InitialHomeNavigatorState;
+abstract class InitialHomeFlowState extends HomeFlowState {
+  const InitialHomeFlowState._() : super._();
+  const factory InitialHomeFlowState() = _$InitialHomeFlowState;
 }

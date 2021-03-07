@@ -4,34 +4,34 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'initial_navigator.freezed.dart';
 
 @freezed
-abstract class InitialNavigatorEvent with _$InitialNavigatorEvent {
-  const InitialNavigatorEvent._();
+abstract class InitialFlowEvent with _$InitialFlowEvent {
+  const InitialFlowEvent._();
 
-  const factory InitialNavigatorEvent.init() = InitInitialNavigatorEvent;
+  const factory InitialFlowEvent.init() = InitInitialFlowEvent;
 }
 
 @freezed
-abstract class InitialNavigatorState with _$InitialNavigatorState {
-  const InitialNavigatorState._();
+abstract class InitialFlowState with _$InitialFlowState {
+  const InitialFlowState._();
 
-  const factory InitialNavigatorState.primary() = PrimaryInitialNavigatorState;
-  const factory InitialNavigatorState.authorized() =
-      AuthorizedInitialNavigatorState;
-  const factory InitialNavigatorState.unAuthorized() =
-      UnAuthorizedInitialNavigatorState;
+  const factory InitialFlowState.primary() = PrimaryInitialFlowState;
+  const factory InitialFlowState.authorized() =
+      AuthorizedInitialFlowState;
+  const factory InitialFlowState.unAuthorized() =
+      UnAuthorizedInitialFlowState;
 }
 
-class InitialNavigatorBLoC
-    extends Bloc<InitialNavigatorEvent, InitialNavigatorState> {
-  InitialNavigatorBLoC() : super(const PrimaryInitialNavigatorState());
+class InitialFlowBLoC
+    extends Bloc<InitialFlowEvent, InitialFlowState> {
+  InitialFlowBLoC() : super(const PrimaryInitialFlowState());
 
   @override
-  Stream<InitialNavigatorState> mapEventToState(InitialNavigatorEvent event) =>
-      event.when<Stream<InitialNavigatorState>>(
+  Stream<InitialFlowState> mapEventToState(InitialFlowEvent event) =>
+      event.when<Stream<InitialFlowState>>(
         init: _init,
       );
 
-  Stream<InitialNavigatorState> _init() async* {
-    yield const InitialNavigatorState.authorized();
+  Stream<InitialFlowState> _init() async* {
+    yield const InitialFlowState.authorized();
   }
 }
