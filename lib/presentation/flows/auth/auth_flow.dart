@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flow_builder/flow_builder.dart';
-import 'package:nyt_app/presentation/flows/auth/auth/pages/auth_screen.dart';
-import 'package:nyt_app/presentation/flows/auth/auth/pages/sign_up.dart';
+import 'package:nyt_app/presentation/flows/auth/pages/auth_screen.dart';
+import 'package:nyt_app/presentation/flows/auth/pages/sign_up.dart';
 import 'package:nyt_app/src/navigation_bloc/auth_navigator.dart';
 
 class AuthFlow extends StatefulWidget {
