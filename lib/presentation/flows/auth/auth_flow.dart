@@ -1,6 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flow_builder/flow_builder.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nyt_app/presentation/flows/auth/pages/auth_screen.dart';
+import 'package:nyt_app/presentation/flows/auth/pages/sign_in.dart';
 import 'package:nyt_app/presentation/flows/auth/pages/sign_up.dart';
 import 'package:nyt_app/src/navigation_bloc/auth_navigator.dart';
 
@@ -14,17 +18,37 @@ class AuthFlow extends StatefulWidget {
 }
 
 class _AuthFlowState extends State<AuthFlow> {
+  FlowController<AuthFlowState> flowController;
+
+  @override
+  void initState() {
+    super.initState();
+    flowController = FlowController<AuthFlowState>(
+        BlocProvider.of<AuthFlowBLoC>(context).state);
+  }
+
+  @override
+  void dispose() {
+    flowController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return FlowBuilder(
-      state: AuthFlowState,
-      onGeneratePages: (authFlowState, pages) {
-        return [
-          if (authFlowState is UnauthorizedAuthFlowState) AuthScreen.page(),
-          if (authFlowState is AuthorizedAuthFlowEvent) SignUp.page(),
-          /* MaterialPage(child: NameForm()),
-          if (profile.name != null) MaterialPage(child: AgeForm()), */
-        ];
+    return BlocBuilder<AuthFlowBLoC, AuthFlowState>(
+      buildWhen: (previous, current) => previous != current,
+      builder: (context, state) {
+        flowController.update((_) => state);
+        return FlowBuilder(
+          controller: flowController,
+          onGeneratePages: (authFlowState, pages) {
+            return [
+              AuthScreen.page(),
+              if (authFlowState is SignUpAuthFlowState) SignUp.page(),
+              if (authFlowState is SignInAuthFlowState) SignIn.page(),
+            ];
+          },
+        );
       },
     );
   }

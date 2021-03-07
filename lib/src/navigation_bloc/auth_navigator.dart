@@ -17,14 +17,13 @@ abstract class AuthFlowEvent with _$AuthFlowEvent {
 abstract class AuthFlowState with _$AuthFlowState {
   const AuthFlowState._();
 
-  const factory AuthFlowState.initial() = InitialAuthFlowEvent;
-  const factory AuthFlowState.authorized() = AuthorizedAuthFlowEvent;
-  const factory AuthFlowState.unauthorized() =
-      UnauthorizedAuthFlowState;
+  const factory AuthFlowState.initial() = InitialAuthFlowState;
+  const factory AuthFlowState.signIn() = SignInAuthFlowState;
+  const factory AuthFlowState.signUp() = SignUpAuthFlowState;
 }
 
 class AuthFlowBLoC extends Bloc<AuthFlowEvent, AuthFlowState> {
-  AuthFlowBLoC() : super(const InitialAuthFlowEvent());
+  AuthFlowBLoC() : super(const InitialAuthFlowState());
 
   @override
   Stream<AuthFlowState> mapEventToState(AuthFlowEvent event) =>
@@ -35,15 +34,14 @@ class AuthFlowBLoC extends Bloc<AuthFlowEvent, AuthFlowState> {
       );
 
   Stream<AuthFlowState> _signIn() async* {
-    yield const AuthFlowState.authorized();
+    yield const AuthFlowState.signIn();
   }
 
   Stream<AuthFlowState> _signUp() async* {
-    yield const AuthFlowState.authorized();
+    yield const AuthFlowState.signUp();
   }
 
   Stream<AuthFlowState> _init() async* {
     // ...
   }
-
 }

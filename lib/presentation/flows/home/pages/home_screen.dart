@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nyt_app/constants/routers_name.dart';
 import 'package:nyt_app/models/news_item.dart';
 import 'package:nyt_app/src/bloc/news.dart';
 import 'package:nyt_app/src/repositories/news_repo.dart';
@@ -44,9 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.account_box),
-            onPressed: () {
-              Navigator.of(context).pushNamed(authRoute);
-            },
+            onPressed: () {},
           )
         ],
         title: const Text('New York Times News'),

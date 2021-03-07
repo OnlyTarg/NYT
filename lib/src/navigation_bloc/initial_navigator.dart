@@ -15,14 +15,11 @@ abstract class InitialFlowState with _$InitialFlowState {
   const InitialFlowState._();
 
   const factory InitialFlowState.primary() = PrimaryInitialFlowState;
-  const factory InitialFlowState.authorized() =
-      AuthorizedInitialFlowState;
-  const factory InitialFlowState.unAuthorized() =
-      UnAuthorizedInitialFlowState;
+  const factory InitialFlowState.authorized() = AuthorizedInitialFlowState;
+  const factory InitialFlowState.unAuthorized() = UnAuthorizedInitialFlowState;
 }
 
-class InitialFlowBLoC
-    extends Bloc<InitialFlowEvent, InitialFlowState> {
+class InitialFlowBLoC extends Bloc<InitialFlowEvent, InitialFlowState> {
   InitialFlowBLoC() : super(const PrimaryInitialFlowState());
 
   @override
@@ -32,6 +29,6 @@ class InitialFlowBLoC
       );
 
   Stream<InitialFlowState> _init() async* {
-    yield const InitialFlowState.authorized();
+    yield const InitialFlowState.unAuthorized();
   }
 }

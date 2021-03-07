@@ -17,7 +17,7 @@ class AuthRepo extends BaseAuthorizationRepo {
         email: email,
         password: password,
       );
-      print('User is authorized!');
+      print('User is signed up and authorized!');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         print('The password provided is too weak.');

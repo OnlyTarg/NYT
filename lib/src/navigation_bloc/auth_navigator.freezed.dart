@@ -379,18 +379,18 @@ class _$AuthFlowStateTearOff {
   const _$AuthFlowStateTearOff();
 
 // ignore: unused_element
-  InitialAuthFlowEvent initial() {
-    return const InitialAuthFlowEvent();
+  InitialAuthFlowState initial() {
+    return const InitialAuthFlowState();
   }
 
 // ignore: unused_element
-  AuthorizedAuthFlowEvent authorized() {
-    return const AuthorizedAuthFlowEvent();
+  SignInAuthFlowState signIn() {
+    return const SignInAuthFlowState();
   }
 
 // ignore: unused_element
-  UnauthorizedAuthFlowState unauthorized() {
-    return const UnauthorizedAuthFlowState();
+  SignUpAuthFlowState signUp() {
+    return const SignUpAuthFlowState();
   }
 }
 
@@ -403,27 +403,27 @@ mixin _$AuthFlowState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
-    @required TResult authorized(),
-    @required TResult unauthorized(),
+    @required TResult signIn(),
+    @required TResult signUp(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
-    TResult authorized(),
-    TResult unauthorized(),
+    TResult signIn(),
+    TResult signUp(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult initial(InitialAuthFlowEvent value),
-    @required TResult authorized(AuthorizedAuthFlowEvent value),
-    @required TResult unauthorized(UnauthorizedAuthFlowState value),
+    @required TResult initial(InitialAuthFlowState value),
+    @required TResult signIn(SignInAuthFlowState value),
+    @required TResult signUp(SignUpAuthFlowState value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialAuthFlowEvent value),
-    TResult authorized(AuthorizedAuthFlowEvent value),
-    TResult unauthorized(UnauthorizedAuthFlowState value),
+    TResult initial(InitialAuthFlowState value),
+    TResult signIn(SignInAuthFlowState value),
+    TResult signUp(SignUpAuthFlowState value),
     @required TResult orElse(),
   });
 }
@@ -446,27 +446,27 @@ class _$AuthFlowStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $InitialAuthFlowEventCopyWith<$Res> {
-  factory $InitialAuthFlowEventCopyWith(InitialAuthFlowEvent value,
-          $Res Function(InitialAuthFlowEvent) then) =
-      _$InitialAuthFlowEventCopyWithImpl<$Res>;
+abstract class $InitialAuthFlowStateCopyWith<$Res> {
+  factory $InitialAuthFlowStateCopyWith(InitialAuthFlowState value,
+          $Res Function(InitialAuthFlowState) then) =
+      _$InitialAuthFlowStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$InitialAuthFlowEventCopyWithImpl<$Res>
+class _$InitialAuthFlowStateCopyWithImpl<$Res>
     extends _$AuthFlowStateCopyWithImpl<$Res>
-    implements $InitialAuthFlowEventCopyWith<$Res> {
-  _$InitialAuthFlowEventCopyWithImpl(
-      InitialAuthFlowEvent _value, $Res Function(InitialAuthFlowEvent) _then)
-      : super(_value, (v) => _then(v as InitialAuthFlowEvent));
+    implements $InitialAuthFlowStateCopyWith<$Res> {
+  _$InitialAuthFlowStateCopyWithImpl(
+      InitialAuthFlowState _value, $Res Function(InitialAuthFlowState) _then)
+      : super(_value, (v) => _then(v as InitialAuthFlowState));
 
   @override
-  InitialAuthFlowEvent get _value => super._value as InitialAuthFlowEvent;
+  InitialAuthFlowState get _value => super._value as InitialAuthFlowState;
 }
 
 /// @nodoc
-class _$InitialAuthFlowEvent extends InitialAuthFlowEvent {
-  const _$InitialAuthFlowEvent() : super._();
+class _$InitialAuthFlowState extends InitialAuthFlowState {
+  const _$InitialAuthFlowState() : super._();
 
   @override
   String toString() {
@@ -475,7 +475,7 @@ class _$InitialAuthFlowEvent extends InitialAuthFlowEvent {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is InitialAuthFlowEvent);
+    return identical(this, other) || (other is InitialAuthFlowState);
   }
 
   @override
@@ -485,12 +485,12 @@ class _$InitialAuthFlowEvent extends InitialAuthFlowEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
-    @required TResult authorized(),
-    @required TResult unauthorized(),
+    @required TResult signIn(),
+    @required TResult signUp(),
   }) {
     assert(initial != null);
-    assert(authorized != null);
-    assert(unauthorized != null);
+    assert(signIn != null);
+    assert(signUp != null);
     return initial();
   }
 
@@ -498,8 +498,8 @@ class _$InitialAuthFlowEvent extends InitialAuthFlowEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
-    TResult authorized(),
-    TResult unauthorized(),
+    TResult signIn(),
+    TResult signUp(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -512,22 +512,22 @@ class _$InitialAuthFlowEvent extends InitialAuthFlowEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult initial(InitialAuthFlowEvent value),
-    @required TResult authorized(AuthorizedAuthFlowEvent value),
-    @required TResult unauthorized(UnauthorizedAuthFlowState value),
+    @required TResult initial(InitialAuthFlowState value),
+    @required TResult signIn(SignInAuthFlowState value),
+    @required TResult signUp(SignUpAuthFlowState value),
   }) {
     assert(initial != null);
-    assert(authorized != null);
-    assert(unauthorized != null);
+    assert(signIn != null);
+    assert(signUp != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialAuthFlowEvent value),
-    TResult authorized(AuthorizedAuthFlowEvent value),
-    TResult unauthorized(UnauthorizedAuthFlowState value),
+    TResult initial(InitialAuthFlowState value),
+    TResult signIn(SignInAuthFlowState value),
+    TResult signUp(SignUpAuthFlowState value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -538,42 +538,42 @@ class _$InitialAuthFlowEvent extends InitialAuthFlowEvent {
   }
 }
 
-abstract class InitialAuthFlowEvent extends AuthFlowState {
-  const InitialAuthFlowEvent._() : super._();
-  const factory InitialAuthFlowEvent() = _$InitialAuthFlowEvent;
+abstract class InitialAuthFlowState extends AuthFlowState {
+  const InitialAuthFlowState._() : super._();
+  const factory InitialAuthFlowState() = _$InitialAuthFlowState;
 }
 
 /// @nodoc
-abstract class $AuthorizedAuthFlowEventCopyWith<$Res> {
-  factory $AuthorizedAuthFlowEventCopyWith(AuthorizedAuthFlowEvent value,
-          $Res Function(AuthorizedAuthFlowEvent) then) =
-      _$AuthorizedAuthFlowEventCopyWithImpl<$Res>;
+abstract class $SignInAuthFlowStateCopyWith<$Res> {
+  factory $SignInAuthFlowStateCopyWith(
+          SignInAuthFlowState value, $Res Function(SignInAuthFlowState) then) =
+      _$SignInAuthFlowStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AuthorizedAuthFlowEventCopyWithImpl<$Res>
+class _$SignInAuthFlowStateCopyWithImpl<$Res>
     extends _$AuthFlowStateCopyWithImpl<$Res>
-    implements $AuthorizedAuthFlowEventCopyWith<$Res> {
-  _$AuthorizedAuthFlowEventCopyWithImpl(AuthorizedAuthFlowEvent _value,
-      $Res Function(AuthorizedAuthFlowEvent) _then)
-      : super(_value, (v) => _then(v as AuthorizedAuthFlowEvent));
+    implements $SignInAuthFlowStateCopyWith<$Res> {
+  _$SignInAuthFlowStateCopyWithImpl(
+      SignInAuthFlowState _value, $Res Function(SignInAuthFlowState) _then)
+      : super(_value, (v) => _then(v as SignInAuthFlowState));
 
   @override
-  AuthorizedAuthFlowEvent get _value => super._value as AuthorizedAuthFlowEvent;
+  SignInAuthFlowState get _value => super._value as SignInAuthFlowState;
 }
 
 /// @nodoc
-class _$AuthorizedAuthFlowEvent extends AuthorizedAuthFlowEvent {
-  const _$AuthorizedAuthFlowEvent() : super._();
+class _$SignInAuthFlowState extends SignInAuthFlowState {
+  const _$SignInAuthFlowState() : super._();
 
   @override
   String toString() {
-    return 'AuthFlowState.authorized()';
+    return 'AuthFlowState.signIn()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is AuthorizedAuthFlowEvent);
+    return identical(this, other) || (other is SignInAuthFlowState);
   }
 
   @override
@@ -583,26 +583,26 @@ class _$AuthorizedAuthFlowEvent extends AuthorizedAuthFlowEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
-    @required TResult authorized(),
-    @required TResult unauthorized(),
+    @required TResult signIn(),
+    @required TResult signUp(),
   }) {
     assert(initial != null);
-    assert(authorized != null);
-    assert(unauthorized != null);
-    return authorized();
+    assert(signIn != null);
+    assert(signUp != null);
+    return signIn();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
-    TResult authorized(),
-    TResult unauthorized(),
+    TResult signIn(),
+    TResult signUp(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (authorized != null) {
-      return authorized();
+    if (signIn != null) {
+      return signIn();
     }
     return orElse();
   }
@@ -610,69 +610,68 @@ class _$AuthorizedAuthFlowEvent extends AuthorizedAuthFlowEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult initial(InitialAuthFlowEvent value),
-    @required TResult authorized(AuthorizedAuthFlowEvent value),
-    @required TResult unauthorized(UnauthorizedAuthFlowState value),
+    @required TResult initial(InitialAuthFlowState value),
+    @required TResult signIn(SignInAuthFlowState value),
+    @required TResult signUp(SignUpAuthFlowState value),
   }) {
     assert(initial != null);
-    assert(authorized != null);
-    assert(unauthorized != null);
-    return authorized(this);
+    assert(signIn != null);
+    assert(signUp != null);
+    return signIn(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialAuthFlowEvent value),
-    TResult authorized(AuthorizedAuthFlowEvent value),
-    TResult unauthorized(UnauthorizedAuthFlowState value),
+    TResult initial(InitialAuthFlowState value),
+    TResult signIn(SignInAuthFlowState value),
+    TResult signUp(SignUpAuthFlowState value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (authorized != null) {
-      return authorized(this);
+    if (signIn != null) {
+      return signIn(this);
     }
     return orElse();
   }
 }
 
-abstract class AuthorizedAuthFlowEvent extends AuthFlowState {
-  const AuthorizedAuthFlowEvent._() : super._();
-  const factory AuthorizedAuthFlowEvent() = _$AuthorizedAuthFlowEvent;
+abstract class SignInAuthFlowState extends AuthFlowState {
+  const SignInAuthFlowState._() : super._();
+  const factory SignInAuthFlowState() = _$SignInAuthFlowState;
 }
 
 /// @nodoc
-abstract class $UnauthorizedAuthFlowStateCopyWith<$Res> {
-  factory $UnauthorizedAuthFlowStateCopyWith(UnauthorizedAuthFlowState value,
-          $Res Function(UnauthorizedAuthFlowState) then) =
-      _$UnauthorizedAuthFlowStateCopyWithImpl<$Res>;
+abstract class $SignUpAuthFlowStateCopyWith<$Res> {
+  factory $SignUpAuthFlowStateCopyWith(
+          SignUpAuthFlowState value, $Res Function(SignUpAuthFlowState) then) =
+      _$SignUpAuthFlowStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$UnauthorizedAuthFlowStateCopyWithImpl<$Res>
+class _$SignUpAuthFlowStateCopyWithImpl<$Res>
     extends _$AuthFlowStateCopyWithImpl<$Res>
-    implements $UnauthorizedAuthFlowStateCopyWith<$Res> {
-  _$UnauthorizedAuthFlowStateCopyWithImpl(UnauthorizedAuthFlowState _value,
-      $Res Function(UnauthorizedAuthFlowState) _then)
-      : super(_value, (v) => _then(v as UnauthorizedAuthFlowState));
+    implements $SignUpAuthFlowStateCopyWith<$Res> {
+  _$SignUpAuthFlowStateCopyWithImpl(
+      SignUpAuthFlowState _value, $Res Function(SignUpAuthFlowState) _then)
+      : super(_value, (v) => _then(v as SignUpAuthFlowState));
 
   @override
-  UnauthorizedAuthFlowState get _value =>
-      super._value as UnauthorizedAuthFlowState;
+  SignUpAuthFlowState get _value => super._value as SignUpAuthFlowState;
 }
 
 /// @nodoc
-class _$UnauthorizedAuthFlowState extends UnauthorizedAuthFlowState {
-  const _$UnauthorizedAuthFlowState() : super._();
+class _$SignUpAuthFlowState extends SignUpAuthFlowState {
+  const _$SignUpAuthFlowState() : super._();
 
   @override
   String toString() {
-    return 'AuthFlowState.unauthorized()';
+    return 'AuthFlowState.signUp()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is UnauthorizedAuthFlowState);
+    return identical(this, other) || (other is SignUpAuthFlowState);
   }
 
   @override
@@ -682,26 +681,26 @@ class _$UnauthorizedAuthFlowState extends UnauthorizedAuthFlowState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
-    @required TResult authorized(),
-    @required TResult unauthorized(),
+    @required TResult signIn(),
+    @required TResult signUp(),
   }) {
     assert(initial != null);
-    assert(authorized != null);
-    assert(unauthorized != null);
-    return unauthorized();
+    assert(signIn != null);
+    assert(signUp != null);
+    return signUp();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
-    TResult authorized(),
-    TResult unauthorized(),
+    TResult signIn(),
+    TResult signUp(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (unauthorized != null) {
-      return unauthorized();
+    if (signUp != null) {
+      return signUp();
     }
     return orElse();
   }
@@ -709,33 +708,33 @@ class _$UnauthorizedAuthFlowState extends UnauthorizedAuthFlowState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
-    @required TResult initial(InitialAuthFlowEvent value),
-    @required TResult authorized(AuthorizedAuthFlowEvent value),
-    @required TResult unauthorized(UnauthorizedAuthFlowState value),
+    @required TResult initial(InitialAuthFlowState value),
+    @required TResult signIn(SignInAuthFlowState value),
+    @required TResult signUp(SignUpAuthFlowState value),
   }) {
     assert(initial != null);
-    assert(authorized != null);
-    assert(unauthorized != null);
-    return unauthorized(this);
+    assert(signIn != null);
+    assert(signUp != null);
+    return signUp(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialAuthFlowEvent value),
-    TResult authorized(AuthorizedAuthFlowEvent value),
-    TResult unauthorized(UnauthorizedAuthFlowState value),
+    TResult initial(InitialAuthFlowState value),
+    TResult signIn(SignInAuthFlowState value),
+    TResult signUp(SignUpAuthFlowState value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (unauthorized != null) {
-      return unauthorized(this);
+    if (signUp != null) {
+      return signUp(this);
     }
     return orElse();
   }
 }
 
-abstract class UnauthorizedAuthFlowState extends AuthFlowState {
-  const UnauthorizedAuthFlowState._() : super._();
-  const factory UnauthorizedAuthFlowState() = _$UnauthorizedAuthFlowState;
+abstract class SignUpAuthFlowState extends AuthFlowState {
+  const SignUpAuthFlowState._() : super._();
+  const factory SignUpAuthFlowState() = _$SignUpAuthFlowState;
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nyt_app/constants/routers_name.dart';
+import 'package:nyt_app/presentation/widgets/input_field.dart';
 import 'package:nyt_app/src/bloc/auth/auth_bloc.dart';
 
 class SignUp extends StatefulWidget {
@@ -64,7 +64,6 @@ class _SignUpState extends State<SignUp> {
                     password: passwordController.text,
                   ),
                 );
-                Navigator.of(context).pushReplacementNamed(homeRoute);
 
                 //_key.currentState.save();
               },
@@ -73,26 +72,7 @@ class _SignUpState extends State<SignUp> {
           ],
         ),
       ),
-    )
-
-        /* BlocBuilder<AuthBLoC, AuthState>(
-        builder: (context, state) {
-          if (state is InitialAuthState) {
-
-          }
-          if (state is AuthorizingAuthState) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          if (state is AuthorizedAuthState) {
-            //Navigator.of(context).pushReplacementNamed(homeRoute);
-          }
-          if (state is AuthorizedAuthState) {
-            return const Center(child: Text('Error'));
-          }
-          return const Center(child: Text('Something wrong'));
-        },
-      ), */
-        );
+    ));
   }
 
   @override
@@ -104,37 +84,5 @@ class _SignUpState extends State<SignUp> {
     passwordFocus.dispose();
     confirmPasswordFocus.dispose();
     super.dispose();
-  }
-}
-
-class InputField extends StatelessWidget {
-  const InputField({
-    @required this.controller,
-    @required this.focusNode,
-    @required this.title,
-    Key key,
-  }) : super(key: key);
-
-  final TextEditingController controller;
-  final FocusNode focusNode;
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TextFormField(
-        decoration: InputDecoration(
-          labelText: title,
-          fillColor: Colors.white,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25.0),
-          ),
-          //fillColor: Colors.green
-        ),
-        controller: controller,
-        focusNode: focusNode,
-      ),
-    );
   }
 }
