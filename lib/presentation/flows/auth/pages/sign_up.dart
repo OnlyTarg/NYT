@@ -1,88 +1,89 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nyt_app/presentation/widgets/input_field.dart';
-import 'package:nyt_app/src/bloc/auth/auth_bloc.dart';
+import 'package:flutter_form_bloc/flutter_form_bloc.dart';
+import 'package:nyt_app/src/bloc/forms/signup_form_bloc.dart';
 
 class SignUp extends StatefulWidget {
-  static Page page() => const MaterialPage<void>(child: SignUp());
+  static Page page() => const MaterialPage<void>(
+        child: SignUp(),
+      );
+
   const SignUp({
     Key key,
   }) : super(key: key);
+
   @override
   _SignUpState createState() => _SignUpState();
 }
 
 class _SignUpState extends State<SignUp> {
-  TextEditingController emailController;
-  TextEditingController passwordController;
-  TextEditingController confirmPasswordController;
-  GlobalKey<FormState> key = GlobalKey<FormState>();
-  FocusNode emailFocus;
-  FocusNode passwordFocus;
-  FocusNode confirmPasswordFocus;
-
-  @override
-  void initState() {
-    super.initState();
-    emailController = TextEditingController();
-    passwordController = TextEditingController();
-    confirmPasswordController = TextEditingController();
-    emailFocus = FocusNode();
-    passwordFocus = FocusNode();
-    confirmPasswordFocus = FocusNode();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Form(
-      key: key,
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            InputField(
-              controller: emailController,
-              focusNode: emailFocus,
-              title: 'Email',
-            ),
-            InputField(
-              controller: passwordController,
-              focusNode: passwordFocus,
-              title: 'Password',
-            ),
-            InputField(
-              controller: confirmPasswordController,
-              focusNode: confirmPasswordFocus,
-              title: 'ConfirmPassword',
-            ),
-            RaisedButton(
-              onPressed: () {
-                BlocProvider.of<AuthBLoC>(context).add(
-                  AuthEvent.signUp(
-                    email: emailController.text,
-                    password: passwordController.text,
-                  ),
-                );
-
-                //_key.currentState.save();
+    return BlocProvider(
+      create: (context) => SignUpFormBloc(),
+      child: Builder(
+        builder: (context) {
+          // ignore: close_sinks
+          final signUpBloc = BlocProvider.of<SignUpFormBloc>(context);
+          return Scaffold(
+            resizeToAvoidBottomInset: false,
+            appBar: AppBar(title: const Text('Login')),
+            body: FormBlocListener<SignUpFormBloc, String, String>(
+              onSubmitting: (context, state) {
+                //LoadingDialog.show(context);
               },
-              child: const Text('Submit'),
-            )
-          ],
-        ),
-      ),
-    ));
-  }
+              onSuccess: (context, state) {
+                /*  LoadingDialog.hide(context);
 
-  @override
-  void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
-    confirmPasswordController.dispose();
-    emailFocus.dispose();
-    passwordFocus.dispose();
-    confirmPasswordFocus.dispose();
-    super.dispose();
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (_) => SuccessScreen())); */
+              },
+              onFailure: (context, state) {
+                /*  LoadingDialog.hide(context);
+
+                Scaffold.of(context).showSnackBar(
+                    SnackBar(content: Text(state.failureResponse))); */
+              },
+              child: SingleChildScrollView(
+                physics: const ClampingScrollPhysics(),
+                child: Column(
+                  children: <Widget>[
+                    TextFieldBlocBuilder(
+                      textFieldBloc: signUpBloc.email,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: const InputDecoration(
+                        labelText: 'Email',
+                        prefixIcon: Icon(Icons.email),
+                      ),
+                    ),
+                    TextFieldBlocBuilder(
+                      textFieldBloc: signUpBloc.password,
+                      suffixButton: SuffixButton.obscureText,
+                      decoration: const InputDecoration(
+                        labelText: 'Password',
+                        prefixIcon: Icon(Icons.lock),
+                      ),
+                    ),
+                    TextFieldBlocBuilder(
+                      textFieldBloc: signUpBloc.confirmPassword,
+                      suffixButton: SuffixButton.obscureText,
+                      decoration: const InputDecoration(
+                        labelText: 'ConfirmPassword',
+                        prefixIcon: Icon(Icons.lock),
+                      ),
+                    ),
+                    RaisedButton(
+                      onPressed: () {
+                        signUpBloc.submit();
+                      },
+                      child: const Text('Sign UP'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
   }
 }

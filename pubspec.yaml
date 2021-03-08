@@ -46,6 +46,8 @@ dev_dependencies:
   #validators
   email_validator: ^1.0.6
   formz: ^0.3.2
+  #form_bloc: ^0.19.1
+  flutter_form_bloc: ^0.19.0
 
   #firebase
   firebase_core: "0.7.0"
@@ -62,7 +64,7 @@ dev_dependencies:
 
   # utils
   equatable: ^1.2.5
-  rxdart: ^0.25.0
+  rxdart: ^0.24.1
   permission_handler: ^5.1.0+2
   intl: ^0.16.1
   url_launcher: ^5.7.10

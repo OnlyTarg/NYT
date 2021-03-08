@@ -14,8 +14,10 @@ class _$InitialFlowEventTearOff {
   const _$InitialFlowEventTearOff();
 
 // ignore: unused_element
-  InitInitialFlowEvent init() {
-    return const InitInitialFlowEvent();
+  InitInitialFlowEvent init({bool isAuthorized}) {
+    return InitInitialFlowEvent(
+      isAuthorized: isAuthorized,
+    );
   }
 }
 
@@ -25,13 +27,15 @@ const $InitialFlowEvent = _$InitialFlowEventTearOff();
 
 /// @nodoc
 mixin _$InitialFlowEvent {
+  bool get isAuthorized;
+
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult init(),
+    @required TResult init(bool isAuthorized),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult init(),
+    TResult init(bool isAuthorized),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -43,6 +47,9 @@ mixin _$InitialFlowEvent {
     TResult init(InitInitialFlowEvent value),
     @required TResult orElse(),
   });
+
+  @JsonKey(ignore: true)
+  $InitialFlowEventCopyWith<InitialFlowEvent> get copyWith;
 }
 
 /// @nodoc
@@ -50,6 +57,7 @@ abstract class $InitialFlowEventCopyWith<$Res> {
   factory $InitialFlowEventCopyWith(
           InitialFlowEvent value, $Res Function(InitialFlowEvent) then) =
       _$InitialFlowEventCopyWithImpl<$Res>;
+  $Res call({bool isAuthorized});
 }
 
 /// @nodoc
@@ -60,13 +68,26 @@ class _$InitialFlowEventCopyWithImpl<$Res>
   final InitialFlowEvent _value;
   // ignore: unused_field
   final $Res Function(InitialFlowEvent) _then;
+
+  @override
+  $Res call({
+    Object isAuthorized = freezed,
+  }) {
+    return _then(_value.copyWith(
+      isAuthorized:
+          isAuthorized == freezed ? _value.isAuthorized : isAuthorized as bool,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class $InitInitialFlowEventCopyWith<$Res> {
+abstract class $InitInitialFlowEventCopyWith<$Res>
+    implements $InitialFlowEventCopyWith<$Res> {
   factory $InitInitialFlowEventCopyWith(InitInitialFlowEvent value,
           $Res Function(InitInitialFlowEvent) then) =
       _$InitInitialFlowEventCopyWithImpl<$Res>;
+  @override
+  $Res call({bool isAuthorized});
 }
 
 /// @nodoc
@@ -79,43 +100,67 @@ class _$InitInitialFlowEventCopyWithImpl<$Res>
 
   @override
   InitInitialFlowEvent get _value => super._value as InitInitialFlowEvent;
+
+  @override
+  $Res call({
+    Object isAuthorized = freezed,
+  }) {
+    return _then(InitInitialFlowEvent(
+      isAuthorized:
+          isAuthorized == freezed ? _value.isAuthorized : isAuthorized as bool,
+    ));
+  }
 }
 
 /// @nodoc
 class _$InitInitialFlowEvent extends InitInitialFlowEvent {
-  const _$InitInitialFlowEvent() : super._();
+  const _$InitInitialFlowEvent({this.isAuthorized}) : super._();
+
+  @override
+  final bool isAuthorized;
 
   @override
   String toString() {
-    return 'InitialFlowEvent.init()';
+    return 'InitialFlowEvent.init(isAuthorized: $isAuthorized)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is InitInitialFlowEvent);
+    return identical(this, other) ||
+        (other is InitInitialFlowEvent &&
+            (identical(other.isAuthorized, isAuthorized) ||
+                const DeepCollectionEquality()
+                    .equals(other.isAuthorized, isAuthorized)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(isAuthorized);
+
+  @JsonKey(ignore: true)
+  @override
+  $InitInitialFlowEventCopyWith<InitInitialFlowEvent> get copyWith =>
+      _$InitInitialFlowEventCopyWithImpl<InitInitialFlowEvent>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
-    @required TResult init(),
+    @required TResult init(bool isAuthorized),
   }) {
     assert(init != null);
-    return init();
+    return init(isAuthorized);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
-    TResult init(),
+    TResult init(bool isAuthorized),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (init != null) {
-      return init();
+      return init(isAuthorized);
     }
     return orElse();
   }
@@ -145,7 +190,14 @@ class _$InitInitialFlowEvent extends InitInitialFlowEvent {
 
 abstract class InitInitialFlowEvent extends InitialFlowEvent {
   const InitInitialFlowEvent._() : super._();
-  const factory InitInitialFlowEvent() = _$InitInitialFlowEvent;
+  const factory InitInitialFlowEvent({bool isAuthorized}) =
+      _$InitInitialFlowEvent;
+
+  @override
+  bool get isAuthorized;
+  @override
+  @JsonKey(ignore: true)
+  $InitInitialFlowEventCopyWith<InitInitialFlowEvent> get copyWith;
 }
 
 /// @nodoc

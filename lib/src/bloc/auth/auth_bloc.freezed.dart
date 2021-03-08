@@ -37,6 +37,11 @@ class _$AuthEventTearOff {
   }
 
 // ignore: unused_element
+  LogoutAuthEvent logout() {
+    return const LogoutAuthEvent();
+  }
+
+// ignore: unused_element
   ErrorAuthEvent error() {
     return const ErrorAuthEvent();
   }
@@ -54,6 +59,7 @@ mixin _$AuthEvent {
     @required
         TResult signUp(String email, String password, String confirmPassword),
     @required TResult signIn(String email, String password),
+    @required TResult logout(),
     @required TResult error(),
   });
   @optionalTypeArgs
@@ -61,6 +67,7 @@ mixin _$AuthEvent {
     TResult initial(),
     TResult signUp(String email, String password, String confirmPassword),
     TResult signIn(String email, String password),
+    TResult logout(),
     TResult error(),
     @required TResult orElse(),
   });
@@ -69,6 +76,7 @@ mixin _$AuthEvent {
     @required TResult initial(InitialAuthEvent value),
     @required TResult signUp(SignUpAuthEvent value),
     @required TResult signIn(SignInAuthEvent value),
+    @required TResult logout(LogoutAuthEvent value),
     @required TResult error(ErrorAuthEvent value),
   });
   @optionalTypeArgs
@@ -76,6 +84,7 @@ mixin _$AuthEvent {
     TResult initial(InitialAuthEvent value),
     TResult signUp(SignUpAuthEvent value),
     TResult signIn(SignInAuthEvent value),
+    TResult logout(LogoutAuthEvent value),
     TResult error(ErrorAuthEvent value),
     @required TResult orElse(),
   });
@@ -138,11 +147,13 @@ class _$InitialAuthEvent extends InitialAuthEvent {
     @required
         TResult signUp(String email, String password, String confirmPassword),
     @required TResult signIn(String email, String password),
+    @required TResult logout(),
     @required TResult error(),
   }) {
     assert(initial != null);
     assert(signUp != null);
     assert(signIn != null);
+    assert(logout != null);
     assert(error != null);
     return initial();
   }
@@ -153,6 +164,7 @@ class _$InitialAuthEvent extends InitialAuthEvent {
     TResult initial(),
     TResult signUp(String email, String password, String confirmPassword),
     TResult signIn(String email, String password),
+    TResult logout(),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -169,11 +181,13 @@ class _$InitialAuthEvent extends InitialAuthEvent {
     @required TResult initial(InitialAuthEvent value),
     @required TResult signUp(SignUpAuthEvent value),
     @required TResult signIn(SignInAuthEvent value),
+    @required TResult logout(LogoutAuthEvent value),
     @required TResult error(ErrorAuthEvent value),
   }) {
     assert(initial != null);
     assert(signUp != null);
     assert(signIn != null);
+    assert(logout != null);
     assert(error != null);
     return initial(this);
   }
@@ -184,6 +198,7 @@ class _$InitialAuthEvent extends InitialAuthEvent {
     TResult initial(InitialAuthEvent value),
     TResult signUp(SignUpAuthEvent value),
     TResult signIn(SignInAuthEvent value),
+    TResult logout(LogoutAuthEvent value),
     TResult error(ErrorAuthEvent value),
     @required TResult orElse(),
   }) {
@@ -284,11 +299,13 @@ class _$SignUpAuthEvent extends SignUpAuthEvent {
     @required
         TResult signUp(String email, String password, String confirmPassword),
     @required TResult signIn(String email, String password),
+    @required TResult logout(),
     @required TResult error(),
   }) {
     assert(initial != null);
     assert(signUp != null);
     assert(signIn != null);
+    assert(logout != null);
     assert(error != null);
     return signUp(email, password, confirmPassword);
   }
@@ -299,6 +316,7 @@ class _$SignUpAuthEvent extends SignUpAuthEvent {
     TResult initial(),
     TResult signUp(String email, String password, String confirmPassword),
     TResult signIn(String email, String password),
+    TResult logout(),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -315,11 +333,13 @@ class _$SignUpAuthEvent extends SignUpAuthEvent {
     @required TResult initial(InitialAuthEvent value),
     @required TResult signUp(SignUpAuthEvent value),
     @required TResult signIn(SignInAuthEvent value),
+    @required TResult logout(LogoutAuthEvent value),
     @required TResult error(ErrorAuthEvent value),
   }) {
     assert(initial != null);
     assert(signUp != null);
     assert(signIn != null);
+    assert(logout != null);
     assert(error != null);
     return signUp(this);
   }
@@ -330,6 +350,7 @@ class _$SignUpAuthEvent extends SignUpAuthEvent {
     TResult initial(InitialAuthEvent value),
     TResult signUp(SignUpAuthEvent value),
     TResult signIn(SignInAuthEvent value),
+    TResult logout(LogoutAuthEvent value),
     TResult error(ErrorAuthEvent value),
     @required TResult orElse(),
   }) {
@@ -428,11 +449,13 @@ class _$SignInAuthEvent extends SignInAuthEvent {
     @required
         TResult signUp(String email, String password, String confirmPassword),
     @required TResult signIn(String email, String password),
+    @required TResult logout(),
     @required TResult error(),
   }) {
     assert(initial != null);
     assert(signUp != null);
     assert(signIn != null);
+    assert(logout != null);
     assert(error != null);
     return signIn(email, password);
   }
@@ -443,6 +466,7 @@ class _$SignInAuthEvent extends SignInAuthEvent {
     TResult initial(),
     TResult signUp(String email, String password, String confirmPassword),
     TResult signIn(String email, String password),
+    TResult logout(),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -459,11 +483,13 @@ class _$SignInAuthEvent extends SignInAuthEvent {
     @required TResult initial(InitialAuthEvent value),
     @required TResult signUp(SignUpAuthEvent value),
     @required TResult signIn(SignInAuthEvent value),
+    @required TResult logout(LogoutAuthEvent value),
     @required TResult error(ErrorAuthEvent value),
   }) {
     assert(initial != null);
     assert(signUp != null);
     assert(signIn != null);
+    assert(logout != null);
     assert(error != null);
     return signIn(this);
   }
@@ -474,6 +500,7 @@ class _$SignInAuthEvent extends SignInAuthEvent {
     TResult initial(InitialAuthEvent value),
     TResult signUp(SignUpAuthEvent value),
     TResult signIn(SignInAuthEvent value),
+    TResult logout(LogoutAuthEvent value),
     TResult error(ErrorAuthEvent value),
     @required TResult orElse(),
   }) {
@@ -494,6 +521,116 @@ abstract class SignInAuthEvent extends AuthEvent {
   String get password;
   @JsonKey(ignore: true)
   $SignInAuthEventCopyWith<SignInAuthEvent> get copyWith;
+}
+
+/// @nodoc
+abstract class $LogoutAuthEventCopyWith<$Res> {
+  factory $LogoutAuthEventCopyWith(
+          LogoutAuthEvent value, $Res Function(LogoutAuthEvent) then) =
+      _$LogoutAuthEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$LogoutAuthEventCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements $LogoutAuthEventCopyWith<$Res> {
+  _$LogoutAuthEventCopyWithImpl(
+      LogoutAuthEvent _value, $Res Function(LogoutAuthEvent) _then)
+      : super(_value, (v) => _then(v as LogoutAuthEvent));
+
+  @override
+  LogoutAuthEvent get _value => super._value as LogoutAuthEvent;
+}
+
+/// @nodoc
+class _$LogoutAuthEvent extends LogoutAuthEvent {
+  const _$LogoutAuthEvent() : super._();
+
+  @override
+  String toString() {
+    return 'AuthEvent.logout()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is LogoutAuthEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required
+        TResult signUp(String email, String password, String confirmPassword),
+    @required TResult signIn(String email, String password),
+    @required TResult logout(),
+    @required TResult error(),
+  }) {
+    assert(initial != null);
+    assert(signUp != null);
+    assert(signIn != null);
+    assert(logout != null);
+    assert(error != null);
+    return logout();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult signUp(String email, String password, String confirmPassword),
+    TResult signIn(String email, String password),
+    TResult logout(),
+    TResult error(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (logout != null) {
+      return logout();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(InitialAuthEvent value),
+    @required TResult signUp(SignUpAuthEvent value),
+    @required TResult signIn(SignInAuthEvent value),
+    @required TResult logout(LogoutAuthEvent value),
+    @required TResult error(ErrorAuthEvent value),
+  }) {
+    assert(initial != null);
+    assert(signUp != null);
+    assert(signIn != null);
+    assert(logout != null);
+    assert(error != null);
+    return logout(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(InitialAuthEvent value),
+    TResult signUp(SignUpAuthEvent value),
+    TResult signIn(SignInAuthEvent value),
+    TResult logout(LogoutAuthEvent value),
+    TResult error(ErrorAuthEvent value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (logout != null) {
+      return logout(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LogoutAuthEvent extends AuthEvent {
+  const LogoutAuthEvent._() : super._();
+  const factory LogoutAuthEvent() = _$LogoutAuthEvent;
 }
 
 /// @nodoc
@@ -538,11 +675,13 @@ class _$ErrorAuthEvent extends ErrorAuthEvent {
     @required
         TResult signUp(String email, String password, String confirmPassword),
     @required TResult signIn(String email, String password),
+    @required TResult logout(),
     @required TResult error(),
   }) {
     assert(initial != null);
     assert(signUp != null);
     assert(signIn != null);
+    assert(logout != null);
     assert(error != null);
     return error();
   }
@@ -553,6 +692,7 @@ class _$ErrorAuthEvent extends ErrorAuthEvent {
     TResult initial(),
     TResult signUp(String email, String password, String confirmPassword),
     TResult signIn(String email, String password),
+    TResult logout(),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -569,11 +709,13 @@ class _$ErrorAuthEvent extends ErrorAuthEvent {
     @required TResult initial(InitialAuthEvent value),
     @required TResult signUp(SignUpAuthEvent value),
     @required TResult signIn(SignInAuthEvent value),
+    @required TResult logout(LogoutAuthEvent value),
     @required TResult error(ErrorAuthEvent value),
   }) {
     assert(initial != null);
     assert(signUp != null);
     assert(signIn != null);
+    assert(logout != null);
     assert(error != null);
     return error(this);
   }
@@ -584,6 +726,7 @@ class _$ErrorAuthEvent extends ErrorAuthEvent {
     TResult initial(InitialAuthEvent value),
     TResult signUp(SignUpAuthEvent value),
     TResult signIn(SignInAuthEvent value),
+    TResult logout(LogoutAuthEvent value),
     TResult error(ErrorAuthEvent value),
     @required TResult orElse(),
   }) {
@@ -610,8 +753,8 @@ class _$AuthStateTearOff {
   }
 
 // ignore: unused_element
-  AuthorizingAuthState authorizing() {
-    return const AuthorizingAuthState();
+  LoadingAuthState loading() {
+    return const LoadingAuthState();
   }
 
 // ignore: unused_element
@@ -622,6 +765,11 @@ class _$AuthStateTearOff {
 // ignore: unused_element
   UnAuthorizedAuthState unAuthorized() {
     return const UnAuthorizedAuthState();
+  }
+
+// ignore: unused_element
+  LogOutSuccessAuthState logOutSuccess() {
+    return const LogOutSuccessAuthState();
   }
 
 // ignore: unused_element
@@ -639,34 +787,38 @@ mixin _$AuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
-    @required TResult authorizing(),
+    @required TResult loading(),
     @required TResult authorized(),
     @required TResult unAuthorized(),
+    @required TResult logOutSuccess(),
     @required TResult error(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
-    TResult authorizing(),
+    TResult loading(),
     TResult authorized(),
     TResult unAuthorized(),
+    TResult logOutSuccess(),
     TResult error(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(InitialAuthState value),
-    @required TResult authorizing(AuthorizingAuthState value),
+    @required TResult loading(LoadingAuthState value),
     @required TResult authorized(AuthorizedAuthState value),
     @required TResult unAuthorized(UnAuthorizedAuthState value),
+    @required TResult logOutSuccess(LogOutSuccessAuthState value),
     @required TResult error(ErrorAuthState value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(InitialAuthState value),
-    TResult authorizing(AuthorizingAuthState value),
+    TResult loading(LoadingAuthState value),
     TResult authorized(AuthorizedAuthState value),
     TResult unAuthorized(UnAuthorizedAuthState value),
+    TResult logOutSuccess(LogOutSuccessAuthState value),
     TResult error(ErrorAuthState value),
     @required TResult orElse(),
   });
@@ -726,15 +878,17 @@ class _$InitialAuthState extends InitialAuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
-    @required TResult authorizing(),
+    @required TResult loading(),
     @required TResult authorized(),
     @required TResult unAuthorized(),
+    @required TResult logOutSuccess(),
     @required TResult error(),
   }) {
     assert(initial != null);
-    assert(authorizing != null);
+    assert(loading != null);
     assert(authorized != null);
     assert(unAuthorized != null);
+    assert(logOutSuccess != null);
     assert(error != null);
     return initial();
   }
@@ -743,9 +897,10 @@ class _$InitialAuthState extends InitialAuthState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
-    TResult authorizing(),
+    TResult loading(),
     TResult authorized(),
     TResult unAuthorized(),
+    TResult logOutSuccess(),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -760,15 +915,17 @@ class _$InitialAuthState extends InitialAuthState {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(InitialAuthState value),
-    @required TResult authorizing(AuthorizingAuthState value),
+    @required TResult loading(LoadingAuthState value),
     @required TResult authorized(AuthorizedAuthState value),
     @required TResult unAuthorized(UnAuthorizedAuthState value),
+    @required TResult logOutSuccess(LogOutSuccessAuthState value),
     @required TResult error(ErrorAuthState value),
   }) {
     assert(initial != null);
-    assert(authorizing != null);
+    assert(loading != null);
     assert(authorized != null);
     assert(unAuthorized != null);
+    assert(logOutSuccess != null);
     assert(error != null);
     return initial(this);
   }
@@ -777,9 +934,10 @@ class _$InitialAuthState extends InitialAuthState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(InitialAuthState value),
-    TResult authorizing(AuthorizingAuthState value),
+    TResult loading(LoadingAuthState value),
     TResult authorized(AuthorizedAuthState value),
     TResult unAuthorized(UnAuthorizedAuthState value),
+    TResult logOutSuccess(LogOutSuccessAuthState value),
     TResult error(ErrorAuthState value),
     @required TResult orElse(),
   }) {
@@ -797,36 +955,35 @@ abstract class InitialAuthState extends AuthState {
 }
 
 /// @nodoc
-abstract class $AuthorizingAuthStateCopyWith<$Res> {
-  factory $AuthorizingAuthStateCopyWith(AuthorizingAuthState value,
-          $Res Function(AuthorizingAuthState) then) =
-      _$AuthorizingAuthStateCopyWithImpl<$Res>;
+abstract class $LoadingAuthStateCopyWith<$Res> {
+  factory $LoadingAuthStateCopyWith(
+          LoadingAuthState value, $Res Function(LoadingAuthState) then) =
+      _$LoadingAuthStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AuthorizingAuthStateCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res>
-    implements $AuthorizingAuthStateCopyWith<$Res> {
-  _$AuthorizingAuthStateCopyWithImpl(
-      AuthorizingAuthState _value, $Res Function(AuthorizingAuthState) _then)
-      : super(_value, (v) => _then(v as AuthorizingAuthState));
+class _$LoadingAuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
+    implements $LoadingAuthStateCopyWith<$Res> {
+  _$LoadingAuthStateCopyWithImpl(
+      LoadingAuthState _value, $Res Function(LoadingAuthState) _then)
+      : super(_value, (v) => _then(v as LoadingAuthState));
 
   @override
-  AuthorizingAuthState get _value => super._value as AuthorizingAuthState;
+  LoadingAuthState get _value => super._value as LoadingAuthState;
 }
 
 /// @nodoc
-class _$AuthorizingAuthState extends AuthorizingAuthState {
-  const _$AuthorizingAuthState() : super._();
+class _$LoadingAuthState extends LoadingAuthState {
+  const _$LoadingAuthState() : super._();
 
   @override
   String toString() {
-    return 'AuthState.authorizing()';
+    return 'AuthState.loading()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is AuthorizingAuthState);
+    return identical(this, other) || (other is LoadingAuthState);
   }
 
   @override
@@ -836,32 +993,35 @@ class _$AuthorizingAuthState extends AuthorizingAuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
-    @required TResult authorizing(),
+    @required TResult loading(),
     @required TResult authorized(),
     @required TResult unAuthorized(),
+    @required TResult logOutSuccess(),
     @required TResult error(),
   }) {
     assert(initial != null);
-    assert(authorizing != null);
+    assert(loading != null);
     assert(authorized != null);
     assert(unAuthorized != null);
+    assert(logOutSuccess != null);
     assert(error != null);
-    return authorizing();
+    return loading();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
-    TResult authorizing(),
+    TResult loading(),
     TResult authorized(),
     TResult unAuthorized(),
+    TResult logOutSuccess(),
     TResult error(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (authorizing != null) {
-      return authorizing();
+    if (loading != null) {
+      return loading();
     }
     return orElse();
   }
@@ -870,40 +1030,43 @@ class _$AuthorizingAuthState extends AuthorizingAuthState {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(InitialAuthState value),
-    @required TResult authorizing(AuthorizingAuthState value),
+    @required TResult loading(LoadingAuthState value),
     @required TResult authorized(AuthorizedAuthState value),
     @required TResult unAuthorized(UnAuthorizedAuthState value),
+    @required TResult logOutSuccess(LogOutSuccessAuthState value),
     @required TResult error(ErrorAuthState value),
   }) {
     assert(initial != null);
-    assert(authorizing != null);
+    assert(loading != null);
     assert(authorized != null);
     assert(unAuthorized != null);
+    assert(logOutSuccess != null);
     assert(error != null);
-    return authorizing(this);
+    return loading(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(InitialAuthState value),
-    TResult authorizing(AuthorizingAuthState value),
+    TResult loading(LoadingAuthState value),
     TResult authorized(AuthorizedAuthState value),
     TResult unAuthorized(UnAuthorizedAuthState value),
+    TResult logOutSuccess(LogOutSuccessAuthState value),
     TResult error(ErrorAuthState value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (authorizing != null) {
-      return authorizing(this);
+    if (loading != null) {
+      return loading(this);
     }
     return orElse();
   }
 }
 
-abstract class AuthorizingAuthState extends AuthState {
-  const AuthorizingAuthState._() : super._();
-  const factory AuthorizingAuthState() = _$AuthorizingAuthState;
+abstract class LoadingAuthState extends AuthState {
+  const LoadingAuthState._() : super._();
+  const factory LoadingAuthState() = _$LoadingAuthState;
 }
 
 /// @nodoc
@@ -946,15 +1109,17 @@ class _$AuthorizedAuthState extends AuthorizedAuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
-    @required TResult authorizing(),
+    @required TResult loading(),
     @required TResult authorized(),
     @required TResult unAuthorized(),
+    @required TResult logOutSuccess(),
     @required TResult error(),
   }) {
     assert(initial != null);
-    assert(authorizing != null);
+    assert(loading != null);
     assert(authorized != null);
     assert(unAuthorized != null);
+    assert(logOutSuccess != null);
     assert(error != null);
     return authorized();
   }
@@ -963,9 +1128,10 @@ class _$AuthorizedAuthState extends AuthorizedAuthState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
-    TResult authorizing(),
+    TResult loading(),
     TResult authorized(),
     TResult unAuthorized(),
+    TResult logOutSuccess(),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -980,15 +1146,17 @@ class _$AuthorizedAuthState extends AuthorizedAuthState {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(InitialAuthState value),
-    @required TResult authorizing(AuthorizingAuthState value),
+    @required TResult loading(LoadingAuthState value),
     @required TResult authorized(AuthorizedAuthState value),
     @required TResult unAuthorized(UnAuthorizedAuthState value),
+    @required TResult logOutSuccess(LogOutSuccessAuthState value),
     @required TResult error(ErrorAuthState value),
   }) {
     assert(initial != null);
-    assert(authorizing != null);
+    assert(loading != null);
     assert(authorized != null);
     assert(unAuthorized != null);
+    assert(logOutSuccess != null);
     assert(error != null);
     return authorized(this);
   }
@@ -997,9 +1165,10 @@ class _$AuthorizedAuthState extends AuthorizedAuthState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(InitialAuthState value),
-    TResult authorizing(AuthorizingAuthState value),
+    TResult loading(LoadingAuthState value),
     TResult authorized(AuthorizedAuthState value),
     TResult unAuthorized(UnAuthorizedAuthState value),
+    TResult logOutSuccess(LogOutSuccessAuthState value),
     TResult error(ErrorAuthState value),
     @required TResult orElse(),
   }) {
@@ -1056,15 +1225,17 @@ class _$UnAuthorizedAuthState extends UnAuthorizedAuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
-    @required TResult authorizing(),
+    @required TResult loading(),
     @required TResult authorized(),
     @required TResult unAuthorized(),
+    @required TResult logOutSuccess(),
     @required TResult error(),
   }) {
     assert(initial != null);
-    assert(authorizing != null);
+    assert(loading != null);
     assert(authorized != null);
     assert(unAuthorized != null);
+    assert(logOutSuccess != null);
     assert(error != null);
     return unAuthorized();
   }
@@ -1073,9 +1244,10 @@ class _$UnAuthorizedAuthState extends UnAuthorizedAuthState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
-    TResult authorizing(),
+    TResult loading(),
     TResult authorized(),
     TResult unAuthorized(),
+    TResult logOutSuccess(),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -1090,15 +1262,17 @@ class _$UnAuthorizedAuthState extends UnAuthorizedAuthState {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(InitialAuthState value),
-    @required TResult authorizing(AuthorizingAuthState value),
+    @required TResult loading(LoadingAuthState value),
     @required TResult authorized(AuthorizedAuthState value),
     @required TResult unAuthorized(UnAuthorizedAuthState value),
+    @required TResult logOutSuccess(LogOutSuccessAuthState value),
     @required TResult error(ErrorAuthState value),
   }) {
     assert(initial != null);
-    assert(authorizing != null);
+    assert(loading != null);
     assert(authorized != null);
     assert(unAuthorized != null);
+    assert(logOutSuccess != null);
     assert(error != null);
     return unAuthorized(this);
   }
@@ -1107,9 +1281,10 @@ class _$UnAuthorizedAuthState extends UnAuthorizedAuthState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(InitialAuthState value),
-    TResult authorizing(AuthorizingAuthState value),
+    TResult loading(LoadingAuthState value),
     TResult authorized(AuthorizedAuthState value),
     TResult unAuthorized(UnAuthorizedAuthState value),
+    TResult logOutSuccess(LogOutSuccessAuthState value),
     TResult error(ErrorAuthState value),
     @required TResult orElse(),
   }) {
@@ -1124,6 +1299,122 @@ class _$UnAuthorizedAuthState extends UnAuthorizedAuthState {
 abstract class UnAuthorizedAuthState extends AuthState {
   const UnAuthorizedAuthState._() : super._();
   const factory UnAuthorizedAuthState() = _$UnAuthorizedAuthState;
+}
+
+/// @nodoc
+abstract class $LogOutSuccessAuthStateCopyWith<$Res> {
+  factory $LogOutSuccessAuthStateCopyWith(LogOutSuccessAuthState value,
+          $Res Function(LogOutSuccessAuthState) then) =
+      _$LogOutSuccessAuthStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$LogOutSuccessAuthStateCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res>
+    implements $LogOutSuccessAuthStateCopyWith<$Res> {
+  _$LogOutSuccessAuthStateCopyWithImpl(LogOutSuccessAuthState _value,
+      $Res Function(LogOutSuccessAuthState) _then)
+      : super(_value, (v) => _then(v as LogOutSuccessAuthState));
+
+  @override
+  LogOutSuccessAuthState get _value => super._value as LogOutSuccessAuthState;
+}
+
+/// @nodoc
+class _$LogOutSuccessAuthState extends LogOutSuccessAuthState {
+  const _$LogOutSuccessAuthState() : super._();
+
+  @override
+  String toString() {
+    return 'AuthState.logOutSuccess()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is LogOutSuccessAuthState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loading(),
+    @required TResult authorized(),
+    @required TResult unAuthorized(),
+    @required TResult logOutSuccess(),
+    @required TResult error(),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(authorized != null);
+    assert(unAuthorized != null);
+    assert(logOutSuccess != null);
+    assert(error != null);
+    return logOutSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loading(),
+    TResult authorized(),
+    TResult unAuthorized(),
+    TResult logOutSuccess(),
+    TResult error(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (logOutSuccess != null) {
+      return logOutSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(InitialAuthState value),
+    @required TResult loading(LoadingAuthState value),
+    @required TResult authorized(AuthorizedAuthState value),
+    @required TResult unAuthorized(UnAuthorizedAuthState value),
+    @required TResult logOutSuccess(LogOutSuccessAuthState value),
+    @required TResult error(ErrorAuthState value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(authorized != null);
+    assert(unAuthorized != null);
+    assert(logOutSuccess != null);
+    assert(error != null);
+    return logOutSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(InitialAuthState value),
+    TResult loading(LoadingAuthState value),
+    TResult authorized(AuthorizedAuthState value),
+    TResult unAuthorized(UnAuthorizedAuthState value),
+    TResult logOutSuccess(LogOutSuccessAuthState value),
+    TResult error(ErrorAuthState value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (logOutSuccess != null) {
+      return logOutSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LogOutSuccessAuthState extends AuthState {
+  const LogOutSuccessAuthState._() : super._();
+  const factory LogOutSuccessAuthState() = _$LogOutSuccessAuthState;
 }
 
 /// @nodoc
@@ -1165,15 +1456,17 @@ class _$ErrorAuthState extends ErrorAuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
-    @required TResult authorizing(),
+    @required TResult loading(),
     @required TResult authorized(),
     @required TResult unAuthorized(),
+    @required TResult logOutSuccess(),
     @required TResult error(),
   }) {
     assert(initial != null);
-    assert(authorizing != null);
+    assert(loading != null);
     assert(authorized != null);
     assert(unAuthorized != null);
+    assert(logOutSuccess != null);
     assert(error != null);
     return error();
   }
@@ -1182,9 +1475,10 @@ class _$ErrorAuthState extends ErrorAuthState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
-    TResult authorizing(),
+    TResult loading(),
     TResult authorized(),
     TResult unAuthorized(),
+    TResult logOutSuccess(),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -1199,15 +1493,17 @@ class _$ErrorAuthState extends ErrorAuthState {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(InitialAuthState value),
-    @required TResult authorizing(AuthorizingAuthState value),
+    @required TResult loading(LoadingAuthState value),
     @required TResult authorized(AuthorizedAuthState value),
     @required TResult unAuthorized(UnAuthorizedAuthState value),
+    @required TResult logOutSuccess(LogOutSuccessAuthState value),
     @required TResult error(ErrorAuthState value),
   }) {
     assert(initial != null);
-    assert(authorizing != null);
+    assert(loading != null);
     assert(authorized != null);
     assert(unAuthorized != null);
+    assert(logOutSuccess != null);
     assert(error != null);
     return error(this);
   }
@@ -1216,9 +1512,10 @@ class _$ErrorAuthState extends ErrorAuthState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(InitialAuthState value),
-    TResult authorizing(AuthorizingAuthState value),
+    TResult loading(LoadingAuthState value),
     TResult authorized(AuthorizedAuthState value),
     TResult unAuthorized(UnAuthorizedAuthState value),
+    TResult logOutSuccess(LogOutSuccessAuthState value),
     TResult error(ErrorAuthState value),
     @required TResult orElse(),
   }) {
