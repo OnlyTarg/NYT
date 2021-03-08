@@ -28,4 +28,9 @@ class AuthRepo extends BaseAuthorizationRepo {
       print(e);
     }
   }
+
+  @override
+  Future<void> logOut() async {
+    await FirebaseAuth.instance.signOut();
+  }
 }

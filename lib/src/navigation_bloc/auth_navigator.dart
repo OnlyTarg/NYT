@@ -38,11 +38,13 @@ class AuthFlowBLoC extends Bloc<AuthFlowEvent, AuthFlowState> {
   }
 
   Stream<AuthFlowState> _signUp() async* {
-    yield const AuthFlowState.initial();
+    if (state is! InitialAuthFlowState) {
+      yield const AuthFlowState.initial();
+    }
     yield const AuthFlowState.signUp();
   }
 
   Stream<AuthFlowState> _init() async* {
-    // ...
+    yield const AuthFlowState.initial();
   }
 }

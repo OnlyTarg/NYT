@@ -67,7 +67,7 @@ class _SignUpState extends State<SignUp> {
                       textFieldBloc: signUpBloc.confirmPassword,
                       suffixButton: SuffixButton.obscureText,
                       decoration: const InputDecoration(
-                        labelText: 'Password',
+                        labelText: 'ConfirmPassword',
                         prefixIcon: Icon(Icons.lock),
                       ),
                     ),

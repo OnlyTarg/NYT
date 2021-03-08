@@ -45,8 +45,7 @@ class NYTApp extends StatelessWidget {
                     create: (context) => AuthFlowBLoC(),
                   ),
                   BlocProvider<InitialFlowBLoC>(
-                    create: (context) =>
-                        InitialFlowBLoC()..add(const InitialFlowEvent.init()),
+                    create: (context) => InitialFlowBLoC(),
                   ),
                   BlocProvider<HomeFlowBLoC>(
                     create: (context) => HomeFlowBLoC(),

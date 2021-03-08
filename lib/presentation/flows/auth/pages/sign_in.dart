@@ -17,13 +17,14 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  LoginFormBloC _loginFormBloc;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => LoginFormBloC(),
       child: Builder(
         builder: (context) {
-          final loginFormBloc = context.read<LoginFormBloC>();
+          _loginFormBloc = BlocProvider.of<LoginFormBloC>(context);
 
           return Scaffold(
             resizeToAvoidBottomInset: false,
@@ -49,7 +50,7 @@ class _SignInState extends State<SignIn> {
                 child: Column(
                   children: <Widget>[
                     TextFieldBlocBuilder(
-                      textFieldBloc: loginFormBloc.email,
+                      textFieldBloc: _loginFormBloc.email,
                       keyboardType: TextInputType.emailAddress,
                       decoration: const InputDecoration(
                         labelText: 'Email',
@@ -57,7 +58,7 @@ class _SignInState extends State<SignIn> {
                       ),
                     ),
                     TextFieldBlocBuilder(
-                      textFieldBloc: loginFormBloc.password,
+                      textFieldBloc: _loginFormBloc.password,
                       suffixButton: SuffixButton.obscureText,
                       decoration: const InputDecoration(
                         labelText: 'Password',
@@ -65,7 +66,7 @@ class _SignInState extends State<SignIn> {
                       ),
                     ),
                     RaisedButton(
-                      onPressed: loginFormBloc.submit,
+                      onPressed: _loginFormBloc.submit,
                       child: const Text('LOGIN'),
                     ),
                     const Divider(),
@@ -84,5 +85,11 @@ class _SignInState extends State<SignIn> {
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _loginFormBloc.close();
+    super.dispose();
   }
 }

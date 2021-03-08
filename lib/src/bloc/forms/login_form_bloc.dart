@@ -1,6 +1,6 @@
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 
-class LoginForm extends FormBloc<String, String> {
+class LoginFormBloC extends FormBloc<String, String> {
   // ignore: close_sinks
   final email = TextFieldBloc(
     validators: [
@@ -16,7 +16,7 @@ class LoginForm extends FormBloc<String, String> {
     ],
   );
 
-  LoginForm() {
+  LoginFormBloC() {
     addFieldBlocs(
       fieldBlocs: [
         email,
@@ -26,6 +26,7 @@ class LoginForm extends FormBloc<String, String> {
   }
 
   @override
+  // ignore: avoid_void_async
   void onSubmitting() async {
     print(email.value);
     print(password.value);

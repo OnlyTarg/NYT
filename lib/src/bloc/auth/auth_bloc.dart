@@ -23,6 +23,7 @@ abstract class AuthEvent with _$AuthEvent {
     String password,
   }) = SignInAuthEvent;
 
+  const factory AuthEvent.logout() = LogoutAuthEvent;
   const factory AuthEvent.error() = ErrorAuthEvent;
 }
 
@@ -31,9 +32,10 @@ abstract class AuthState with _$AuthState {
   const AuthState._();
 
   const factory AuthState.initial() = InitialAuthState;
-  const factory AuthState.authorizing() = AuthorizingAuthState;
+  const factory AuthState.loading() = LoadingAuthState;
   const factory AuthState.authorized() = AuthorizedAuthState;
   const factory AuthState.unAuthorized() = UnAuthorizedAuthState;
+  const factory AuthState.logOutSuccess() = LogOutSuccessAuthState;
   const factory AuthState.error() = ErrorAuthState;
 }
 
@@ -47,6 +49,7 @@ class AuthBLoC extends Bloc<AuthEvent, AuthState> {
         initial: _initial,
         signIn: _signIn,
         signUp: _signUp,
+        logout: _logOut,
         error: _error,
       );
 
@@ -56,7 +59,7 @@ class AuthBLoC extends Bloc<AuthEvent, AuthState> {
 
   Stream<AuthState> _signUp(
       String email, String password, String confirmPassword) async* {
-    yield const InitialAuthState();
+    yield const AuthState.loading();
     try {
       await authRepo.createAccount(email: email, password: password).timeout(
             const Duration(seconds: 30),
@@ -75,6 +78,13 @@ class AuthBLoC extends Bloc<AuthEvent, AuthState> {
   }
 
   Stream<AuthState> _signIn(String email, String password) async* {
+    // ...
+  }
+
+  Stream<AuthState> _logOut() async* {
+    yield const AuthState.loading();
+    authRepo.logOut();
+    yield const AuthState.logOutSuccess();
     // ...
   }
 

@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 part 'initial_navigator.freezed.dart';
 
@@ -7,7 +10,8 @@ part 'initial_navigator.freezed.dart';
 abstract class InitialFlowEvent with _$InitialFlowEvent {
   const InitialFlowEvent._();
 
-  const factory InitialFlowEvent.init() = InitInitialFlowEvent;
+  const factory InitialFlowEvent.init({bool isAuthorized}) =
+      InitInitialFlowEvent;
 }
 
 @freezed
@@ -20,7 +24,18 @@ abstract class InitialFlowState with _$InitialFlowState {
 }
 
 class InitialFlowBLoC extends Bloc<InitialFlowEvent, InitialFlowState> {
-  InitialFlowBLoC() : super(const PrimaryInitialFlowState());
+  StreamSubscription onAuthStatusChange;
+
+  InitialFlowBLoC() : super(const PrimaryInitialFlowState()) {
+    onAuthStatusChange =
+        FirebaseAuth.instance.authStateChanges().listen((user) {
+      if (user == null) {
+        add(const InitialFlowEvent.init(isAuthorized: false));
+      } else {
+        add(const InitialFlowEvent.init(isAuthorized: true));
+      }
+    });
+  }
 
   @override
   Stream<InitialFlowState> mapEventToState(InitialFlowEvent event) =>
@@ -28,7 +43,15 @@ class InitialFlowBLoC extends Bloc<InitialFlowEvent, InitialFlowState> {
         init: _init,
       );
 
-  Stream<InitialFlowState> _init() async* {
-    yield const InitialFlowState.unAuthorized();
+  Stream<InitialFlowState> _init(bool isAuthorized) async* {
+    if (isAuthorized) {
+      yield const InitialFlowState.authorized();
+    } else {
+      yield const InitialFlowState.unAuthorized();
+    }
+  }
+
+  void dispose() {
+    onAuthStatusChange.cancel();
   }
 }

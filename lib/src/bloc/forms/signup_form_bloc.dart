@@ -1,6 +1,8 @@
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
+import 'package:nyt_app/src/repositories/auth_repo.dart';
 
 class SignUpFormBloc extends FormBloc<String, String> {
+  AuthRepo _authRepo;
   // ignore: close_sinks
   final email = TextFieldBloc(
     validators: [
@@ -25,6 +27,7 @@ class SignUpFormBloc extends FormBloc<String, String> {
   );
 
   SignUpFormBloc() {
+    _authRepo = AuthRepo();
     addFieldBlocs(
       fieldBlocs: [
         email,
@@ -32,16 +35,19 @@ class SignUpFormBloc extends FormBloc<String, String> {
         confirmPassword,
       ],
     );
+
     confirmPassword
         .addValidators([FieldBlocValidators.confirmPassword(password)]);
     confirmPassword.subscribeToFieldBlocs([password]);
   }
 
   @override
+  // ignore: avoid_void_async
   void onSubmitting() async {
-    print(email.value);
-    print(password.value);
-    print(confirmPassword.value);
+    _authRepo.createAccount(
+      email: email.value,
+      password: password.value,
+    );
     emitSuccess();
   }
 }
