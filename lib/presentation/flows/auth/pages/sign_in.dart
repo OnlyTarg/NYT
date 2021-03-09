@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
+import 'package:nyt_app/presentation/flows/auth/auth_flow.dart';
 import 'package:nyt_app/src/bloc/forms/login_form_bloc.dart';
 import 'package:nyt_app/src/navigation_bloc/auth_navigator.dart';
 
@@ -18,6 +19,14 @@ class SignIn extends StatefulWidget {
 
 class _SignInState extends State<SignIn> {
   LoginFormBloC _loginFormBloc;
+  AuthFlowBLoC authFlowBLoC;
+
+  @override
+  void initState() {
+    authFlowBLoC = AuthFlow.of(context).authFlowBLoC;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -65,15 +74,18 @@ class _SignInState extends State<SignIn> {
                         prefixIcon: Icon(Icons.lock),
                       ),
                     ),
+
+                    /// Submit the form, if [FormBlocState.canSubmit] is `true`
+                    /// and [FormBlocState._isValidByStep] is `true`
+                    /// [onSubmitting] will be called.
                     RaisedButton(
-                      onPressed: _loginFormBloc.submit,
+                      onPressed: () => _loginFormBloc.submit(),
                       child: const Text('LOGIN'),
                     ),
                     const Divider(),
                     RaisedButton(
                       onPressed: () {
-                        BlocProvider.of<AuthFlowBLoC>(context)
-                            .add(const AuthFlowEvent.signUp());
+                        authFlowBLoC.add(const AuthFlowEvent.signUp());
                       },
                       child: const Text('Sign UP'),
                     ),

@@ -36,6 +36,7 @@ abstract class AuthState with _$AuthState {
   const factory AuthState.authorized() = AuthorizedAuthState;
   const factory AuthState.unAuthorized() = UnAuthorizedAuthState;
   const factory AuthState.logOutSuccess() = LogOutSuccessAuthState;
+  const factory AuthState.logInSuccess() = LogInSuccessAuthState;
   const factory AuthState.error() = ErrorAuthState;
 }
 
@@ -78,7 +79,9 @@ class AuthBLoC extends Bloc<AuthEvent, AuthState> {
   }
 
   Stream<AuthState> _signIn(String email, String password) async* {
-    // ...
+    yield const AuthState.loading();
+    authRepo.signIn(email: email, password: password);
+    yield const AuthState.logInSuccess();
   }
 
   Stream<AuthState> _logOut() async* {

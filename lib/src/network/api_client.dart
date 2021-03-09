@@ -32,6 +32,6 @@ abstract class ApiClient {
 
   @GET('/svc/topstories/v2/home.json')
   Future<MainResponse> getNews(
-      //FIXME: find way to keep apikey localy privatlly
+      //FIXME: find way to keep apikey localy privatly
       {@Query('api-key') String apikey = 'lYqK2GWQD4Z1KAL0sAGWGYgek3utMRtG'});
 }

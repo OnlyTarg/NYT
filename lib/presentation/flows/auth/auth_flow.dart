@@ -10,6 +10,8 @@ class AuthFlow extends StatefulWidget {
     Key key,
   }) : super(key: key);
 
+  static _AuthFlowState of(BuildContext context) =>
+      context.findAncestorStateOfType<_AuthFlowState>();
   @override
   _AuthFlowState createState() => _AuthFlowState();
 }
@@ -22,14 +24,13 @@ class _AuthFlowState extends State<AuthFlow> {
   @override
   void initState() {
     super.initState();
-    authFlowBLoC = BlocProvider.of<AuthFlowBLoC>(context)
-      ..add(const AuthFlowEvent.init());
-    flowController = FlowController<AuthFlowState>(
-        BlocProvider.of<AuthFlowBLoC>(context).state);
+    authFlowBLoC = AuthFlowBLoC();
+    flowController = FlowController<AuthFlowState>(authFlowBLoC.state);
   }
 
   @override
   void dispose() {
+    authFlowBLoC.close();
     flowController.dispose();
     super.dispose();
   }
@@ -37,6 +38,7 @@ class _AuthFlowState extends State<AuthFlow> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AuthFlowBLoC, AuthFlowState>(
+      cubit: authFlowBLoC,
       buildWhen: (previous, current) => previous != current,
       builder: (context, state) {
         flowController.update((_) => state);

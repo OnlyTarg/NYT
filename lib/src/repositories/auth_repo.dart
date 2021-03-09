@@ -4,12 +4,6 @@ import 'package:nyt_app/src/repositories/base_repo/base_authorization_repo.dart'
 
 class AuthRepo extends BaseAuthorizationRepo {
   @override
-  Future<User> authorize(String email, String password) {
-    // TODO: implement authorize
-    throw UnimplementedError();
-  }
-
-  @override
   Future<void> createAccount({String email, String password}) async {
     try {
       /*  UserCredential userCredential = */
@@ -32,5 +26,20 @@ class AuthRepo extends BaseAuthorizationRepo {
   @override
   Future<void> logOut() async {
     await FirebaseAuth.instance.signOut();
+  }
+
+  @override
+  Future<void> signIn({String email, String password}) async {
+    try {
+      // ignore: unused_local_variable
+      final UserCredential userCredential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+      }
+    }
   }
 }

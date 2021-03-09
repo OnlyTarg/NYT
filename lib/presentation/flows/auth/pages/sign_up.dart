@@ -26,7 +26,7 @@ class _SignUpState extends State<SignUp> {
           final signUpBloc = BlocProvider.of<SignUpFormBloc>(context);
           return Scaffold(
             resizeToAvoidBottomInset: false,
-            appBar: AppBar(title: const Text('Login')),
+            appBar: AppBar(title: const Text('Sign Up')),
             body: FormBlocListener<SignUpFormBloc, String, String>(
               onSubmitting: (context, state) {
                 //LoadingDialog.show(context);
