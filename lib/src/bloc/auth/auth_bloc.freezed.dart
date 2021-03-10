@@ -37,6 +37,11 @@ class _$AuthEventTearOff {
   }
 
 // ignore: unused_element
+  SignInGoogleAuthEvent signInGoogle() {
+    return const SignInGoogleAuthEvent();
+  }
+
+// ignore: unused_element
   LogoutAuthEvent logout() {
     return const LogoutAuthEvent();
   }
@@ -59,6 +64,7 @@ mixin _$AuthEvent {
     @required
         TResult signUp(String email, String password, String confirmPassword),
     @required TResult signIn(String email, String password),
+    @required TResult signInGoogle(),
     @required TResult logout(),
     @required TResult error(),
   });
@@ -67,6 +73,7 @@ mixin _$AuthEvent {
     TResult initial(),
     TResult signUp(String email, String password, String confirmPassword),
     TResult signIn(String email, String password),
+    TResult signInGoogle(),
     TResult logout(),
     TResult error(),
     @required TResult orElse(),
@@ -76,6 +83,7 @@ mixin _$AuthEvent {
     @required TResult initial(InitialAuthEvent value),
     @required TResult signUp(SignUpAuthEvent value),
     @required TResult signIn(SignInAuthEvent value),
+    @required TResult signInGoogle(SignInGoogleAuthEvent value),
     @required TResult logout(LogoutAuthEvent value),
     @required TResult error(ErrorAuthEvent value),
   });
@@ -84,6 +92,7 @@ mixin _$AuthEvent {
     TResult initial(InitialAuthEvent value),
     TResult signUp(SignUpAuthEvent value),
     TResult signIn(SignInAuthEvent value),
+    TResult signInGoogle(SignInGoogleAuthEvent value),
     TResult logout(LogoutAuthEvent value),
     TResult error(ErrorAuthEvent value),
     @required TResult orElse(),
@@ -147,12 +156,14 @@ class _$InitialAuthEvent extends InitialAuthEvent {
     @required
         TResult signUp(String email, String password, String confirmPassword),
     @required TResult signIn(String email, String password),
+    @required TResult signInGoogle(),
     @required TResult logout(),
     @required TResult error(),
   }) {
     assert(initial != null);
     assert(signUp != null);
     assert(signIn != null);
+    assert(signInGoogle != null);
     assert(logout != null);
     assert(error != null);
     return initial();
@@ -164,6 +175,7 @@ class _$InitialAuthEvent extends InitialAuthEvent {
     TResult initial(),
     TResult signUp(String email, String password, String confirmPassword),
     TResult signIn(String email, String password),
+    TResult signInGoogle(),
     TResult logout(),
     TResult error(),
     @required TResult orElse(),
@@ -181,12 +193,14 @@ class _$InitialAuthEvent extends InitialAuthEvent {
     @required TResult initial(InitialAuthEvent value),
     @required TResult signUp(SignUpAuthEvent value),
     @required TResult signIn(SignInAuthEvent value),
+    @required TResult signInGoogle(SignInGoogleAuthEvent value),
     @required TResult logout(LogoutAuthEvent value),
     @required TResult error(ErrorAuthEvent value),
   }) {
     assert(initial != null);
     assert(signUp != null);
     assert(signIn != null);
+    assert(signInGoogle != null);
     assert(logout != null);
     assert(error != null);
     return initial(this);
@@ -198,6 +212,7 @@ class _$InitialAuthEvent extends InitialAuthEvent {
     TResult initial(InitialAuthEvent value),
     TResult signUp(SignUpAuthEvent value),
     TResult signIn(SignInAuthEvent value),
+    TResult signInGoogle(SignInGoogleAuthEvent value),
     TResult logout(LogoutAuthEvent value),
     TResult error(ErrorAuthEvent value),
     @required TResult orElse(),
@@ -299,12 +314,14 @@ class _$SignUpAuthEvent extends SignUpAuthEvent {
     @required
         TResult signUp(String email, String password, String confirmPassword),
     @required TResult signIn(String email, String password),
+    @required TResult signInGoogle(),
     @required TResult logout(),
     @required TResult error(),
   }) {
     assert(initial != null);
     assert(signUp != null);
     assert(signIn != null);
+    assert(signInGoogle != null);
     assert(logout != null);
     assert(error != null);
     return signUp(email, password, confirmPassword);
@@ -316,6 +333,7 @@ class _$SignUpAuthEvent extends SignUpAuthEvent {
     TResult initial(),
     TResult signUp(String email, String password, String confirmPassword),
     TResult signIn(String email, String password),
+    TResult signInGoogle(),
     TResult logout(),
     TResult error(),
     @required TResult orElse(),
@@ -333,12 +351,14 @@ class _$SignUpAuthEvent extends SignUpAuthEvent {
     @required TResult initial(InitialAuthEvent value),
     @required TResult signUp(SignUpAuthEvent value),
     @required TResult signIn(SignInAuthEvent value),
+    @required TResult signInGoogle(SignInGoogleAuthEvent value),
     @required TResult logout(LogoutAuthEvent value),
     @required TResult error(ErrorAuthEvent value),
   }) {
     assert(initial != null);
     assert(signUp != null);
     assert(signIn != null);
+    assert(signInGoogle != null);
     assert(logout != null);
     assert(error != null);
     return signUp(this);
@@ -350,6 +370,7 @@ class _$SignUpAuthEvent extends SignUpAuthEvent {
     TResult initial(InitialAuthEvent value),
     TResult signUp(SignUpAuthEvent value),
     TResult signIn(SignInAuthEvent value),
+    TResult signInGoogle(SignInGoogleAuthEvent value),
     TResult logout(LogoutAuthEvent value),
     TResult error(ErrorAuthEvent value),
     @required TResult orElse(),
@@ -449,12 +470,14 @@ class _$SignInAuthEvent extends SignInAuthEvent {
     @required
         TResult signUp(String email, String password, String confirmPassword),
     @required TResult signIn(String email, String password),
+    @required TResult signInGoogle(),
     @required TResult logout(),
     @required TResult error(),
   }) {
     assert(initial != null);
     assert(signUp != null);
     assert(signIn != null);
+    assert(signInGoogle != null);
     assert(logout != null);
     assert(error != null);
     return signIn(email, password);
@@ -466,6 +489,7 @@ class _$SignInAuthEvent extends SignInAuthEvent {
     TResult initial(),
     TResult signUp(String email, String password, String confirmPassword),
     TResult signIn(String email, String password),
+    TResult signInGoogle(),
     TResult logout(),
     TResult error(),
     @required TResult orElse(),
@@ -483,12 +507,14 @@ class _$SignInAuthEvent extends SignInAuthEvent {
     @required TResult initial(InitialAuthEvent value),
     @required TResult signUp(SignUpAuthEvent value),
     @required TResult signIn(SignInAuthEvent value),
+    @required TResult signInGoogle(SignInGoogleAuthEvent value),
     @required TResult logout(LogoutAuthEvent value),
     @required TResult error(ErrorAuthEvent value),
   }) {
     assert(initial != null);
     assert(signUp != null);
     assert(signIn != null);
+    assert(signInGoogle != null);
     assert(logout != null);
     assert(error != null);
     return signIn(this);
@@ -500,6 +526,7 @@ class _$SignInAuthEvent extends SignInAuthEvent {
     TResult initial(InitialAuthEvent value),
     TResult signUp(SignUpAuthEvent value),
     TResult signIn(SignInAuthEvent value),
+    TResult signInGoogle(SignInGoogleAuthEvent value),
     TResult logout(LogoutAuthEvent value),
     TResult error(ErrorAuthEvent value),
     @required TResult orElse(),
@@ -521,6 +548,123 @@ abstract class SignInAuthEvent extends AuthEvent {
   String get password;
   @JsonKey(ignore: true)
   $SignInAuthEventCopyWith<SignInAuthEvent> get copyWith;
+}
+
+/// @nodoc
+abstract class $SignInGoogleAuthEventCopyWith<$Res> {
+  factory $SignInGoogleAuthEventCopyWith(SignInGoogleAuthEvent value,
+          $Res Function(SignInGoogleAuthEvent) then) =
+      _$SignInGoogleAuthEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SignInGoogleAuthEventCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res>
+    implements $SignInGoogleAuthEventCopyWith<$Res> {
+  _$SignInGoogleAuthEventCopyWithImpl(
+      SignInGoogleAuthEvent _value, $Res Function(SignInGoogleAuthEvent) _then)
+      : super(_value, (v) => _then(v as SignInGoogleAuthEvent));
+
+  @override
+  SignInGoogleAuthEvent get _value => super._value as SignInGoogleAuthEvent;
+}
+
+/// @nodoc
+class _$SignInGoogleAuthEvent extends SignInGoogleAuthEvent {
+  const _$SignInGoogleAuthEvent() : super._();
+
+  @override
+  String toString() {
+    return 'AuthEvent.signInGoogle()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is SignInGoogleAuthEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required
+        TResult signUp(String email, String password, String confirmPassword),
+    @required TResult signIn(String email, String password),
+    @required TResult signInGoogle(),
+    @required TResult logout(),
+    @required TResult error(),
+  }) {
+    assert(initial != null);
+    assert(signUp != null);
+    assert(signIn != null);
+    assert(signInGoogle != null);
+    assert(logout != null);
+    assert(error != null);
+    return signInGoogle();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult signUp(String email, String password, String confirmPassword),
+    TResult signIn(String email, String password),
+    TResult signInGoogle(),
+    TResult logout(),
+    TResult error(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (signInGoogle != null) {
+      return signInGoogle();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(InitialAuthEvent value),
+    @required TResult signUp(SignUpAuthEvent value),
+    @required TResult signIn(SignInAuthEvent value),
+    @required TResult signInGoogle(SignInGoogleAuthEvent value),
+    @required TResult logout(LogoutAuthEvent value),
+    @required TResult error(ErrorAuthEvent value),
+  }) {
+    assert(initial != null);
+    assert(signUp != null);
+    assert(signIn != null);
+    assert(signInGoogle != null);
+    assert(logout != null);
+    assert(error != null);
+    return signInGoogle(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(InitialAuthEvent value),
+    TResult signUp(SignUpAuthEvent value),
+    TResult signIn(SignInAuthEvent value),
+    TResult signInGoogle(SignInGoogleAuthEvent value),
+    TResult logout(LogoutAuthEvent value),
+    TResult error(ErrorAuthEvent value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (signInGoogle != null) {
+      return signInGoogle(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignInGoogleAuthEvent extends AuthEvent {
+  const SignInGoogleAuthEvent._() : super._();
+  const factory SignInGoogleAuthEvent() = _$SignInGoogleAuthEvent;
 }
 
 /// @nodoc
@@ -565,12 +709,14 @@ class _$LogoutAuthEvent extends LogoutAuthEvent {
     @required
         TResult signUp(String email, String password, String confirmPassword),
     @required TResult signIn(String email, String password),
+    @required TResult signInGoogle(),
     @required TResult logout(),
     @required TResult error(),
   }) {
     assert(initial != null);
     assert(signUp != null);
     assert(signIn != null);
+    assert(signInGoogle != null);
     assert(logout != null);
     assert(error != null);
     return logout();
@@ -582,6 +728,7 @@ class _$LogoutAuthEvent extends LogoutAuthEvent {
     TResult initial(),
     TResult signUp(String email, String password, String confirmPassword),
     TResult signIn(String email, String password),
+    TResult signInGoogle(),
     TResult logout(),
     TResult error(),
     @required TResult orElse(),
@@ -599,12 +746,14 @@ class _$LogoutAuthEvent extends LogoutAuthEvent {
     @required TResult initial(InitialAuthEvent value),
     @required TResult signUp(SignUpAuthEvent value),
     @required TResult signIn(SignInAuthEvent value),
+    @required TResult signInGoogle(SignInGoogleAuthEvent value),
     @required TResult logout(LogoutAuthEvent value),
     @required TResult error(ErrorAuthEvent value),
   }) {
     assert(initial != null);
     assert(signUp != null);
     assert(signIn != null);
+    assert(signInGoogle != null);
     assert(logout != null);
     assert(error != null);
     return logout(this);
@@ -616,6 +765,7 @@ class _$LogoutAuthEvent extends LogoutAuthEvent {
     TResult initial(InitialAuthEvent value),
     TResult signUp(SignUpAuthEvent value),
     TResult signIn(SignInAuthEvent value),
+    TResult signInGoogle(SignInGoogleAuthEvent value),
     TResult logout(LogoutAuthEvent value),
     TResult error(ErrorAuthEvent value),
     @required TResult orElse(),
@@ -675,12 +825,14 @@ class _$ErrorAuthEvent extends ErrorAuthEvent {
     @required
         TResult signUp(String email, String password, String confirmPassword),
     @required TResult signIn(String email, String password),
+    @required TResult signInGoogle(),
     @required TResult logout(),
     @required TResult error(),
   }) {
     assert(initial != null);
     assert(signUp != null);
     assert(signIn != null);
+    assert(signInGoogle != null);
     assert(logout != null);
     assert(error != null);
     return error();
@@ -692,6 +844,7 @@ class _$ErrorAuthEvent extends ErrorAuthEvent {
     TResult initial(),
     TResult signUp(String email, String password, String confirmPassword),
     TResult signIn(String email, String password),
+    TResult signInGoogle(),
     TResult logout(),
     TResult error(),
     @required TResult orElse(),
@@ -709,12 +862,14 @@ class _$ErrorAuthEvent extends ErrorAuthEvent {
     @required TResult initial(InitialAuthEvent value),
     @required TResult signUp(SignUpAuthEvent value),
     @required TResult signIn(SignInAuthEvent value),
+    @required TResult signInGoogle(SignInGoogleAuthEvent value),
     @required TResult logout(LogoutAuthEvent value),
     @required TResult error(ErrorAuthEvent value),
   }) {
     assert(initial != null);
     assert(signUp != null);
     assert(signIn != null);
+    assert(signInGoogle != null);
     assert(logout != null);
     assert(error != null);
     return error(this);
@@ -726,6 +881,7 @@ class _$ErrorAuthEvent extends ErrorAuthEvent {
     TResult initial(InitialAuthEvent value),
     TResult signUp(SignUpAuthEvent value),
     TResult signIn(SignInAuthEvent value),
+    TResult signInGoogle(SignInGoogleAuthEvent value),
     TResult logout(LogoutAuthEvent value),
     TResult error(ErrorAuthEvent value),
     @required TResult orElse(),
@@ -773,6 +929,11 @@ class _$AuthStateTearOff {
   }
 
 // ignore: unused_element
+  LogInSuccessAuthState logInSuccess() {
+    return const LogInSuccessAuthState();
+  }
+
+// ignore: unused_element
   ErrorAuthState error() {
     return const ErrorAuthState();
   }
@@ -791,6 +952,7 @@ mixin _$AuthState {
     @required TResult authorized(),
     @required TResult unAuthorized(),
     @required TResult logOutSuccess(),
+    @required TResult logInSuccess(),
     @required TResult error(),
   });
   @optionalTypeArgs
@@ -800,6 +962,7 @@ mixin _$AuthState {
     TResult authorized(),
     TResult unAuthorized(),
     TResult logOutSuccess(),
+    TResult logInSuccess(),
     TResult error(),
     @required TResult orElse(),
   });
@@ -810,6 +973,7 @@ mixin _$AuthState {
     @required TResult authorized(AuthorizedAuthState value),
     @required TResult unAuthorized(UnAuthorizedAuthState value),
     @required TResult logOutSuccess(LogOutSuccessAuthState value),
+    @required TResult logInSuccess(LogInSuccessAuthState value),
     @required TResult error(ErrorAuthState value),
   });
   @optionalTypeArgs
@@ -819,6 +983,7 @@ mixin _$AuthState {
     TResult authorized(AuthorizedAuthState value),
     TResult unAuthorized(UnAuthorizedAuthState value),
     TResult logOutSuccess(LogOutSuccessAuthState value),
+    TResult logInSuccess(LogInSuccessAuthState value),
     TResult error(ErrorAuthState value),
     @required TResult orElse(),
   });
@@ -882,6 +1047,7 @@ class _$InitialAuthState extends InitialAuthState {
     @required TResult authorized(),
     @required TResult unAuthorized(),
     @required TResult logOutSuccess(),
+    @required TResult logInSuccess(),
     @required TResult error(),
   }) {
     assert(initial != null);
@@ -889,6 +1055,7 @@ class _$InitialAuthState extends InitialAuthState {
     assert(authorized != null);
     assert(unAuthorized != null);
     assert(logOutSuccess != null);
+    assert(logInSuccess != null);
     assert(error != null);
     return initial();
   }
@@ -901,6 +1068,7 @@ class _$InitialAuthState extends InitialAuthState {
     TResult authorized(),
     TResult unAuthorized(),
     TResult logOutSuccess(),
+    TResult logInSuccess(),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -919,6 +1087,7 @@ class _$InitialAuthState extends InitialAuthState {
     @required TResult authorized(AuthorizedAuthState value),
     @required TResult unAuthorized(UnAuthorizedAuthState value),
     @required TResult logOutSuccess(LogOutSuccessAuthState value),
+    @required TResult logInSuccess(LogInSuccessAuthState value),
     @required TResult error(ErrorAuthState value),
   }) {
     assert(initial != null);
@@ -926,6 +1095,7 @@ class _$InitialAuthState extends InitialAuthState {
     assert(authorized != null);
     assert(unAuthorized != null);
     assert(logOutSuccess != null);
+    assert(logInSuccess != null);
     assert(error != null);
     return initial(this);
   }
@@ -938,6 +1108,7 @@ class _$InitialAuthState extends InitialAuthState {
     TResult authorized(AuthorizedAuthState value),
     TResult unAuthorized(UnAuthorizedAuthState value),
     TResult logOutSuccess(LogOutSuccessAuthState value),
+    TResult logInSuccess(LogInSuccessAuthState value),
     TResult error(ErrorAuthState value),
     @required TResult orElse(),
   }) {
@@ -997,6 +1168,7 @@ class _$LoadingAuthState extends LoadingAuthState {
     @required TResult authorized(),
     @required TResult unAuthorized(),
     @required TResult logOutSuccess(),
+    @required TResult logInSuccess(),
     @required TResult error(),
   }) {
     assert(initial != null);
@@ -1004,6 +1176,7 @@ class _$LoadingAuthState extends LoadingAuthState {
     assert(authorized != null);
     assert(unAuthorized != null);
     assert(logOutSuccess != null);
+    assert(logInSuccess != null);
     assert(error != null);
     return loading();
   }
@@ -1016,6 +1189,7 @@ class _$LoadingAuthState extends LoadingAuthState {
     TResult authorized(),
     TResult unAuthorized(),
     TResult logOutSuccess(),
+    TResult logInSuccess(),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -1034,6 +1208,7 @@ class _$LoadingAuthState extends LoadingAuthState {
     @required TResult authorized(AuthorizedAuthState value),
     @required TResult unAuthorized(UnAuthorizedAuthState value),
     @required TResult logOutSuccess(LogOutSuccessAuthState value),
+    @required TResult logInSuccess(LogInSuccessAuthState value),
     @required TResult error(ErrorAuthState value),
   }) {
     assert(initial != null);
@@ -1041,6 +1216,7 @@ class _$LoadingAuthState extends LoadingAuthState {
     assert(authorized != null);
     assert(unAuthorized != null);
     assert(logOutSuccess != null);
+    assert(logInSuccess != null);
     assert(error != null);
     return loading(this);
   }
@@ -1053,6 +1229,7 @@ class _$LoadingAuthState extends LoadingAuthState {
     TResult authorized(AuthorizedAuthState value),
     TResult unAuthorized(UnAuthorizedAuthState value),
     TResult logOutSuccess(LogOutSuccessAuthState value),
+    TResult logInSuccess(LogInSuccessAuthState value),
     TResult error(ErrorAuthState value),
     @required TResult orElse(),
   }) {
@@ -1113,6 +1290,7 @@ class _$AuthorizedAuthState extends AuthorizedAuthState {
     @required TResult authorized(),
     @required TResult unAuthorized(),
     @required TResult logOutSuccess(),
+    @required TResult logInSuccess(),
     @required TResult error(),
   }) {
     assert(initial != null);
@@ -1120,6 +1298,7 @@ class _$AuthorizedAuthState extends AuthorizedAuthState {
     assert(authorized != null);
     assert(unAuthorized != null);
     assert(logOutSuccess != null);
+    assert(logInSuccess != null);
     assert(error != null);
     return authorized();
   }
@@ -1132,6 +1311,7 @@ class _$AuthorizedAuthState extends AuthorizedAuthState {
     TResult authorized(),
     TResult unAuthorized(),
     TResult logOutSuccess(),
+    TResult logInSuccess(),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -1150,6 +1330,7 @@ class _$AuthorizedAuthState extends AuthorizedAuthState {
     @required TResult authorized(AuthorizedAuthState value),
     @required TResult unAuthorized(UnAuthorizedAuthState value),
     @required TResult logOutSuccess(LogOutSuccessAuthState value),
+    @required TResult logInSuccess(LogInSuccessAuthState value),
     @required TResult error(ErrorAuthState value),
   }) {
     assert(initial != null);
@@ -1157,6 +1338,7 @@ class _$AuthorizedAuthState extends AuthorizedAuthState {
     assert(authorized != null);
     assert(unAuthorized != null);
     assert(logOutSuccess != null);
+    assert(logInSuccess != null);
     assert(error != null);
     return authorized(this);
   }
@@ -1169,6 +1351,7 @@ class _$AuthorizedAuthState extends AuthorizedAuthState {
     TResult authorized(AuthorizedAuthState value),
     TResult unAuthorized(UnAuthorizedAuthState value),
     TResult logOutSuccess(LogOutSuccessAuthState value),
+    TResult logInSuccess(LogInSuccessAuthState value),
     TResult error(ErrorAuthState value),
     @required TResult orElse(),
   }) {
@@ -1229,6 +1412,7 @@ class _$UnAuthorizedAuthState extends UnAuthorizedAuthState {
     @required TResult authorized(),
     @required TResult unAuthorized(),
     @required TResult logOutSuccess(),
+    @required TResult logInSuccess(),
     @required TResult error(),
   }) {
     assert(initial != null);
@@ -1236,6 +1420,7 @@ class _$UnAuthorizedAuthState extends UnAuthorizedAuthState {
     assert(authorized != null);
     assert(unAuthorized != null);
     assert(logOutSuccess != null);
+    assert(logInSuccess != null);
     assert(error != null);
     return unAuthorized();
   }
@@ -1248,6 +1433,7 @@ class _$UnAuthorizedAuthState extends UnAuthorizedAuthState {
     TResult authorized(),
     TResult unAuthorized(),
     TResult logOutSuccess(),
+    TResult logInSuccess(),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -1266,6 +1452,7 @@ class _$UnAuthorizedAuthState extends UnAuthorizedAuthState {
     @required TResult authorized(AuthorizedAuthState value),
     @required TResult unAuthorized(UnAuthorizedAuthState value),
     @required TResult logOutSuccess(LogOutSuccessAuthState value),
+    @required TResult logInSuccess(LogInSuccessAuthState value),
     @required TResult error(ErrorAuthState value),
   }) {
     assert(initial != null);
@@ -1273,6 +1460,7 @@ class _$UnAuthorizedAuthState extends UnAuthorizedAuthState {
     assert(authorized != null);
     assert(unAuthorized != null);
     assert(logOutSuccess != null);
+    assert(logInSuccess != null);
     assert(error != null);
     return unAuthorized(this);
   }
@@ -1285,6 +1473,7 @@ class _$UnAuthorizedAuthState extends UnAuthorizedAuthState {
     TResult authorized(AuthorizedAuthState value),
     TResult unAuthorized(UnAuthorizedAuthState value),
     TResult logOutSuccess(LogOutSuccessAuthState value),
+    TResult logInSuccess(LogInSuccessAuthState value),
     TResult error(ErrorAuthState value),
     @required TResult orElse(),
   }) {
@@ -1345,6 +1534,7 @@ class _$LogOutSuccessAuthState extends LogOutSuccessAuthState {
     @required TResult authorized(),
     @required TResult unAuthorized(),
     @required TResult logOutSuccess(),
+    @required TResult logInSuccess(),
     @required TResult error(),
   }) {
     assert(initial != null);
@@ -1352,6 +1542,7 @@ class _$LogOutSuccessAuthState extends LogOutSuccessAuthState {
     assert(authorized != null);
     assert(unAuthorized != null);
     assert(logOutSuccess != null);
+    assert(logInSuccess != null);
     assert(error != null);
     return logOutSuccess();
   }
@@ -1364,6 +1555,7 @@ class _$LogOutSuccessAuthState extends LogOutSuccessAuthState {
     TResult authorized(),
     TResult unAuthorized(),
     TResult logOutSuccess(),
+    TResult logInSuccess(),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -1382,6 +1574,7 @@ class _$LogOutSuccessAuthState extends LogOutSuccessAuthState {
     @required TResult authorized(AuthorizedAuthState value),
     @required TResult unAuthorized(UnAuthorizedAuthState value),
     @required TResult logOutSuccess(LogOutSuccessAuthState value),
+    @required TResult logInSuccess(LogInSuccessAuthState value),
     @required TResult error(ErrorAuthState value),
   }) {
     assert(initial != null);
@@ -1389,6 +1582,7 @@ class _$LogOutSuccessAuthState extends LogOutSuccessAuthState {
     assert(authorized != null);
     assert(unAuthorized != null);
     assert(logOutSuccess != null);
+    assert(logInSuccess != null);
     assert(error != null);
     return logOutSuccess(this);
   }
@@ -1401,6 +1595,7 @@ class _$LogOutSuccessAuthState extends LogOutSuccessAuthState {
     TResult authorized(AuthorizedAuthState value),
     TResult unAuthorized(UnAuthorizedAuthState value),
     TResult logOutSuccess(LogOutSuccessAuthState value),
+    TResult logInSuccess(LogInSuccessAuthState value),
     TResult error(ErrorAuthState value),
     @required TResult orElse(),
   }) {
@@ -1415,6 +1610,128 @@ class _$LogOutSuccessAuthState extends LogOutSuccessAuthState {
 abstract class LogOutSuccessAuthState extends AuthState {
   const LogOutSuccessAuthState._() : super._();
   const factory LogOutSuccessAuthState() = _$LogOutSuccessAuthState;
+}
+
+/// @nodoc
+abstract class $LogInSuccessAuthStateCopyWith<$Res> {
+  factory $LogInSuccessAuthStateCopyWith(LogInSuccessAuthState value,
+          $Res Function(LogInSuccessAuthState) then) =
+      _$LogInSuccessAuthStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$LogInSuccessAuthStateCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res>
+    implements $LogInSuccessAuthStateCopyWith<$Res> {
+  _$LogInSuccessAuthStateCopyWithImpl(
+      LogInSuccessAuthState _value, $Res Function(LogInSuccessAuthState) _then)
+      : super(_value, (v) => _then(v as LogInSuccessAuthState));
+
+  @override
+  LogInSuccessAuthState get _value => super._value as LogInSuccessAuthState;
+}
+
+/// @nodoc
+class _$LogInSuccessAuthState extends LogInSuccessAuthState {
+  const _$LogInSuccessAuthState() : super._();
+
+  @override
+  String toString() {
+    return 'AuthState.logInSuccess()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is LogInSuccessAuthState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loading(),
+    @required TResult authorized(),
+    @required TResult unAuthorized(),
+    @required TResult logOutSuccess(),
+    @required TResult logInSuccess(),
+    @required TResult error(),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(authorized != null);
+    assert(unAuthorized != null);
+    assert(logOutSuccess != null);
+    assert(logInSuccess != null);
+    assert(error != null);
+    return logInSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loading(),
+    TResult authorized(),
+    TResult unAuthorized(),
+    TResult logOutSuccess(),
+    TResult logInSuccess(),
+    TResult error(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (logInSuccess != null) {
+      return logInSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(InitialAuthState value),
+    @required TResult loading(LoadingAuthState value),
+    @required TResult authorized(AuthorizedAuthState value),
+    @required TResult unAuthorized(UnAuthorizedAuthState value),
+    @required TResult logOutSuccess(LogOutSuccessAuthState value),
+    @required TResult logInSuccess(LogInSuccessAuthState value),
+    @required TResult error(ErrorAuthState value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(authorized != null);
+    assert(unAuthorized != null);
+    assert(logOutSuccess != null);
+    assert(logInSuccess != null);
+    assert(error != null);
+    return logInSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(InitialAuthState value),
+    TResult loading(LoadingAuthState value),
+    TResult authorized(AuthorizedAuthState value),
+    TResult unAuthorized(UnAuthorizedAuthState value),
+    TResult logOutSuccess(LogOutSuccessAuthState value),
+    TResult logInSuccess(LogInSuccessAuthState value),
+    TResult error(ErrorAuthState value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (logInSuccess != null) {
+      return logInSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LogInSuccessAuthState extends AuthState {
+  const LogInSuccessAuthState._() : super._();
+  const factory LogInSuccessAuthState() = _$LogInSuccessAuthState;
 }
 
 /// @nodoc
@@ -1460,6 +1777,7 @@ class _$ErrorAuthState extends ErrorAuthState {
     @required TResult authorized(),
     @required TResult unAuthorized(),
     @required TResult logOutSuccess(),
+    @required TResult logInSuccess(),
     @required TResult error(),
   }) {
     assert(initial != null);
@@ -1467,6 +1785,7 @@ class _$ErrorAuthState extends ErrorAuthState {
     assert(authorized != null);
     assert(unAuthorized != null);
     assert(logOutSuccess != null);
+    assert(logInSuccess != null);
     assert(error != null);
     return error();
   }
@@ -1479,6 +1798,7 @@ class _$ErrorAuthState extends ErrorAuthState {
     TResult authorized(),
     TResult unAuthorized(),
     TResult logOutSuccess(),
+    TResult logInSuccess(),
     TResult error(),
     @required TResult orElse(),
   }) {
@@ -1497,6 +1817,7 @@ class _$ErrorAuthState extends ErrorAuthState {
     @required TResult authorized(AuthorizedAuthState value),
     @required TResult unAuthorized(UnAuthorizedAuthState value),
     @required TResult logOutSuccess(LogOutSuccessAuthState value),
+    @required TResult logInSuccess(LogInSuccessAuthState value),
     @required TResult error(ErrorAuthState value),
   }) {
     assert(initial != null);
@@ -1504,6 +1825,7 @@ class _$ErrorAuthState extends ErrorAuthState {
     assert(authorized != null);
     assert(unAuthorized != null);
     assert(logOutSuccess != null);
+    assert(logInSuccess != null);
     assert(error != null);
     return error(this);
   }
@@ -1516,6 +1838,7 @@ class _$ErrorAuthState extends ErrorAuthState {
     TResult authorized(AuthorizedAuthState value),
     TResult unAuthorized(UnAuthorizedAuthState value),
     TResult logOutSuccess(LogOutSuccessAuthState value),
+    TResult logInSuccess(LogInSuccessAuthState value),
     TResult error(ErrorAuthState value),
     @required TResult orElse(),
   }) {

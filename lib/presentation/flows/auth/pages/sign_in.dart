@@ -35,13 +35,11 @@ class _SignInState extends State<SignIn> {
               },
               onSuccess: (context, state) {
                 /*  LoadingDialog.hide(context);
-
                 Navigator.of(context).pushReplacement(
                     MaterialPageRoute(builder: (_) => SuccessScreen())); */
               },
               onFailure: (context, state) {
                 /*  LoadingDialog.hide(context);
-
                 Scaffold.of(context).showSnackBar(
                     SnackBar(content: Text(state.failureResponse))); */
               },

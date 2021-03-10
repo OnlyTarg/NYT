@@ -1,5 +1,6 @@
 import 'package:nyt_app/models/main_response/main_response.dart';
 import 'package:nyt_app/src/network/interceptors/dio_logging_interceptor.dart';
+import 'package:nyt_app/src/network/responses/token_auth.dart';
 import 'package:retrofit/http.dart';
 import 'package:dio/dio.dart';
 
@@ -32,6 +33,13 @@ abstract class ApiClient {
 
   @GET('/svc/topstories/v2/home.json')
   Future<MainResponse> getNews(
-      //FIXME: find way to keep apikey localy privatlly
+      //FIXME: find way to keep apikey localy privatly
       {@Query('api-key') String apikey = 'lYqK2GWQD4Z1KAL0sAGWGYgek3utMRtG'});
+
+  @POST('/api/v1/user/auth/google')
+  Future<TokenAuthResponse> googleAuth({
+    @Field('access_token') String accessToken,
+    @Field('id_token') String idToken,
+    @Field('code') String code,
+  });
 }
