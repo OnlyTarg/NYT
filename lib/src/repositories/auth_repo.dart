@@ -1,8 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import 'package:nyt_app/src/repositories/base_repo/base_authorization_repo.dart';
 
 class AuthRepo extends BaseAuthorizationRepo {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn googleSignIn = GoogleSignIn();
   @override
   Future<void> createAccount({String email, String password}) async {
     try {
@@ -41,5 +44,39 @@ class AuthRepo extends BaseAuthorizationRepo {
         print('Wrong password provided for that user.');
       }
     }
+  }
+
+  @override
+  // ignore: avoid_void_async
+  void signOutGoogle() async {
+    await googleSignIn.signOut();
+  }
+
+  Future<User> signInWithGoogle() async {
+    final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
+    final GoogleSignInAuthentication googleSignInAuthentication =
+        await googleSignInAccount.authentication;
+
+    final AuthCredential credential = GoogleAuthProvider.credential(
+        idToken: googleSignInAuthentication.idToken,
+        accessToken: googleSignInAuthentication.accessToken);
+
+    final UserCredential authResult =
+        await _auth.signInWithCredential(credential);
+    final User user = authResult.user;
+
+    assert(!user.isAnonymous);
+    assert(await user.getIdToken() != null);
+
+    final User currentUser = _auth.currentUser;
+    assert(currentUser.uid == user.uid);
+
+    return user;
+  }
+
+  @override
+  Future<void> signInGoogle() {
+    // TODO: implement signInGoogle
+    throw UnimplementedError();
   }
 }
