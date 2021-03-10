@@ -22,7 +22,9 @@ class InitialFlow extends StatelessWidget {
             child: const AuthFlow(),
           );
         }
-        return const SizedBox.shrink();
+        return const Scaffold(
+          body: SizedBox.shrink(),
+        );
       },
     );
   }

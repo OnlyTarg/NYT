@@ -5,12 +5,17 @@ import 'package:nyt_app/src/repositories/base_repo/base_authorization_repo.dart'
 
 class AuthRepo extends BaseAuthorizationRepo {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final GoogleSignIn googleSignIn = GoogleSignIn();
+  final GoogleSignIn googleSignIn = GoogleSignIn(
+    scopes: [
+      'email',
+      'https://www.googleapis.com/auth/contacts.readonly',
+    ],
+  );
   @override
   Future<void> createAccount({String email, String password}) async {
     try {
       /*  UserCredential userCredential = */
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -28,14 +33,15 @@ class AuthRepo extends BaseAuthorizationRepo {
 
   @override
   Future<void> logOut() async {
-    await FirebaseAuth.instance.signOut();
+    await _auth.signOut();
+    await googleSignIn.signOut();
   }
 
   @override
   Future<void> signIn({String email, String password}) async {
     try {
       // ignore: unused_local_variable
-      final UserCredential userCredential = await FirebaseAuth.instance
+      final UserCredential userCredential = await _auth
           .signInWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -52,6 +58,7 @@ class AuthRepo extends BaseAuthorizationRepo {
     await googleSignIn.signOut();
   }
 
+  @override
   Future<User> signInWithGoogle() async {
     final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
     final GoogleSignInAuthentication googleSignInAuthentication =
@@ -72,11 +79,5 @@ class AuthRepo extends BaseAuthorizationRepo {
     assert(currentUser.uid == user.uid);
 
     return user;
-  }
-
-  @override
-  Future<void> signInGoogle() {
-    // TODO: implement signInGoogle
-    throw UnimplementedError();
   }
 }

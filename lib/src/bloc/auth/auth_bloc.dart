@@ -25,6 +25,7 @@ abstract class AuthEvent with _$AuthEvent {
 
   const factory AuthEvent.logout() = LogoutAuthEvent;
   const factory AuthEvent.error() = ErrorAuthEvent;
+  const factory AuthEvent.signInGoogle() = SignInGoogleAuthEvent;
 }
 
 @freezed
@@ -47,6 +48,7 @@ class AuthBLoC extends Bloc<AuthEvent, AuthState> {
   @override
   Stream<AuthState> mapEventToState(AuthEvent event) =>
       event.when<Stream<AuthState>>(
+        signInGoogle: _signInGoogle,
         initial: _initial,
         signIn: _signIn,
         signUp: _signUp,
@@ -76,6 +78,12 @@ class AuthBLoC extends Bloc<AuthEvent, AuthState> {
       print('Server Exeption');
       rethrow;
     }
+  }
+
+  Stream<AuthState> _signInGoogle() async* {
+    yield const AuthState.loading();
+    authRepo.signInWithGoogle();
+    yield const AuthState.logInSuccess();
   }
 
   Stream<AuthState> _signIn(String email, String password) async* {

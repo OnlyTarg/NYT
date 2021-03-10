@@ -3,6 +3,7 @@ import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:nyt_app/presentation/flows/auth/auth_flow.dart';
 import 'package:nyt_app/src/bloc/forms/login_form_bloc.dart';
 import 'package:nyt_app/src/navigation_bloc/auth_navigator.dart';
+import 'package:nyt_app/src/repositories/auth_repo.dart';
 
 class SignIn extends StatefulWidget {
   static Page page() => const MaterialPage<void>(
@@ -83,11 +84,40 @@ class _SignInState extends State<SignIn> {
                       child: const Text('LOGIN'),
                     ),
                     const Divider(),
-                    RaisedButton(
-                      onPressed: () {
-                        authFlowBLoC.add(const AuthFlowEvent.signUp());
-                      },
-                      child: const Text('Sign UP'),
+                    const Text('OR'),
+                    const Divider(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        RaisedButton(
+                          onPressed: () {
+                            final AuthRepo authRepo = AuthRepo();
+                            authRepo.signInWithGoogle();
+                          },
+                          child: Row(
+                            children: [
+                              Image.asset(
+                                'assets/icons/ic_google.png',
+                                height: 32,
+                                width: 32,
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.only(left: 8),
+                                child: Text('Sign IN with Google'),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8),
+                          child: RaisedButton(
+                            onPressed: () {
+                              authFlowBLoC.add(const AuthFlowEvent.signUp());
+                            },
+                            child: const Text('Sign UP'),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

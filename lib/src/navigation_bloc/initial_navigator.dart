@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 part 'initial_navigator.freezed.dart';
 
 @freezed
@@ -24,7 +23,9 @@ abstract class InitialFlowState with _$InitialFlowState {
 }
 
 class InitialFlowBLoC extends Bloc<InitialFlowEvent, InitialFlowState> {
+  // AuthRepo authRepo;
   StreamSubscription onAuthStatusChange;
+  //GoogleSignInAccount _currentAccount;
 
   InitialFlowBLoC() : super(const PrimaryInitialFlowState()) {
     onAuthStatusChange =
@@ -35,6 +36,10 @@ class InitialFlowBLoC extends Bloc<InitialFlowEvent, InitialFlowState> {
         add(const InitialFlowEvent.init(isAuthorized: true));
       }
     });
+    /* authRepo.googleSignIn.onCurrentUserChanged.listen((account) {
+      _currentAccount = account;
+     authRepo.googleSignIn.signInSilently();
+    }); */
   }
 
   @override
