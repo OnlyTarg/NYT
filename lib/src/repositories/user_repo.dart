@@ -9,9 +9,10 @@ class UserRepo extends BaseUserRepo {
     }
   }
   @override
-  Future<User> getLocalUser() {
-    // TODO: implement getLocalUser
-    throw UnimplementedError();
+  Future<User> getLocalUser() async {
+    final box = await Hive.openBox<User>(BaseUserRepo.user);
+    final user = box.get(BaseUserRepo.user);
+    return user;
   }
 
   @override
@@ -27,8 +28,16 @@ class UserRepo extends BaseUserRepo {
   }
 
   @override
-  Future<void> setLocalUser() {
-    // TODO: implement setLocalUser
-    throw UnimplementedError();
+  Future<void> setLocalUser(User user) async {
+    final box = await Hive.openBox<User>(BaseUserRepo.user);
+    box.add(user);
+    box.close();
   }
+  /* final box = await Hive.openBox<NewsItem>(BaseNewsRepo.newsBox);
+    final List<NewsItem> _list = [];
+    for (final item in box.values) {
+      _list.add(item);
+    }
+    box.close();
+    return _list; */
 }

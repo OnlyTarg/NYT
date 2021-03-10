@@ -4,6 +4,7 @@ import 'package:nyt_app/models/news_item.dart';
 import 'package:nyt_app/src/bloc/auth/auth_bloc.dart';
 import 'package:nyt_app/src/bloc/news.dart';
 import 'package:nyt_app/src/repositories/news_repo.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HomeScreen extends StatefulWidget {
   static Page page() => const MaterialPage<void>(child: HomeScreen());
@@ -58,11 +59,16 @@ class _HomeScreenState extends State<HomeScreen> {
         builder: (context, state) {
           if (state is InitialNewsState) {
             return Center(
-              child: RaisedButton(
-                onPressed: () => _newsBLoC.add(
-                  const NewsEvent.fetch(),
-                ),
-                child: const Text('Get News'),
+              child: Column(
+                children: [
+                  Text(FirebaseAuth.instance.currentUser.displayName),
+                  RaisedButton(
+                    onPressed: () => _newsBLoC.add(
+                      const NewsEvent.fetch(),
+                    ),
+                    child: const Text('Get News'),
+                  ),
+                ],
               ),
             );
           }
