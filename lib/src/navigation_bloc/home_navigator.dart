@@ -8,8 +8,9 @@ abstract class HomeFlowEvent with _$HomeFlowEvent {
   const HomeFlowEvent._();
 
   const factory HomeFlowEvent.init() = InitHomeFlowEvent;
-  const factory HomeFlowEvent.viewNewsItem({String url}) =
-      ViewNewsItemHomeFlowEvent;
+  const factory HomeFlowEvent.showNewsPaper({String url}) =
+      ShowNewsPaperHomeFlowEvent;
+  const factory HomeFlowEvent.showLocation() = ShowLocationHomeFlowEvent;
 }
 
 @freezed
@@ -18,23 +19,32 @@ abstract class HomeFlowState with _$HomeFlowState {
 
   const factory HomeFlowState.initial() = InitialHomeFlowState;
   const factory HomeFlowState.loading() = LoadingHomeFlowState;
-  const factory HomeFlowState.loaded(String url) = LoadedHomeFlowState;
+  const factory HomeFlowState.newsPaperLoaded(String url) =
+      NewsPaperLoadedHomeFlowState;
+  const factory HomeFlowState.locationLoaded() = LocationLoadedHomeFlowState;
 }
 
 class HomeFlowBLoC extends Bloc<HomeFlowEvent, HomeFlowState> {
   HomeFlowBLoC() : super(const InitialHomeFlowState());
 
   @override
-  Stream<HomeFlowState> mapEventToState(HomeFlowEvent event) => event
-      .when<Stream<HomeFlowState>>(init: _initial, viewNewsItem: _viewNewsItem);
+  Stream<HomeFlowState> mapEventToState(HomeFlowEvent event) =>
+      event.when<Stream<HomeFlowState>>(
+        init: _initial,
+        showNewsPaper: _showNewsPaper,
+        showLocation: _showLocation,
+      );
 
   Stream<HomeFlowState> _initial() async* {
     // ...
   }
+  Stream<HomeFlowState> _showLocation() async* {
+    yield const HomeFlowState.locationLoaded();
+    // ...
+  }
 
-  Stream<HomeFlowState> _viewNewsItem(String url) async* {
-    yield const HomeFlowState.initial();
-    yield HomeFlowState.loaded(url);
+  Stream<HomeFlowState> _showNewsPaper(String url) async* {
+    yield HomeFlowState.newsPaperLoaded(url);
     // ...
   }
 }

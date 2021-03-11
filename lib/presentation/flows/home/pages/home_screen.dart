@@ -23,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   NewsBLoC _newsBLoC;
   HomeFlowBLoC _homeFlowBLoC;
   NewsRepo _newsRepo;
+
   @override
   void initState() {
     _homeFlowBLoC = HomeFlow.of(context).homeFlowBLoC;
@@ -38,6 +39,18 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
+          FloatingActionButton(
+            onPressed: () {
+              _homeFlowBLoC.add(const HomeFlowEvent.showLocation());
+            },
+            child: const Text(
+              'Location',
+              style: TextStyle(fontSize: 11
+                  //code here
+                  ),
+            ),
+          ),
+          const SizedBox(width: 10),
           FloatingActionButton(
             onPressed: () => _newsBLoC.add(
               const NewsEvent.fetch(),
@@ -67,49 +80,51 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
         title: const Text('New York Times News'),
       ),
-      body: BlocBuilder<NewsBLoC, NewsState>(
-        cubit: _newsBLoC,
-        builder: (context, state) {
-          if (state is InitialNewsState) {
-            return Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    'Hello dear $userName!',
-                  ),
-                ],
-              ),
-            );
-          }
-          if (state is LoadingNewsState) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          if (state is LoadedNewsState) {
-            final List<NewsItem> listOfNews = state.item;
-            return ListView.builder(
-              itemCount: listOfNews.length,
-              itemBuilder: (context, index) => Card(
-                child: InkWell(
-                  onTap: () {
-                    _homeFlowBLoC.add(
-                        HomeFlowEvent.viewNewsItem(url: listOfNews[index].url));
-                  },
-                  splashColor: Colors.blue.withAlpha(30),
-                  child: ListTile(
-                    title: Text(listOfNews[index].title),
-                    subtitle: Text(
-                      listOfNews[index].description,
+      body: Center(
+        child: BlocBuilder<NewsBLoC, NewsState>(
+          cubit: _newsBLoC,
+          builder: (context, state) {
+            if (state is InitialNewsState) {
+              return Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'Hello dear $userName!',
+                    ),
+                  ],
+                ),
+              );
+            }
+            if (state is LoadingNewsState) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            if (state is LoadedNewsState) {
+              final List<NewsItem> listOfNews = state.item;
+              return ListView.builder(
+                itemCount: listOfNews.length,
+                itemBuilder: (context, index) => Card(
+                  child: InkWell(
+                    onTap: () {
+                      _homeFlowBLoC.add(HomeFlowEvent.showNewsPaper(
+                          url: listOfNews[index].url));
+                    },
+                    splashColor: Colors.blue.withAlpha(30),
+                    child: ListTile(
+                      title: Text(listOfNews[index].title),
+                      subtitle: Text(
+                        listOfNews[index].description,
+                      ),
                     ),
                   ),
                 ),
-              ),
-            );
-          }
-          return const SizedBox.shrink();
-        },
+              );
+            }
+            return const SizedBox.shrink();
+          },
+        ),
       ),
     );
   }

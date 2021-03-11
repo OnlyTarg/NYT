@@ -19,10 +19,15 @@ class _$HomeFlowEventTearOff {
   }
 
 // ignore: unused_element
-  ViewNewsItemHomeFlowEvent viewNewsItem({String url}) {
-    return ViewNewsItemHomeFlowEvent(
+  ShowNewsPaperHomeFlowEvent showNewsPaper({String url}) {
+    return ShowNewsPaperHomeFlowEvent(
       url: url,
     );
+  }
+
+// ignore: unused_element
+  ShowLocationHomeFlowEvent showLocation() {
+    return const ShowLocationHomeFlowEvent();
   }
 }
 
@@ -35,23 +40,27 @@ mixin _$HomeFlowEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult init(),
-    @required TResult viewNewsItem(String url),
+    @required TResult showNewsPaper(String url),
+    @required TResult showLocation(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult init(),
-    TResult viewNewsItem(String url),
+    TResult showNewsPaper(String url),
+    TResult showLocation(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult init(InitHomeFlowEvent value),
-    @required TResult viewNewsItem(ViewNewsItemHomeFlowEvent value),
+    @required TResult showNewsPaper(ShowNewsPaperHomeFlowEvent value),
+    @required TResult showLocation(ShowLocationHomeFlowEvent value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult init(InitHomeFlowEvent value),
-    TResult viewNewsItem(ViewNewsItemHomeFlowEvent value),
+    TResult showNewsPaper(ShowNewsPaperHomeFlowEvent value),
+    TResult showLocation(ShowLocationHomeFlowEvent value),
     @required TResult orElse(),
   });
 }
@@ -113,10 +122,12 @@ class _$InitHomeFlowEvent extends InitHomeFlowEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult init(),
-    @required TResult viewNewsItem(String url),
+    @required TResult showNewsPaper(String url),
+    @required TResult showLocation(),
   }) {
     assert(init != null);
-    assert(viewNewsItem != null);
+    assert(showNewsPaper != null);
+    assert(showLocation != null);
     return init();
   }
 
@@ -124,7 +135,8 @@ class _$InitHomeFlowEvent extends InitHomeFlowEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult init(),
-    TResult viewNewsItem(String url),
+    TResult showNewsPaper(String url),
+    TResult showLocation(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -138,10 +150,12 @@ class _$InitHomeFlowEvent extends InitHomeFlowEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult init(InitHomeFlowEvent value),
-    @required TResult viewNewsItem(ViewNewsItemHomeFlowEvent value),
+    @required TResult showNewsPaper(ShowNewsPaperHomeFlowEvent value),
+    @required TResult showLocation(ShowLocationHomeFlowEvent value),
   }) {
     assert(init != null);
-    assert(viewNewsItem != null);
+    assert(showNewsPaper != null);
+    assert(showLocation != null);
     return init(this);
   }
 
@@ -149,7 +163,8 @@ class _$InitHomeFlowEvent extends InitHomeFlowEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult init(InitHomeFlowEvent value),
-    TResult viewNewsItem(ViewNewsItemHomeFlowEvent value),
+    TResult showNewsPaper(ShowNewsPaperHomeFlowEvent value),
+    TResult showLocation(ShowLocationHomeFlowEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -166,51 +181,51 @@ abstract class InitHomeFlowEvent extends HomeFlowEvent {
 }
 
 /// @nodoc
-abstract class $ViewNewsItemHomeFlowEventCopyWith<$Res> {
-  factory $ViewNewsItemHomeFlowEventCopyWith(ViewNewsItemHomeFlowEvent value,
-          $Res Function(ViewNewsItemHomeFlowEvent) then) =
-      _$ViewNewsItemHomeFlowEventCopyWithImpl<$Res>;
+abstract class $ShowNewsPaperHomeFlowEventCopyWith<$Res> {
+  factory $ShowNewsPaperHomeFlowEventCopyWith(ShowNewsPaperHomeFlowEvent value,
+          $Res Function(ShowNewsPaperHomeFlowEvent) then) =
+      _$ShowNewsPaperHomeFlowEventCopyWithImpl<$Res>;
   $Res call({String url});
 }
 
 /// @nodoc
-class _$ViewNewsItemHomeFlowEventCopyWithImpl<$Res>
+class _$ShowNewsPaperHomeFlowEventCopyWithImpl<$Res>
     extends _$HomeFlowEventCopyWithImpl<$Res>
-    implements $ViewNewsItemHomeFlowEventCopyWith<$Res> {
-  _$ViewNewsItemHomeFlowEventCopyWithImpl(ViewNewsItemHomeFlowEvent _value,
-      $Res Function(ViewNewsItemHomeFlowEvent) _then)
-      : super(_value, (v) => _then(v as ViewNewsItemHomeFlowEvent));
+    implements $ShowNewsPaperHomeFlowEventCopyWith<$Res> {
+  _$ShowNewsPaperHomeFlowEventCopyWithImpl(ShowNewsPaperHomeFlowEvent _value,
+      $Res Function(ShowNewsPaperHomeFlowEvent) _then)
+      : super(_value, (v) => _then(v as ShowNewsPaperHomeFlowEvent));
 
   @override
-  ViewNewsItemHomeFlowEvent get _value =>
-      super._value as ViewNewsItemHomeFlowEvent;
+  ShowNewsPaperHomeFlowEvent get _value =>
+      super._value as ShowNewsPaperHomeFlowEvent;
 
   @override
   $Res call({
     Object url = freezed,
   }) {
-    return _then(ViewNewsItemHomeFlowEvent(
+    return _then(ShowNewsPaperHomeFlowEvent(
       url: url == freezed ? _value.url : url as String,
     ));
   }
 }
 
 /// @nodoc
-class _$ViewNewsItemHomeFlowEvent extends ViewNewsItemHomeFlowEvent {
-  const _$ViewNewsItemHomeFlowEvent({this.url}) : super._();
+class _$ShowNewsPaperHomeFlowEvent extends ShowNewsPaperHomeFlowEvent {
+  const _$ShowNewsPaperHomeFlowEvent({this.url}) : super._();
 
   @override
   final String url;
 
   @override
   String toString() {
-    return 'HomeFlowEvent.viewNewsItem(url: $url)';
+    return 'HomeFlowEvent.showNewsPaper(url: $url)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ViewNewsItemHomeFlowEvent &&
+        (other is ShowNewsPaperHomeFlowEvent &&
             (identical(other.url, url) ||
                 const DeepCollectionEquality().equals(other.url, url)));
   }
@@ -221,31 +236,35 @@ class _$ViewNewsItemHomeFlowEvent extends ViewNewsItemHomeFlowEvent {
 
   @JsonKey(ignore: true)
   @override
-  $ViewNewsItemHomeFlowEventCopyWith<ViewNewsItemHomeFlowEvent> get copyWith =>
-      _$ViewNewsItemHomeFlowEventCopyWithImpl<ViewNewsItemHomeFlowEvent>(
-          this, _$identity);
+  $ShowNewsPaperHomeFlowEventCopyWith<ShowNewsPaperHomeFlowEvent>
+      get copyWith =>
+          _$ShowNewsPaperHomeFlowEventCopyWithImpl<ShowNewsPaperHomeFlowEvent>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult init(),
-    @required TResult viewNewsItem(String url),
+    @required TResult showNewsPaper(String url),
+    @required TResult showLocation(),
   }) {
     assert(init != null);
-    assert(viewNewsItem != null);
-    return viewNewsItem(url);
+    assert(showNewsPaper != null);
+    assert(showLocation != null);
+    return showNewsPaper(url);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult init(),
-    TResult viewNewsItem(String url),
+    TResult showNewsPaper(String url),
+    TResult showLocation(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (viewNewsItem != null) {
-      return viewNewsItem(url);
+    if (showNewsPaper != null) {
+      return showNewsPaper(url);
     }
     return orElse();
   }
@@ -254,36 +273,138 @@ class _$ViewNewsItemHomeFlowEvent extends ViewNewsItemHomeFlowEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult init(InitHomeFlowEvent value),
-    @required TResult viewNewsItem(ViewNewsItemHomeFlowEvent value),
+    @required TResult showNewsPaper(ShowNewsPaperHomeFlowEvent value),
+    @required TResult showLocation(ShowLocationHomeFlowEvent value),
   }) {
     assert(init != null);
-    assert(viewNewsItem != null);
-    return viewNewsItem(this);
+    assert(showNewsPaper != null);
+    assert(showLocation != null);
+    return showNewsPaper(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult init(InitHomeFlowEvent value),
-    TResult viewNewsItem(ViewNewsItemHomeFlowEvent value),
+    TResult showNewsPaper(ShowNewsPaperHomeFlowEvent value),
+    TResult showLocation(ShowLocationHomeFlowEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (viewNewsItem != null) {
-      return viewNewsItem(this);
+    if (showNewsPaper != null) {
+      return showNewsPaper(this);
     }
     return orElse();
   }
 }
 
-abstract class ViewNewsItemHomeFlowEvent extends HomeFlowEvent {
-  const ViewNewsItemHomeFlowEvent._() : super._();
-  const factory ViewNewsItemHomeFlowEvent({String url}) =
-      _$ViewNewsItemHomeFlowEvent;
+abstract class ShowNewsPaperHomeFlowEvent extends HomeFlowEvent {
+  const ShowNewsPaperHomeFlowEvent._() : super._();
+  const factory ShowNewsPaperHomeFlowEvent({String url}) =
+      _$ShowNewsPaperHomeFlowEvent;
 
   String get url;
   @JsonKey(ignore: true)
-  $ViewNewsItemHomeFlowEventCopyWith<ViewNewsItemHomeFlowEvent> get copyWith;
+  $ShowNewsPaperHomeFlowEventCopyWith<ShowNewsPaperHomeFlowEvent> get copyWith;
+}
+
+/// @nodoc
+abstract class $ShowLocationHomeFlowEventCopyWith<$Res> {
+  factory $ShowLocationHomeFlowEventCopyWith(ShowLocationHomeFlowEvent value,
+          $Res Function(ShowLocationHomeFlowEvent) then) =
+      _$ShowLocationHomeFlowEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ShowLocationHomeFlowEventCopyWithImpl<$Res>
+    extends _$HomeFlowEventCopyWithImpl<$Res>
+    implements $ShowLocationHomeFlowEventCopyWith<$Res> {
+  _$ShowLocationHomeFlowEventCopyWithImpl(ShowLocationHomeFlowEvent _value,
+      $Res Function(ShowLocationHomeFlowEvent) _then)
+      : super(_value, (v) => _then(v as ShowLocationHomeFlowEvent));
+
+  @override
+  ShowLocationHomeFlowEvent get _value =>
+      super._value as ShowLocationHomeFlowEvent;
+}
+
+/// @nodoc
+class _$ShowLocationHomeFlowEvent extends ShowLocationHomeFlowEvent {
+  const _$ShowLocationHomeFlowEvent() : super._();
+
+  @override
+  String toString() {
+    return 'HomeFlowEvent.showLocation()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is ShowLocationHomeFlowEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult init(),
+    @required TResult showNewsPaper(String url),
+    @required TResult showLocation(),
+  }) {
+    assert(init != null);
+    assert(showNewsPaper != null);
+    assert(showLocation != null);
+    return showLocation();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult init(),
+    TResult showNewsPaper(String url),
+    TResult showLocation(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (showLocation != null) {
+      return showLocation();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult init(InitHomeFlowEvent value),
+    @required TResult showNewsPaper(ShowNewsPaperHomeFlowEvent value),
+    @required TResult showLocation(ShowLocationHomeFlowEvent value),
+  }) {
+    assert(init != null);
+    assert(showNewsPaper != null);
+    assert(showLocation != null);
+    return showLocation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult init(InitHomeFlowEvent value),
+    TResult showNewsPaper(ShowNewsPaperHomeFlowEvent value),
+    TResult showLocation(ShowLocationHomeFlowEvent value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (showLocation != null) {
+      return showLocation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ShowLocationHomeFlowEvent extends HomeFlowEvent {
+  const ShowLocationHomeFlowEvent._() : super._();
+  const factory ShowLocationHomeFlowEvent() = _$ShowLocationHomeFlowEvent;
 }
 
 /// @nodoc
@@ -301,10 +422,15 @@ class _$HomeFlowStateTearOff {
   }
 
 // ignore: unused_element
-  LoadedHomeFlowState loaded(String url) {
-    return LoadedHomeFlowState(
+  NewsPaperLoadedHomeFlowState newsPaperLoaded(String url) {
+    return NewsPaperLoadedHomeFlowState(
       url,
     );
+  }
+
+// ignore: unused_element
+  LocationLoadedHomeFlowState locationLoaded() {
+    return const LocationLoadedHomeFlowState();
   }
 }
 
@@ -318,26 +444,30 @@ mixin _$HomeFlowState {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loaded(String url),
+    @required TResult newsPaperLoaded(String url),
+    @required TResult locationLoaded(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loaded(String url),
+    TResult newsPaperLoaded(String url),
+    TResult locationLoaded(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult initial(InitialHomeFlowState value),
     @required TResult loading(LoadingHomeFlowState value),
-    @required TResult loaded(LoadedHomeFlowState value),
+    @required TResult newsPaperLoaded(NewsPaperLoadedHomeFlowState value),
+    @required TResult locationLoaded(LocationLoadedHomeFlowState value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult initial(InitialHomeFlowState value),
     TResult loading(LoadingHomeFlowState value),
-    TResult loaded(LoadedHomeFlowState value),
+    TResult newsPaperLoaded(NewsPaperLoadedHomeFlowState value),
+    TResult locationLoaded(LocationLoadedHomeFlowState value),
     @required TResult orElse(),
   });
 }
@@ -400,11 +530,13 @@ class _$InitialHomeFlowState extends InitialHomeFlowState {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loaded(String url),
+    @required TResult newsPaperLoaded(String url),
+    @required TResult locationLoaded(),
   }) {
     assert(initial != null);
     assert(loading != null);
-    assert(loaded != null);
+    assert(newsPaperLoaded != null);
+    assert(locationLoaded != null);
     return initial();
   }
 
@@ -413,7 +545,8 @@ class _$InitialHomeFlowState extends InitialHomeFlowState {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loaded(String url),
+    TResult newsPaperLoaded(String url),
+    TResult locationLoaded(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -428,11 +561,13 @@ class _$InitialHomeFlowState extends InitialHomeFlowState {
   TResult map<TResult extends Object>({
     @required TResult initial(InitialHomeFlowState value),
     @required TResult loading(LoadingHomeFlowState value),
-    @required TResult loaded(LoadedHomeFlowState value),
+    @required TResult newsPaperLoaded(NewsPaperLoadedHomeFlowState value),
+    @required TResult locationLoaded(LocationLoadedHomeFlowState value),
   }) {
     assert(initial != null);
     assert(loading != null);
-    assert(loaded != null);
+    assert(newsPaperLoaded != null);
+    assert(locationLoaded != null);
     return initial(this);
   }
 
@@ -441,7 +576,8 @@ class _$InitialHomeFlowState extends InitialHomeFlowState {
   TResult maybeMap<TResult extends Object>({
     TResult initial(InitialHomeFlowState value),
     TResult loading(LoadingHomeFlowState value),
-    TResult loaded(LoadedHomeFlowState value),
+    TResult newsPaperLoaded(NewsPaperLoadedHomeFlowState value),
+    TResult locationLoaded(LocationLoadedHomeFlowState value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -498,11 +634,13 @@ class _$LoadingHomeFlowState extends LoadingHomeFlowState {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loaded(String url),
+    @required TResult newsPaperLoaded(String url),
+    @required TResult locationLoaded(),
   }) {
     assert(initial != null);
     assert(loading != null);
-    assert(loaded != null);
+    assert(newsPaperLoaded != null);
+    assert(locationLoaded != null);
     return loading();
   }
 
@@ -511,7 +649,8 @@ class _$LoadingHomeFlowState extends LoadingHomeFlowState {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loaded(String url),
+    TResult newsPaperLoaded(String url),
+    TResult locationLoaded(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -526,11 +665,13 @@ class _$LoadingHomeFlowState extends LoadingHomeFlowState {
   TResult map<TResult extends Object>({
     @required TResult initial(InitialHomeFlowState value),
     @required TResult loading(LoadingHomeFlowState value),
-    @required TResult loaded(LoadedHomeFlowState value),
+    @required TResult newsPaperLoaded(NewsPaperLoadedHomeFlowState value),
+    @required TResult locationLoaded(LocationLoadedHomeFlowState value),
   }) {
     assert(initial != null);
     assert(loading != null);
-    assert(loaded != null);
+    assert(newsPaperLoaded != null);
+    assert(locationLoaded != null);
     return loading(this);
   }
 
@@ -539,7 +680,8 @@ class _$LoadingHomeFlowState extends LoadingHomeFlowState {
   TResult maybeMap<TResult extends Object>({
     TResult initial(InitialHomeFlowState value),
     TResult loading(LoadingHomeFlowState value),
-    TResult loaded(LoadedHomeFlowState value),
+    TResult newsPaperLoaded(NewsPaperLoadedHomeFlowState value),
+    TResult locationLoaded(LocationLoadedHomeFlowState value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -556,37 +698,40 @@ abstract class LoadingHomeFlowState extends HomeFlowState {
 }
 
 /// @nodoc
-abstract class $LoadedHomeFlowStateCopyWith<$Res> {
-  factory $LoadedHomeFlowStateCopyWith(
-          LoadedHomeFlowState value, $Res Function(LoadedHomeFlowState) then) =
-      _$LoadedHomeFlowStateCopyWithImpl<$Res>;
+abstract class $NewsPaperLoadedHomeFlowStateCopyWith<$Res> {
+  factory $NewsPaperLoadedHomeFlowStateCopyWith(
+          NewsPaperLoadedHomeFlowState value,
+          $Res Function(NewsPaperLoadedHomeFlowState) then) =
+      _$NewsPaperLoadedHomeFlowStateCopyWithImpl<$Res>;
   $Res call({String url});
 }
 
 /// @nodoc
-class _$LoadedHomeFlowStateCopyWithImpl<$Res>
+class _$NewsPaperLoadedHomeFlowStateCopyWithImpl<$Res>
     extends _$HomeFlowStateCopyWithImpl<$Res>
-    implements $LoadedHomeFlowStateCopyWith<$Res> {
-  _$LoadedHomeFlowStateCopyWithImpl(
-      LoadedHomeFlowState _value, $Res Function(LoadedHomeFlowState) _then)
-      : super(_value, (v) => _then(v as LoadedHomeFlowState));
+    implements $NewsPaperLoadedHomeFlowStateCopyWith<$Res> {
+  _$NewsPaperLoadedHomeFlowStateCopyWithImpl(
+      NewsPaperLoadedHomeFlowState _value,
+      $Res Function(NewsPaperLoadedHomeFlowState) _then)
+      : super(_value, (v) => _then(v as NewsPaperLoadedHomeFlowState));
 
   @override
-  LoadedHomeFlowState get _value => super._value as LoadedHomeFlowState;
+  NewsPaperLoadedHomeFlowState get _value =>
+      super._value as NewsPaperLoadedHomeFlowState;
 
   @override
   $Res call({
     Object url = freezed,
   }) {
-    return _then(LoadedHomeFlowState(
+    return _then(NewsPaperLoadedHomeFlowState(
       url == freezed ? _value.url : url as String,
     ));
   }
 }
 
 /// @nodoc
-class _$LoadedHomeFlowState extends LoadedHomeFlowState {
-  const _$LoadedHomeFlowState(this.url)
+class _$NewsPaperLoadedHomeFlowState extends NewsPaperLoadedHomeFlowState {
+  const _$NewsPaperLoadedHomeFlowState(this.url)
       : assert(url != null),
         super._();
 
@@ -595,13 +740,13 @@ class _$LoadedHomeFlowState extends LoadedHomeFlowState {
 
   @override
   String toString() {
-    return 'HomeFlowState.loaded(url: $url)';
+    return 'HomeFlowState.newsPaperLoaded(url: $url)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is LoadedHomeFlowState &&
+        (other is NewsPaperLoadedHomeFlowState &&
             (identical(other.url, url) ||
                 const DeepCollectionEquality().equals(other.url, url)));
   }
@@ -612,20 +757,23 @@ class _$LoadedHomeFlowState extends LoadedHomeFlowState {
 
   @JsonKey(ignore: true)
   @override
-  $LoadedHomeFlowStateCopyWith<LoadedHomeFlowState> get copyWith =>
-      _$LoadedHomeFlowStateCopyWithImpl<LoadedHomeFlowState>(this, _$identity);
+  $NewsPaperLoadedHomeFlowStateCopyWith<NewsPaperLoadedHomeFlowState>
+      get copyWith => _$NewsPaperLoadedHomeFlowStateCopyWithImpl<
+          NewsPaperLoadedHomeFlowState>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult loading(),
-    @required TResult loaded(String url),
+    @required TResult newsPaperLoaded(String url),
+    @required TResult locationLoaded(),
   }) {
     assert(initial != null);
     assert(loading != null);
-    assert(loaded != null);
-    return loaded(url);
+    assert(newsPaperLoaded != null);
+    assert(locationLoaded != null);
+    return newsPaperLoaded(url);
   }
 
   @override
@@ -633,12 +781,13 @@ class _$LoadedHomeFlowState extends LoadedHomeFlowState {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult loading(),
-    TResult loaded(String url),
+    TResult newsPaperLoaded(String url),
+    TResult locationLoaded(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (loaded != null) {
-      return loaded(url);
+    if (newsPaperLoaded != null) {
+      return newsPaperLoaded(url);
     }
     return orElse();
   }
@@ -648,12 +797,14 @@ class _$LoadedHomeFlowState extends LoadedHomeFlowState {
   TResult map<TResult extends Object>({
     @required TResult initial(InitialHomeFlowState value),
     @required TResult loading(LoadingHomeFlowState value),
-    @required TResult loaded(LoadedHomeFlowState value),
+    @required TResult newsPaperLoaded(NewsPaperLoadedHomeFlowState value),
+    @required TResult locationLoaded(LocationLoadedHomeFlowState value),
   }) {
     assert(initial != null);
     assert(loading != null);
-    assert(loaded != null);
-    return loaded(this);
+    assert(newsPaperLoaded != null);
+    assert(locationLoaded != null);
+    return newsPaperLoaded(this);
   }
 
   @override
@@ -661,22 +812,131 @@ class _$LoadedHomeFlowState extends LoadedHomeFlowState {
   TResult maybeMap<TResult extends Object>({
     TResult initial(InitialHomeFlowState value),
     TResult loading(LoadingHomeFlowState value),
-    TResult loaded(LoadedHomeFlowState value),
+    TResult newsPaperLoaded(NewsPaperLoadedHomeFlowState value),
+    TResult locationLoaded(LocationLoadedHomeFlowState value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (loaded != null) {
-      return loaded(this);
+    if (newsPaperLoaded != null) {
+      return newsPaperLoaded(this);
     }
     return orElse();
   }
 }
 
-abstract class LoadedHomeFlowState extends HomeFlowState {
-  const LoadedHomeFlowState._() : super._();
-  const factory LoadedHomeFlowState(String url) = _$LoadedHomeFlowState;
+abstract class NewsPaperLoadedHomeFlowState extends HomeFlowState {
+  const NewsPaperLoadedHomeFlowState._() : super._();
+  const factory NewsPaperLoadedHomeFlowState(String url) =
+      _$NewsPaperLoadedHomeFlowState;
 
   String get url;
   @JsonKey(ignore: true)
-  $LoadedHomeFlowStateCopyWith<LoadedHomeFlowState> get copyWith;
+  $NewsPaperLoadedHomeFlowStateCopyWith<NewsPaperLoadedHomeFlowState>
+      get copyWith;
+}
+
+/// @nodoc
+abstract class $LocationLoadedHomeFlowStateCopyWith<$Res> {
+  factory $LocationLoadedHomeFlowStateCopyWith(
+          LocationLoadedHomeFlowState value,
+          $Res Function(LocationLoadedHomeFlowState) then) =
+      _$LocationLoadedHomeFlowStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$LocationLoadedHomeFlowStateCopyWithImpl<$Res>
+    extends _$HomeFlowStateCopyWithImpl<$Res>
+    implements $LocationLoadedHomeFlowStateCopyWith<$Res> {
+  _$LocationLoadedHomeFlowStateCopyWithImpl(LocationLoadedHomeFlowState _value,
+      $Res Function(LocationLoadedHomeFlowState) _then)
+      : super(_value, (v) => _then(v as LocationLoadedHomeFlowState));
+
+  @override
+  LocationLoadedHomeFlowState get _value =>
+      super._value as LocationLoadedHomeFlowState;
+}
+
+/// @nodoc
+class _$LocationLoadedHomeFlowState extends LocationLoadedHomeFlowState {
+  const _$LocationLoadedHomeFlowState() : super._();
+
+  @override
+  String toString() {
+    return 'HomeFlowState.locationLoaded()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is LocationLoadedHomeFlowState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loading(),
+    @required TResult newsPaperLoaded(String url),
+    @required TResult locationLoaded(),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(newsPaperLoaded != null);
+    assert(locationLoaded != null);
+    return locationLoaded();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loading(),
+    TResult newsPaperLoaded(String url),
+    TResult locationLoaded(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (locationLoaded != null) {
+      return locationLoaded();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(InitialHomeFlowState value),
+    @required TResult loading(LoadingHomeFlowState value),
+    @required TResult newsPaperLoaded(NewsPaperLoadedHomeFlowState value),
+    @required TResult locationLoaded(LocationLoadedHomeFlowState value),
+  }) {
+    assert(initial != null);
+    assert(loading != null);
+    assert(newsPaperLoaded != null);
+    assert(locationLoaded != null);
+    return locationLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(InitialHomeFlowState value),
+    TResult loading(LoadingHomeFlowState value),
+    TResult newsPaperLoaded(NewsPaperLoadedHomeFlowState value),
+    TResult locationLoaded(LocationLoadedHomeFlowState value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (locationLoaded != null) {
+      return locationLoaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LocationLoadedHomeFlowState extends HomeFlowState {
+  const LocationLoadedHomeFlowState._() : super._();
+  const factory LocationLoadedHomeFlowState() = _$LocationLoadedHomeFlowState;
 }

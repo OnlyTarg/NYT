@@ -2,7 +2,9 @@ import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nyt_app/presentation/flows/home/pages/home_screen.dart';
+import 'package:nyt_app/presentation/flows/home/pages/location_screen.dart';
 import 'package:nyt_app/presentation/flows/home/pages/news_item.dart';
+import 'package:nyt_app/src/bloc/location/location_bloc.dart';
 import 'package:nyt_app/src/navigation_bloc/home_navigator.dart';
 
 class HomeFlow extends StatefulWidget {
@@ -19,12 +21,11 @@ class HomeFlow extends StatefulWidget {
 
 class _HomeFlowState extends State<HomeFlow> {
   FlowController flowController;
-
   HomeFlowBLoC homeFlowBLoC;
 
   @override
   void initState() {
-    homeFlowBLoC = HomeFlowBLoC();
+    homeFlowBLoC = BlocProvider.of<HomeFlowBLoC>(context);
     flowController = FlowController<HomeFlowState>(homeFlowBLoC.state);
     super.initState();
   }
@@ -47,7 +48,9 @@ class _HomeFlowState extends State<HomeFlow> {
           onGeneratePages: (homeFlow, pages) {
             return [
               HomeScreen.page(),
-              if (state is LoadedHomeFlowState) NewsItemView.page(state.url),
+              if (state is NewsPaperLoadedHomeFlowState)
+                NewsItemView.page(state.url),
+              if (state is LocationLoadedHomeFlowState) LocationScreen.page(),
             ];
           },
         );
