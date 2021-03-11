@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nyt_app/models/news_item.dart';
+import 'package:nyt_app/presentation/flows/home/home_flow.dart';
 import 'package:nyt_app/src/bloc/auth/auth_bloc.dart';
 import 'package:nyt_app/src/bloc/news.dart';
+import 'package:nyt_app/src/navigation_bloc/home_navigator.dart';
 import 'package:nyt_app/src/repositories/news_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -19,9 +21,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   String userName;
   NewsBLoC _newsBLoC;
+  HomeFlowBLoC _homeFlowBLoC;
   NewsRepo _newsRepo;
   @override
   void initState() {
+    _homeFlowBLoC = HomeFlow.of(context).homeFlowBLoC;
     userName = FirebaseAuth.instance.currentUser.displayName ?? 'Friend';
     _newsRepo = NewsRepo();
     _newsBLoC = NewsBLoC(_newsRepo);
@@ -89,6 +93,10 @@ class _HomeScreenState extends State<HomeScreen> {
               itemCount: listOfNews.length,
               itemBuilder: (context, index) => Card(
                 child: InkWell(
+                  onTap: () {
+                    _homeFlowBLoC.add(
+                        HomeFlowEvent.viewNewsItem(url: listOfNews[index].url));
+                  },
                   splashColor: Colors.blue.withAlpha(30),
                   child: ListTile(
                     title: Text(listOfNews[index].title),

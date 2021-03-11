@@ -61,9 +61,10 @@ class NewsItem extends HiveObject {
     );
   } */
 
-  @override
+  /* @override
   String toString() {
     return 'NewsItem(title: $title, description: $description,'
         'url: $url, imageUrl: $imageUrl)';
-  }
+  } */
+
 }

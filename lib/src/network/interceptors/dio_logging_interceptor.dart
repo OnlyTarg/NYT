@@ -114,10 +114,10 @@ class DioLoggingInterceptor extends Interceptor {
       ),
     );
 
-    log(
-      response?.data?.toString() ?? 'Unknown Error',
+    /* log(
+      response?.data.toString ?? 'Unknown Error',
       name: 'response_error body',
-    );
+    ); */
     log('<-- END RESPONSE $method ', name: 'response_end');
     return response;
   }

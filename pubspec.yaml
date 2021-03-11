@@ -71,6 +71,7 @@ dev_dependencies:
   dio: ^3.0.10
   flow_builder: ^0.0.1-dev.13
   path_provider: ^1.6.27
+  webview_flutter: ^1.0.7
 
   # database
   hive: ^1.4.4+1
