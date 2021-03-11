@@ -4,7 +4,7 @@ part 'user.g.dart';
 
 @JsonSerializable()
 @HiveType(typeId: 1)
-class User {
+class User extends HiveObject {
   @JsonKey(name: 'first_name')
   @HiveField(1)
   final String firstName;

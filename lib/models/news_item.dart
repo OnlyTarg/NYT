@@ -5,7 +5,7 @@ part 'news_item.g.dart';
 
 @JsonSerializable()
 @HiveType(typeId: 0)
-class NewsItem {
+class NewsItem extends HiveObject {
   @HiveField(1)
   final String title;
   @HiveField(2)

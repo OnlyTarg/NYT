@@ -17,10 +17,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  String userName;
   NewsBLoC _newsBLoC;
   NewsRepo _newsRepo;
   @override
   void initState() {
+    userName = FirebaseAuth.instance.currentUser.displayName ?? 'Friend';
     _newsRepo = NewsRepo();
     _newsBLoC = NewsBLoC(_newsRepo);
     super.initState();
@@ -34,9 +36,16 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           FloatingActionButton(
             onPressed: () => _newsBLoC.add(
+              const NewsEvent.fetch(),
+            ),
+            child: const Text('Online'),
+          ),
+          const SizedBox(width: 10),
+          FloatingActionButton(
+            onPressed: () => _newsBLoC.add(
               const NewsEvent.fetchLocal(),
             ),
-            child: const Icon(Icons.search),
+            child: const Text('Offline'),
           ),
         ],
       ),
@@ -60,13 +69,10 @@ class _HomeScreenState extends State<HomeScreen> {
           if (state is InitialNewsState) {
             return Center(
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(FirebaseAuth.instance.currentUser.displayName),
-                  RaisedButton(
-                    onPressed: () => _newsBLoC.add(
-                      const NewsEvent.fetch(),
-                    ),
-                    child: const Text('Get News'),
+                  Text(
+                    'Hello dear $userName!',
                   ),
                 ],
               ),
