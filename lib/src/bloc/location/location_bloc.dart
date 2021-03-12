@@ -23,8 +23,8 @@ abstract class LocationState with _$LocationState {
 }
 
 class LocationBLoC extends Bloc<LocationEvent, LocationState> {
-  LocationRepo locationRepo;
-  LocationBLoC({this.locationRepo}) : super(const InitialLocationState());
+  LocationRepo locationRepo = LocationRepo();
+  LocationBLoC() : super(const InitialLocationState());
 
   @override
   Stream<LocationState> mapEventToState(LocationEvent event) =>
@@ -40,18 +40,6 @@ class LocationBLoC extends Bloc<LocationEvent, LocationState> {
     yield LocationState.loaded(
         latitude: positionList[0], longitude: positionList[1]);
 
-    // ...
-  }
-
-  Stream<LocationState> _read() async* {
-    // ...
-  }
-
-  Stream<LocationState> _update() async* {
-    // ...
-  }
-
-  Stream<LocationState> _delete() async* {
     // ...
   }
 }

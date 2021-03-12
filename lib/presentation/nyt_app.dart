@@ -4,7 +4,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nyt_app/presentation/flows/initial/initial_flow.dart';
 import 'package:nyt_app/src/bloc/auth/auth_bloc.dart';
-import 'package:nyt_app/src/navigation_bloc/home_navigator.dart';
 import 'package:nyt_app/src/navigation_bloc/initial_navigator.dart';
 import 'package:nyt_app/src/repositories/auth_repo.dart';
 
@@ -46,9 +45,9 @@ class NYTApp extends StatelessWidget {
                   BlocProvider<InitialFlowBLoC>(
                     create: (context) => InitialFlowBLoC(),
                   ),
-                  BlocProvider<HomeFlowBLoC>(
+                  /* BlocProvider<HomeFlowBLoC>(
                     create: (context) => HomeFlowBLoC(),
-                  ),
+                  ), */
                   BlocProvider<AuthBLoC>(
                     create: (context) => AuthBLoC(AuthRepo()),
                   ),

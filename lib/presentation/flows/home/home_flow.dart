@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nyt_app/presentation/flows/home/pages/home_screen.dart';
 import 'package:nyt_app/presentation/flows/home/pages/location_screen.dart';
 import 'package:nyt_app/presentation/flows/home/pages/news_item.dart';
-import 'package:nyt_app/src/bloc/location/location_bloc.dart';
 import 'package:nyt_app/src/navigation_bloc/home_navigator.dart';
 
 class HomeFlow extends StatefulWidget {
@@ -25,7 +24,7 @@ class _HomeFlowState extends State<HomeFlow> {
 
   @override
   void initState() {
-    homeFlowBLoC = BlocProvider.of<HomeFlowBLoC>(context);
+    homeFlowBLoC = HomeFlowBLoC();
     flowController = FlowController<HomeFlowState>(homeFlowBLoC.state);
     super.initState();
   }
@@ -41,10 +40,12 @@ class _HomeFlowState extends State<HomeFlow> {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeFlowBLoC, HomeFlowState>(
       cubit: homeFlowBLoC,
+      //buildWhen: (previous, current) => current!= const HomeFlowState.loading(),
       builder: (context, state) {
-        flowController.update((_) => state);
+        //flowController.update((_) => HomeFlowState);
         return FlowBuilder(
-          controller: flowController,
+          state: state,
+          // controller: flowController,
           onGeneratePages: (homeFlow, pages) {
             return [
               HomeScreen.page(),

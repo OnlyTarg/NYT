@@ -39,6 +39,9 @@ class HomeFlowBLoC extends Bloc<HomeFlowEvent, HomeFlowState> {
     // ...
   }
   Stream<HomeFlowState> _showLocation() async* {
+    yield const HomeFlowState.loading();
+    await Future.delayed(const Duration(milliseconds: 200));
+
     yield const HomeFlowState.locationLoaded();
     // ...
   }
