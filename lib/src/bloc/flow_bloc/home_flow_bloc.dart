@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'home_navigator.freezed.dart';
+part 'home_flow_bloc.freezed.dart';
 
 @freezed
 abstract class HomeFlowEvent with _$HomeFlowEvent {

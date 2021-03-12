@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nyt_app/presentation/flows/auth/pages/sign_in.dart';
-import 'package:nyt_app/presentation/flows/auth/pages/sign_up.dart';
-import 'package:nyt_app/src/navigation_bloc/auth_navigator.dart';
+import 'package:nyt_app/presentation/screens/auth/pages/sign_in_screen.dart';
+import 'package:nyt_app/presentation/screens/auth/pages/sign_up_screen.dart';
+import 'package:nyt_app/src/bloc/flow_bloc/auth_flow_bloc.dart';
 
 class AuthFlow extends StatefulWidget {
   const AuthFlow({
@@ -46,9 +46,9 @@ class _AuthFlowState extends State<AuthFlow> {
           controller: flowController,
           onGeneratePages: (authFlowState, pages) {
             return [
-              SignIn.page(),
-              if (authFlowState is SignUpAuthFlowState) SignUp.page(),
-              if (authFlowState is SignInAuthFlowState) SignIn.page(),
+              SignInScreen.page(),
+              if (authFlowState is SignUpAuthFlowState) SignUpScreen.page(),
+              if (authFlowState is SignInAuthFlowState) SignInScreen.page(),
             ];
           },
         );

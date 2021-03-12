@@ -1,10 +1,10 @@
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nyt_app/presentation/flows/home/pages/home_screen.dart';
-import 'package:nyt_app/presentation/flows/home/pages/location_screen.dart';
-import 'package:nyt_app/presentation/flows/home/pages/news_item.dart';
-import 'package:nyt_app/src/navigation_bloc/home_navigator.dart';
+import 'package:nyt_app/presentation/screens/home/pages/home_screen.dart';
+import 'package:nyt_app/presentation/screens/home/pages/location_screen.dart';
+import 'package:nyt_app/presentation/screens/home/pages/news_view_screen.dart';
+import 'package:nyt_app/src/bloc/flow_bloc/home_flow_bloc.dart';
 
 class HomeFlow extends StatefulWidget {
   const HomeFlow({
@@ -40,7 +40,6 @@ class _HomeFlowState extends State<HomeFlow> {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeFlowBLoC, HomeFlowState>(
       cubit: homeFlowBLoC,
-      //buildWhen: (previous, current) => current!= const HomeFlowState.loading(),
       builder: (context, state) {
         //flowController.update((_) => HomeFlowState);
         return FlowBuilder(
@@ -50,7 +49,7 @@ class _HomeFlowState extends State<HomeFlow> {
             return [
               HomeScreen.page(),
               if (state is NewsPaperLoadedHomeFlowState)
-                NewsItemView.page(state.url),
+                NewsViewScreen.page(state.url),
               if (state is LocationLoadedHomeFlowState) LocationScreen.page(),
             ];
           },

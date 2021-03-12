@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:nyt_app/src/bloc/forms/signup_form_bloc.dart';
 
-class SignUp extends StatefulWidget {
+class SignUpScreen extends StatefulWidget {
   static Page page() => const MaterialPage<void>(
-        child: SignUp(),
+        child: SignUpScreen(),
       );
 
-  const SignUp({
+  const SignUpScreen({
     Key key,
   }) : super(key: key);
 
   @override
-  _SignUpState createState() => _SignUpState();
+  _SignUpScreenState createState() => _SignUpScreenState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

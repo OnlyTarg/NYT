@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
-import 'package:nyt_app/presentation/flows/auth/auth_flow.dart';
+import 'package:nyt_app/presentation/screens/auth/auth_flow.dart';
+import 'package:nyt_app/src/bloc/flow_bloc/auth_flow_bloc.dart';
 import 'package:nyt_app/src/bloc/forms/login_form_bloc.dart';
-import 'package:nyt_app/src/navigation_bloc/auth_navigator.dart';
 import 'package:nyt_app/src/repositories/auth_repo.dart';
 
-class SignIn extends StatefulWidget {
+class SignInScreen extends StatefulWidget {
   static Page page() => const MaterialPage<void>(
-        child: SignIn(),
+        child: SignInScreen(),
       );
 
-  const SignIn({
+  const SignInScreen({
     Key key,
   }) : super(key: key);
 
   @override
-  _SignInState createState() => _SignInState();
+  _SignInScreenState createState() => _SignInScreenState();
 }
 
-class _SignInState extends State<SignIn> {
+class _SignInScreenState extends State<SignInScreen> {
   LoginFormBloC _loginFormBloc;
   AuthFlowBLoC authFlowBLoC;
 

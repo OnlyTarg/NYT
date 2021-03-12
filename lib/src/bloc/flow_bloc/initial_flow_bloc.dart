@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-part 'initial_navigator.freezed.dart';
+part 'initial_flow_bloc.freezed.dart';
 
 @freezed
 abstract class InitialFlowEvent with _$InitialFlowEvent {

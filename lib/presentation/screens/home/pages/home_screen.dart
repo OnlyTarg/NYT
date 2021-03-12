@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nyt_app/models/news_item.dart';
-import 'package:nyt_app/presentation/flows/home/home_flow.dart';
+import 'package:nyt_app/presentation/screens/home/home_flow.dart';
 import 'package:nyt_app/src/bloc/auth/auth_bloc.dart';
-import 'package:nyt_app/src/bloc/news.dart';
-import 'package:nyt_app/src/navigation_bloc/home_navigator.dart';
+import 'package:nyt_app/src/bloc/flow_bloc/home_flow_bloc.dart';
+import 'package:nyt_app/src/bloc/news/news.dart';
 import 'package:nyt_app/src/repositories/news_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

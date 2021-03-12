@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'auth_navigator.freezed.dart';
+part 'auth_flow_bloc.freezed.dart';
 
 @freezed
 abstract class AuthFlowEvent with _$AuthFlowEvent {
