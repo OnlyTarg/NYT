@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:nyt_app/models/main_response/multimedia.dart';
+import 'package:nyt_app/models/responses/multimedia.dart';
 
 part 'results.freezed.dart';
 part 'results.g.dart';

@@ -1,4 +1,4 @@
-import 'package:nyt_app/models/main_response/main_response.dart';
+import 'package:nyt_app/models/responses/main_response.dart';
 import 'package:nyt_app/src/network/interceptors/dio_logging_interceptor.dart';
 import 'package:retrofit/http.dart';
 import 'package:dio/dio.dart';
