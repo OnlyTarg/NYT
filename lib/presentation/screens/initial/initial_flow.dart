@@ -22,6 +22,13 @@ class InitialFlow extends StatelessWidget {
             child: const AuthFlow(),
           );
         }
+        if (state is NoInternetInitialFlowState) {
+          return const Scaffold(
+            body: Center(
+              child: Text('Connect to internet first'),
+            ),
+          );
+        }
         return const Scaffold(
           body: SizedBox.shrink(),
         );

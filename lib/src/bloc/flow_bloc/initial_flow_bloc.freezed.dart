@@ -19,6 +19,11 @@ class _$InitialFlowEventTearOff {
       isAuthorized: isAuthorized,
     );
   }
+
+// ignore: unused_element
+  NoInternetInitialFlowEvent noInternet() {
+    return const NoInternetInitialFlowEvent();
+  }
 }
 
 /// @nodoc
@@ -27,29 +32,28 @@ const $InitialFlowEvent = _$InitialFlowEventTearOff();
 
 /// @nodoc
 mixin _$InitialFlowEvent {
-  bool get isAuthorized;
-
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult init(bool isAuthorized),
+    @required TResult noInternet(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult init(bool isAuthorized),
+    TResult noInternet(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult init(InitInitialFlowEvent value),
+    @required TResult noInternet(NoInternetInitialFlowEvent value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult init(InitInitialFlowEvent value),
+    TResult noInternet(NoInternetInitialFlowEvent value),
     @required TResult orElse(),
   });
-
-  @JsonKey(ignore: true)
-  $InitialFlowEventCopyWith<InitialFlowEvent> get copyWith;
 }
 
 /// @nodoc
@@ -57,7 +61,6 @@ abstract class $InitialFlowEventCopyWith<$Res> {
   factory $InitialFlowEventCopyWith(
           InitialFlowEvent value, $Res Function(InitialFlowEvent) then) =
       _$InitialFlowEventCopyWithImpl<$Res>;
-  $Res call({bool isAuthorized});
 }
 
 /// @nodoc
@@ -68,25 +71,13 @@ class _$InitialFlowEventCopyWithImpl<$Res>
   final InitialFlowEvent _value;
   // ignore: unused_field
   final $Res Function(InitialFlowEvent) _then;
-
-  @override
-  $Res call({
-    Object isAuthorized = freezed,
-  }) {
-    return _then(_value.copyWith(
-      isAuthorized:
-          isAuthorized == freezed ? _value.isAuthorized : isAuthorized as bool,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class $InitInitialFlowEventCopyWith<$Res>
-    implements $InitialFlowEventCopyWith<$Res> {
+abstract class $InitInitialFlowEventCopyWith<$Res> {
   factory $InitInitialFlowEventCopyWith(InitInitialFlowEvent value,
           $Res Function(InitInitialFlowEvent) then) =
       _$InitInitialFlowEventCopyWithImpl<$Res>;
-  @override
   $Res call({bool isAuthorized});
 }
 
@@ -147,8 +138,10 @@ class _$InitInitialFlowEvent extends InitInitialFlowEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult init(bool isAuthorized),
+    @required TResult noInternet(),
   }) {
     assert(init != null);
+    assert(noInternet != null);
     return init(isAuthorized);
   }
 
@@ -156,6 +149,7 @@ class _$InitInitialFlowEvent extends InitInitialFlowEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult init(bool isAuthorized),
+    TResult noInternet(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -169,8 +163,10 @@ class _$InitInitialFlowEvent extends InitInitialFlowEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult init(InitInitialFlowEvent value),
+    @required TResult noInternet(NoInternetInitialFlowEvent value),
   }) {
     assert(init != null);
+    assert(noInternet != null);
     return init(this);
   }
 
@@ -178,6 +174,7 @@ class _$InitInitialFlowEvent extends InitInitialFlowEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult init(InitInitialFlowEvent value),
+    TResult noInternet(NoInternetInitialFlowEvent value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -193,11 +190,102 @@ abstract class InitInitialFlowEvent extends InitialFlowEvent {
   const factory InitInitialFlowEvent({bool isAuthorized}) =
       _$InitInitialFlowEvent;
 
-  @override
   bool get isAuthorized;
-  @override
   @JsonKey(ignore: true)
   $InitInitialFlowEventCopyWith<InitInitialFlowEvent> get copyWith;
+}
+
+/// @nodoc
+abstract class $NoInternetInitialFlowEventCopyWith<$Res> {
+  factory $NoInternetInitialFlowEventCopyWith(NoInternetInitialFlowEvent value,
+          $Res Function(NoInternetInitialFlowEvent) then) =
+      _$NoInternetInitialFlowEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$NoInternetInitialFlowEventCopyWithImpl<$Res>
+    extends _$InitialFlowEventCopyWithImpl<$Res>
+    implements $NoInternetInitialFlowEventCopyWith<$Res> {
+  _$NoInternetInitialFlowEventCopyWithImpl(NoInternetInitialFlowEvent _value,
+      $Res Function(NoInternetInitialFlowEvent) _then)
+      : super(_value, (v) => _then(v as NoInternetInitialFlowEvent));
+
+  @override
+  NoInternetInitialFlowEvent get _value =>
+      super._value as NoInternetInitialFlowEvent;
+}
+
+/// @nodoc
+class _$NoInternetInitialFlowEvent extends NoInternetInitialFlowEvent {
+  const _$NoInternetInitialFlowEvent() : super._();
+
+  @override
+  String toString() {
+    return 'InitialFlowEvent.noInternet()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is NoInternetInitialFlowEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult init(bool isAuthorized),
+    @required TResult noInternet(),
+  }) {
+    assert(init != null);
+    assert(noInternet != null);
+    return noInternet();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult init(bool isAuthorized),
+    TResult noInternet(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (noInternet != null) {
+      return noInternet();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult init(InitInitialFlowEvent value),
+    @required TResult noInternet(NoInternetInitialFlowEvent value),
+  }) {
+    assert(init != null);
+    assert(noInternet != null);
+    return noInternet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult init(InitInitialFlowEvent value),
+    TResult noInternet(NoInternetInitialFlowEvent value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (noInternet != null) {
+      return noInternet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NoInternetInitialFlowEvent extends InitialFlowEvent {
+  const NoInternetInitialFlowEvent._() : super._();
+  const factory NoInternetInitialFlowEvent() = _$NoInternetInitialFlowEvent;
 }
 
 /// @nodoc
@@ -218,6 +306,11 @@ class _$InitialFlowStateTearOff {
   UnAuthorizedInitialFlowState unAuthorized() {
     return const UnAuthorizedInitialFlowState();
   }
+
+// ignore: unused_element
+  NoInternetInitialFlowState noInternet() {
+    return const NoInternetInitialFlowState();
+  }
 }
 
 /// @nodoc
@@ -231,12 +324,14 @@ mixin _$InitialFlowState {
     @required TResult primary(),
     @required TResult authorized(),
     @required TResult unAuthorized(),
+    @required TResult noInternet(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult primary(),
     TResult authorized(),
     TResult unAuthorized(),
+    TResult noInternet(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -244,12 +339,14 @@ mixin _$InitialFlowState {
     @required TResult primary(PrimaryInitialFlowState value),
     @required TResult authorized(AuthorizedInitialFlowState value),
     @required TResult unAuthorized(UnAuthorizedInitialFlowState value),
+    @required TResult noInternet(NoInternetInitialFlowState value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult primary(PrimaryInitialFlowState value),
     TResult authorized(AuthorizedInitialFlowState value),
     TResult unAuthorized(UnAuthorizedInitialFlowState value),
+    TResult noInternet(NoInternetInitialFlowState value),
     @required TResult orElse(),
   });
 }
@@ -313,10 +410,12 @@ class _$PrimaryInitialFlowState extends PrimaryInitialFlowState {
     @required TResult primary(),
     @required TResult authorized(),
     @required TResult unAuthorized(),
+    @required TResult noInternet(),
   }) {
     assert(primary != null);
     assert(authorized != null);
     assert(unAuthorized != null);
+    assert(noInternet != null);
     return primary();
   }
 
@@ -326,6 +425,7 @@ class _$PrimaryInitialFlowState extends PrimaryInitialFlowState {
     TResult primary(),
     TResult authorized(),
     TResult unAuthorized(),
+    TResult noInternet(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -341,10 +441,12 @@ class _$PrimaryInitialFlowState extends PrimaryInitialFlowState {
     @required TResult primary(PrimaryInitialFlowState value),
     @required TResult authorized(AuthorizedInitialFlowState value),
     @required TResult unAuthorized(UnAuthorizedInitialFlowState value),
+    @required TResult noInternet(NoInternetInitialFlowState value),
   }) {
     assert(primary != null);
     assert(authorized != null);
     assert(unAuthorized != null);
+    assert(noInternet != null);
     return primary(this);
   }
 
@@ -354,6 +456,7 @@ class _$PrimaryInitialFlowState extends PrimaryInitialFlowState {
     TResult primary(PrimaryInitialFlowState value),
     TResult authorized(AuthorizedInitialFlowState value),
     TResult unAuthorized(UnAuthorizedInitialFlowState value),
+    TResult noInternet(NoInternetInitialFlowState value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -412,10 +515,12 @@ class _$AuthorizedInitialFlowState extends AuthorizedInitialFlowState {
     @required TResult primary(),
     @required TResult authorized(),
     @required TResult unAuthorized(),
+    @required TResult noInternet(),
   }) {
     assert(primary != null);
     assert(authorized != null);
     assert(unAuthorized != null);
+    assert(noInternet != null);
     return authorized();
   }
 
@@ -425,6 +530,7 @@ class _$AuthorizedInitialFlowState extends AuthorizedInitialFlowState {
     TResult primary(),
     TResult authorized(),
     TResult unAuthorized(),
+    TResult noInternet(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -440,10 +546,12 @@ class _$AuthorizedInitialFlowState extends AuthorizedInitialFlowState {
     @required TResult primary(PrimaryInitialFlowState value),
     @required TResult authorized(AuthorizedInitialFlowState value),
     @required TResult unAuthorized(UnAuthorizedInitialFlowState value),
+    @required TResult noInternet(NoInternetInitialFlowState value),
   }) {
     assert(primary != null);
     assert(authorized != null);
     assert(unAuthorized != null);
+    assert(noInternet != null);
     return authorized(this);
   }
 
@@ -453,6 +561,7 @@ class _$AuthorizedInitialFlowState extends AuthorizedInitialFlowState {
     TResult primary(PrimaryInitialFlowState value),
     TResult authorized(AuthorizedInitialFlowState value),
     TResult unAuthorized(UnAuthorizedInitialFlowState value),
+    TResult noInternet(NoInternetInitialFlowState value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -513,10 +622,12 @@ class _$UnAuthorizedInitialFlowState extends UnAuthorizedInitialFlowState {
     @required TResult primary(),
     @required TResult authorized(),
     @required TResult unAuthorized(),
+    @required TResult noInternet(),
   }) {
     assert(primary != null);
     assert(authorized != null);
     assert(unAuthorized != null);
+    assert(noInternet != null);
     return unAuthorized();
   }
 
@@ -526,6 +637,7 @@ class _$UnAuthorizedInitialFlowState extends UnAuthorizedInitialFlowState {
     TResult primary(),
     TResult authorized(),
     TResult unAuthorized(),
+    TResult noInternet(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -541,10 +653,12 @@ class _$UnAuthorizedInitialFlowState extends UnAuthorizedInitialFlowState {
     @required TResult primary(PrimaryInitialFlowState value),
     @required TResult authorized(AuthorizedInitialFlowState value),
     @required TResult unAuthorized(UnAuthorizedInitialFlowState value),
+    @required TResult noInternet(NoInternetInitialFlowState value),
   }) {
     assert(primary != null);
     assert(authorized != null);
     assert(unAuthorized != null);
+    assert(noInternet != null);
     return unAuthorized(this);
   }
 
@@ -554,6 +668,7 @@ class _$UnAuthorizedInitialFlowState extends UnAuthorizedInitialFlowState {
     TResult primary(PrimaryInitialFlowState value),
     TResult authorized(AuthorizedInitialFlowState value),
     TResult unAuthorized(UnAuthorizedInitialFlowState value),
+    TResult noInternet(NoInternetInitialFlowState value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -567,4 +682,109 @@ class _$UnAuthorizedInitialFlowState extends UnAuthorizedInitialFlowState {
 abstract class UnAuthorizedInitialFlowState extends InitialFlowState {
   const UnAuthorizedInitialFlowState._() : super._();
   const factory UnAuthorizedInitialFlowState() = _$UnAuthorizedInitialFlowState;
+}
+
+/// @nodoc
+abstract class $NoInternetInitialFlowStateCopyWith<$Res> {
+  factory $NoInternetInitialFlowStateCopyWith(NoInternetInitialFlowState value,
+          $Res Function(NoInternetInitialFlowState) then) =
+      _$NoInternetInitialFlowStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$NoInternetInitialFlowStateCopyWithImpl<$Res>
+    extends _$InitialFlowStateCopyWithImpl<$Res>
+    implements $NoInternetInitialFlowStateCopyWith<$Res> {
+  _$NoInternetInitialFlowStateCopyWithImpl(NoInternetInitialFlowState _value,
+      $Res Function(NoInternetInitialFlowState) _then)
+      : super(_value, (v) => _then(v as NoInternetInitialFlowState));
+
+  @override
+  NoInternetInitialFlowState get _value =>
+      super._value as NoInternetInitialFlowState;
+}
+
+/// @nodoc
+class _$NoInternetInitialFlowState extends NoInternetInitialFlowState {
+  const _$NoInternetInitialFlowState() : super._();
+
+  @override
+  String toString() {
+    return 'InitialFlowState.noInternet()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is NoInternetInitialFlowState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult primary(),
+    @required TResult authorized(),
+    @required TResult unAuthorized(),
+    @required TResult noInternet(),
+  }) {
+    assert(primary != null);
+    assert(authorized != null);
+    assert(unAuthorized != null);
+    assert(noInternet != null);
+    return noInternet();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult primary(),
+    TResult authorized(),
+    TResult unAuthorized(),
+    TResult noInternet(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (noInternet != null) {
+      return noInternet();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult primary(PrimaryInitialFlowState value),
+    @required TResult authorized(AuthorizedInitialFlowState value),
+    @required TResult unAuthorized(UnAuthorizedInitialFlowState value),
+    @required TResult noInternet(NoInternetInitialFlowState value),
+  }) {
+    assert(primary != null);
+    assert(authorized != null);
+    assert(unAuthorized != null);
+    assert(noInternet != null);
+    return noInternet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult primary(PrimaryInitialFlowState value),
+    TResult authorized(AuthorizedInitialFlowState value),
+    TResult unAuthorized(UnAuthorizedInitialFlowState value),
+    TResult noInternet(NoInternetInitialFlowState value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (noInternet != null) {
+      return noInternet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NoInternetInitialFlowState extends InitialFlowState {
+  const NoInternetInitialFlowState._() : super._();
+  const factory NoInternetInitialFlowState() = _$NoInternetInitialFlowState;
 }
