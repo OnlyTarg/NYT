@@ -40,6 +40,9 @@ class _SignInScreenState extends State<SignInScreen> {
             resizeToAvoidBottomInset: false,
             appBar: AppBar(title: const Text('Login')),
             body: FormBlocListener<LoginFormBloC, String, String>(
+              onLoading: (context, state) {
+                print(state.progress);
+              },
               onSubmitting: (context, state) {
                 //LoadingDialog.show(context);
               },
@@ -58,7 +61,7 @@ class _SignInScreenState extends State<SignInScreen> {
               child: SingleChildScrollView(
                 physics: const ClampingScrollPhysics(),
                 child: Column(
-                  children: <Widget>[
+                  children: [
                     TextFieldBlocBuilder(
                       textFieldBloc: _loginFormBloc.email,
                       keyboardType: TextInputType.emailAddress,
@@ -75,10 +78,6 @@ class _SignInScreenState extends State<SignInScreen> {
                         prefixIcon: Icon(Icons.lock),
                       ),
                     ),
-
-                    /// Submit the form, if [FormBlocState.canSubmit] is `true`
-                    /// and [FormBlocState._isValidByStep] is `true`
-                    /// [onSubmitting] will be called.
                     RaisedButton(
                       onPressed: () => _loginFormBloc.submit(),
                       child: const Text('LOGIN'),

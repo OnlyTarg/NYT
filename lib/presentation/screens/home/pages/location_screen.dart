@@ -46,7 +46,7 @@ class _LocationScreenState extends State<LocationScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: const [
-                  Text('We are try to find your location'),
+                  Text('We are trying to find your location'),
                   SizedBox(height: 10),
                   CircularProgressIndicator(),
                 ],

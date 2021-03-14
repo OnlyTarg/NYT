@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "12420138753",
+    "project_id": "nytapp-fdf36",
+    "storage_bucket": "nytapp-fdf36.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12420138753:android:a4070546b7247cb05c7d00",
+        "android_client_info": {
+          "package_name": "com.example.nyt_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "12420138753-i5qn2i3fu2ka87ddp9bildone7qh16u7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nyt_app",
+            "certificate_hash": "16ac084cf80a506ec10c63bdcadf08704f8d9bd2"
+          }
+        },
+        {
+          "client_id": "12420138753-1ehlihjc2rns1kinminia2gmqrodiofv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCEryS1GZFqqADi3DpFJwq6mrDX3TGa7w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "12420138753-1ehlihjc2rns1kinminia2gmqrodiofv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "12420138753-658e0p2lk5fg6go1rct01qsbtmomqcvn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.nytApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
