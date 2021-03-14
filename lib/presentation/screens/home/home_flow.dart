@@ -19,20 +19,17 @@ class HomeFlow extends StatefulWidget {
 }
 
 class _HomeFlowState extends State<HomeFlow> {
-  FlowController flowController;
   HomeFlowBLoC homeFlowBLoC;
 
   @override
   void initState() {
     homeFlowBLoC = HomeFlowBLoC();
-    flowController = FlowController<HomeFlowState>(homeFlowBLoC.state);
     super.initState();
   }
 
   @override
   void dispose() {
     homeFlowBLoC.close();
-    flowController.dispose();
     super.dispose();
   }
 
@@ -41,10 +38,8 @@ class _HomeFlowState extends State<HomeFlow> {
     return BlocBuilder<HomeFlowBLoC, HomeFlowState>(
       cubit: homeFlowBLoC,
       builder: (context, state) {
-        //flowController.update((_) => HomeFlowState);
         return FlowBuilder(
           state: state,
-          // controller: flowController,
           onGeneratePages: (homeFlow, pages) {
             return [
               HomeScreen.page(),

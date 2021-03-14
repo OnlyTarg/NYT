@@ -76,6 +76,7 @@ dev_dependencies:
   path_provider: ^1.6.27
   webview_flutter: ^1.0.7
   geolocator: ^6.2.0
+  cached_network_image: ^2.5.1
 
   # database
   hive: ^1.4.4+1
@@ -107,6 +108,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/icons/
+    - assets/image/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nyt_app/models/news_item.dart';
 import 'package:nyt_app/presentation/screens/home/home_flow.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:nyt_app/src/bloc/auth/auth_bloc.dart';
 import 'package:nyt_app/src/bloc/flow_bloc/home_flow_bloc.dart';
 import 'package:nyt_app/src/bloc/news/news.dart';
@@ -19,17 +20,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String userName;
   NewsBLoC _newsBLoC;
   HomeFlowBLoC _homeFlowBLoC;
-  NewsRepo _newsRepo;
 
   @override
   void initState() {
     _homeFlowBLoC = HomeFlow.of(context).homeFlowBLoC;
-    userName = FirebaseAuth.instance.currentUser.displayName ?? 'Friend';
-    _newsRepo = NewsRepo();
-    _newsBLoC = NewsBLoC(_newsRepo);
+    _newsBLoC = NewsBLoC(NewsRepo());
     super.initState();
   }
 
@@ -90,7 +87,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      'Hello dear $userName!',
+                      // ignore: lines_longer_than_80_chars
+                      'Hello dear ${FirebaseAuth.instance.currentUser.displayName ?? 'Friend'};!',
                     ),
                   ],
                 ),
@@ -113,11 +111,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     splashColor: Colors.blue.withAlpha(30),
                     child: ListTile(
-                      title: Text(listOfNews[index].title),
-                      subtitle: Text(
-                        listOfNews[index].description,
-                      ),
-                    ),
+                        title: Text(listOfNews[index].title),
+                        subtitle: Text(
+                          listOfNews[index].description,
+                        ),
+                        leading: CachedNetworkImage(
+                            imageUrl: listOfNews[index].imageUrl,
+                            placeholder: (context, url) =>
+                                Image.asset('assets/icons/ic_google.png'),
+                            errorWidget: (context, url, error) =>
+                                const Icon(Icons.error))),
                   ),
                 ),
               );

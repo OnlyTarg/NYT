@@ -17,33 +17,13 @@ class AuthFlow extends StatefulWidget {
 }
 
 class _AuthFlowState extends State<AuthFlow> {
-  FlowController<AuthFlowState> flowController;
-  // ignore: close_sinks
-  AuthFlowBLoC authFlowBLoC;
-
-  @override
-  void initState() {
-    super.initState();
-    authFlowBLoC = AuthFlowBLoC();
-    flowController = FlowController<AuthFlowState>(authFlowBLoC.state);
-  }
-
-  @override
-  void dispose() {
-    authFlowBLoC.close();
-    flowController.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AuthFlowBLoC, AuthFlowState>(
-      cubit: authFlowBLoC,
-      buildWhen: (previous, current) => previous != current,
-      builder: (context, state) {
-        flowController.update((_) => state);
+      cubit: BlocProvider.of<AuthFlowBLoC>(context),
+      builder: (context, authState) {
         return FlowBuilder(
-          controller: flowController,
+          state: authState,
           onGeneratePages: (authFlowState, pages) {
             return [
               SignInScreen.page(),

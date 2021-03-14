@@ -17,7 +17,7 @@ class _ApiClient implements ApiClient {
   String baseUrl;
 
   @override
-  Future<MainResponse> getNews(
+  Future<TopNewsResponse> getNews(
       {apikey = 'lYqK2GWQD4Z1KAL0sAGWGYgek3utMRtG'}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'api-key': apikey};
@@ -32,7 +32,7 @@ class _ApiClient implements ApiClient {
             extra: _extra,
             baseUrl: baseUrl),
         data: _data);
-    final value = MainResponse.fromJson(_result.data);
+    final value = TopNewsResponse.fromJson(_result.data);
     return value;
   }
 }

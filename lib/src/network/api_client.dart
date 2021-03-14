@@ -1,4 +1,4 @@
-import 'package:nyt_app/models/responses/main_response.dart';
+import 'package:nyt_app/models/responses/top_news_response.dart';
 import 'package:nyt_app/src/network/interceptors/dio_logging_interceptor.dart';
 import 'package:retrofit/http.dart';
 import 'package:dio/dio.dart';
@@ -31,7 +31,7 @@ abstract class ApiClient {
   }
 
   @GET('/svc/topstories/v2/home.json')
-  Future<MainResponse> getNews(
+  Future<TopNewsResponse> getNews(
       //FIXME: find way to keep apikey localy privatly
       {@Query('api-key') String apikey = 'lYqK2GWQD4Z1KAL0sAGWGYgek3utMRtG'});
 }

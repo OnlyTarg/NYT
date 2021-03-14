@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
-import 'package:nyt_app/presentation/screens/auth/auth_flow.dart';
 import 'package:nyt_app/src/bloc/flow_bloc/auth_flow_bloc.dart';
 import 'package:nyt_app/src/bloc/forms/login_form_bloc.dart';
 import 'package:nyt_app/src/repositories/auth_repo.dart';
@@ -20,13 +19,6 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   LoginFormBloC _loginFormBloc;
-  AuthFlowBLoC authFlowBLoC;
-
-  @override
-  void initState() {
-    authFlowBLoC = AuthFlow.of(context).authFlowBLoC;
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,28 +32,10 @@ class _SignInScreenState extends State<SignInScreen> {
             resizeToAvoidBottomInset: false,
             appBar: AppBar(title: const Text('Login')),
             body: FormBlocListener<LoginFormBloC, String, String>(
-              onLoading: (context, state) {
-                print(state.progress);
-              },
-              onSubmitting: (context, state) {
-                //LoadingDialog.show(context);
-              },
-              onSuccess: (context, state) {
-                /*  LoadingDialog.hide(context);
-
-                Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (_) => SuccessScreen())); */
-              },
-              onFailure: (context, state) {
-                /*  LoadingDialog.hide(context);
-
-                Scaffold.of(context).showSnackBar(
-                    SnackBar(content: Text(state.failureResponse))); */
-              },
               child: SingleChildScrollView(
                 physics: const ClampingScrollPhysics(),
                 child: Column(
-                  children: [
+                  children: <Widget>[
                     TextFieldBlocBuilder(
                       textFieldBloc: _loginFormBloc.email,
                       keyboardType: TextInputType.emailAddress,
@@ -90,6 +64,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       children: [
                         RaisedButton(
                           onPressed: () {
+                            //TODO: Change with bloc event
                             final AuthRepo authRepo = AuthRepo();
                             authRepo.signInWithGoogle();
                           },
@@ -111,7 +86,8 @@ class _SignInScreenState extends State<SignInScreen> {
                           padding: const EdgeInsets.only(left: 8),
                           child: RaisedButton(
                             onPressed: () {
-                              authFlowBLoC.add(const AuthFlowEvent.signUp());
+                              BlocProvider.of<AuthFlowBLoC>(context)
+                                  .add(const AuthFlowEvent.signUp());
                             },
                             child: const Text('Sign UP'),
                           ),

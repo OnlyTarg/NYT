@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
 import 'package:nyt_app/models/news_item.dart';
-import 'package:nyt_app/models/responses/main_response.dart';
+import 'package:nyt_app/models/responses/top_news_response.dart';
 import 'package:nyt_app/src/network/api_client.dart';
 import 'package:nyt_app/src/repositories/base_news_repo.dart';
 
@@ -13,7 +13,7 @@ class NewsRepo extends BaseNewsRepo {
 
   @override
   Future<List<NewsItem>> getNews() async {
-    final MainResponse _response =
+    final TopNewsResponse _response =
         await ApiClient.instance.getNews().timeout(const Duration(seconds: 30));
 
     if (_response.status == 'OK') {
@@ -22,18 +22,20 @@ class NewsRepo extends BaseNewsRepo {
     return [];
   }
 
-  List<NewsItem> _convertFromResposeToNewsItemList(MainResponse response) {
+  List<NewsItem> _convertFromResposeToNewsItemList(TopNewsResponse response) {
     final List<NewsItem> _list = [];
     //TODO: find why using forEach is depricated acordingly to linter
     // ignore: avoid_function_literals_in_foreach_calls
-    response.results.forEach((value) {
+
+    for (int i = 0; i < response.results.length; i++) {
       final NewsItem _item = NewsItem(
-        title: value.title,
-        url: value.url,
-        description: value.description,
+        imageUrl: response.results[i].multimedia[1].url,
+        title: response.results[i].title,
+        url: response.results[i].url,
+        description: response.results[i].description,
       );
       _list.add(_item);
-    });
+    }
 
     saveNewsLocally(_list);
 

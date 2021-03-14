@@ -24,8 +24,9 @@ class _NewsViewScreenState extends State<NewsViewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: WebView(
-      initialUrl: widget.url,
-    ));
+      body: WebView(
+        initialUrl: widget.url,
+      ),
+    );
   }
 }

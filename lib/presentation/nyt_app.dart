@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nyt_app/presentation/screens/initial/initial_flow.dart';
 import 'package:nyt_app/src/bloc/auth/auth_bloc.dart';
 import 'package:nyt_app/src/bloc/flow_bloc/initial_flow_bloc.dart';
+import 'package:nyt_app/src/bloc/forms/login_form_bloc.dart';
 import 'package:nyt_app/src/repositories/auth_repo.dart';
 
 class NYTApp extends StatelessWidget {
@@ -38,15 +39,12 @@ class NYTApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               home: MultiBlocProvider(
                 providers: [
-                  /*  BlocProvider<AuthFlowBLoC>(
-                    create: (context) => AuthFlowBLoC(),
-                  ), */
                   BlocProvider<InitialFlowBLoC>(
                     create: (context) => InitialFlowBLoC(),
                   ),
-                  /* BlocProvider<HomeFlowBLoC>(
-                    create: (context) => HomeFlowBLoC(),
-                  ), */
+                  BlocProvider<LoginFormBloC>(
+                    create: (context) => LoginFormBloC(),
+                  ),
                   BlocProvider<AuthBLoC>(
                     create: (context) => AuthBLoC(AuthRepo()),
                   ),
