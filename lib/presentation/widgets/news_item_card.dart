@@ -3,6 +3,8 @@ import 'package:nyt_app/models/news_item.dart';
 import 'package:nyt_app/src/bloc/flow_bloc/home_flow_bloc.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
+/// FIXME this class exist at home_scree.dart file
+/// FIXME bad way to pass bloc via parameters
 class NewsItemCard extends StatelessWidget {
   final HomeFlowBLoC _homeFlowBLoC;
   final List<NewsItem> listOfNews;

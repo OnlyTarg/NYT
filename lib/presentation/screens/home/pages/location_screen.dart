@@ -16,6 +16,7 @@ class LocationScreen extends StatefulWidget {
 }
 
 class _LocationScreenState extends State<LocationScreen> {
+  //FIXME better create bloc with bloc provider and use stateless widget
   LocationBLoC _locationBLoC;
 
   @override

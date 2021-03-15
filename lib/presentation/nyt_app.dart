@@ -12,6 +12,7 @@ class NYTApp extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
+  /// FIXME: Why init app called to time? (main.dart)
   // Create the initialization Future outside of `build`:
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
 
@@ -23,6 +24,9 @@ class NYTApp extends StatelessWidget {
       builder: (context, snapshot) {
         // Check for errors
         if (snapshot.hasError) {
+          ///fixme bad way to handle error in widget
+          ///app with null build method will crash
+
           return null;
         }
 

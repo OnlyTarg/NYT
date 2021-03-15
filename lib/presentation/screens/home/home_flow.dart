@@ -19,6 +19,8 @@ class HomeFlow extends StatefulWidget {
 }
 
 class _HomeFlowState extends State<HomeFlow> {
+  //FIXME better create bloc with bloc provider and use stateless widget
+
   HomeFlowBLoC homeFlowBLoC;
 
   @override

@@ -25,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
+    /// FIXME bad way to use bloc, why not to wrap page into bloc provider?
     _homeFlowBLoC = HomeFlow.of(context).homeFlowBLoC;
     _newsBLoC = NewsBLoC(NewsRepo());
     super.initState();
@@ -118,6 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
+// FIXME better separate widget into another file or mark as private _
 class NewsItemCard extends StatelessWidget {
   final HomeFlowBLoC _homeFlowBLoC;
   final List<NewsItem> listOfNews;

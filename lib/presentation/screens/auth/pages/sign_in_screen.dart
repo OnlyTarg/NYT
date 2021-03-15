@@ -105,6 +105,8 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   void dispose() {
+    //FIXME no need to close lazy bloc (create by BlocProvider(create: (context) ...
+    /// this bloc will close automatically
     _loginFormBloc.close();
     super.dispose();
   }

@@ -5,6 +5,7 @@ import 'package:nyt_app/src/network/api_client.dart';
 import 'package:nyt_app/src/repositories/base_news_repo.dart';
 
 class NewsRepo extends BaseNewsRepo {
+  ///fixeme: global, why no await of box.close?
   NewsRepo() {
     if (!Hive.isAdapterRegistered(0)) {
       Hive.registerAdapter<NewsItem>(NewsItemAdapter());
@@ -27,6 +28,9 @@ class NewsRepo extends BaseNewsRepo {
     //TODO: find why using forEach is depricated acordingly to linter
     // ignore: avoid_function_literals_in_foreach_calls
 
+    ///Fixme: use box.addAll() instead for loop
+    ///fixme: better use for (final item in response.result) and move to response class
+
     for (int i = 0; i < response.results.length; i++) {
       final NewsItem _item = NewsItem(
         imageUrl: response.results[i].multimedia[1].url,
@@ -46,6 +50,8 @@ class NewsRepo extends BaseNewsRepo {
   Future<List<NewsItem>> getNewsLocaly() async {
     final box = await Hive.openBox<NewsItem>(BaseNewsRepo.newsBox);
     final List<NewsItem> _list = [];
+
+    //FIXME: why not to use box.values as return?
     for (final item in box.values) {
       _list.add(item);
     }

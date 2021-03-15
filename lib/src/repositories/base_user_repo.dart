@@ -1,5 +1,6 @@
 import 'package:nyt_app/models/user.dart';
 
+//FIXME: not in base_repo folder
 abstract class BaseUserRepo {
   static const userBox = 'user_box';
   static const authToken = 'auth_token';

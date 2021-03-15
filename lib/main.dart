@@ -11,7 +11,12 @@ import 'package:nyt_app/src/bloc/observer.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = SimpleBlocObserver();
+
+  /// FIXME: better to init firebase app in repo/bloc
+
   await Firebase.initializeApp();
+
+  // FIXME: better to use hive flutter
   final appDocumentDir = await getApplicationDocumentsDirectory();
   Hive.init(appDocumentDir.path);
   runApp(NYTApp());

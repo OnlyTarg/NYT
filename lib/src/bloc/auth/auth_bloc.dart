@@ -96,6 +96,7 @@ class AuthBLoC extends Bloc<AuthEvent, AuthState> {
 
   Stream<AuthState> _logOut() async* {
     yield const AuthState.loading();
+    //fixme await?
     authRepo.logOut();
     yield const AuthState.logOutSuccess();
     // ...

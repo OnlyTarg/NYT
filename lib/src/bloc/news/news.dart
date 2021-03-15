@@ -5,6 +5,7 @@ import 'package:nyt_app/src/repositories/news_repo.dart';
 
 part 'news.freezed.dart';
 
+//FIXME wrong flow, local news must show when remote grab was canceled/impossible
 @freezed
 abstract class NewsEvent with _$NewsEvent {
   const NewsEvent._();
@@ -24,6 +25,7 @@ abstract class NewsState with _$NewsState {
 }
 
 class NewsBLoC extends Bloc<NewsEvent, NewsState> {
+  //fixme: try to use private variable in bloc
   NewsRepo newsRepo;
   NewsBLoC(this.newsRepo) : super(const InitialNewsState());
 
@@ -42,6 +44,7 @@ class NewsBLoC extends Bloc<NewsEvent, NewsState> {
 
   Stream<NewsState> _fetchLocal() async* {
     yield const NewsState.loading();
+    //FIXME: error handling?
 
     final _newsList = await newsRepo.getNewsLocaly();
     yield NewsState.loaded(_newsList);

@@ -8,6 +8,7 @@ import 'package:nyt_app/src/bloc/connection/connection_cubit.dart';
 import 'package:nyt_app/src/repositories/connection_repo.dart';
 part 'initial_flow_bloc.freezed.dart';
 
+/// FIXME why bloc is used here? any user event is called? why no cubit?
 @freezed
 abstract class InitialFlowEvent with _$InitialFlowEvent {
   const InitialFlowEvent._();
