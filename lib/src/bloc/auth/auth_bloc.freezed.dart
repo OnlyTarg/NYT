@@ -42,6 +42,11 @@ class _$AuthEventTearOff {
   }
 
 // ignore: unused_element
+  signInGooleAuthEvent signInGoole() {
+    return const signInGooleAuthEvent();
+  }
+
+// ignore: unused_element
   ErrorAuthEvent error() {
     return const ErrorAuthEvent();
   }
@@ -65,6 +70,7 @@ mixin _$AuthEvent {
         TResult signUp(String email, String password, String confirmPassword),
     @required TResult signIn(String email, String password),
     @required TResult logout(),
+    @required TResult signInGoole(),
     @required TResult error(),
     @required TResult signInGoogle(),
   });
@@ -74,6 +80,7 @@ mixin _$AuthEvent {
     TResult signUp(String email, String password, String confirmPassword),
     TResult signIn(String email, String password),
     TResult logout(),
+    TResult signInGoole(),
     TResult error(),
     TResult signInGoogle(),
     @required TResult orElse(),
@@ -84,6 +91,7 @@ mixin _$AuthEvent {
     @required TResult signUp(SignUpAuthEvent value),
     @required TResult signIn(SignInAuthEvent value),
     @required TResult logout(LogoutAuthEvent value),
+    @required TResult signInGoole(signInGooleAuthEvent value),
     @required TResult error(ErrorAuthEvent value),
     @required TResult signInGoogle(SignInGoogleAuthEvent value),
   });
@@ -93,6 +101,7 @@ mixin _$AuthEvent {
     TResult signUp(SignUpAuthEvent value),
     TResult signIn(SignInAuthEvent value),
     TResult logout(LogoutAuthEvent value),
+    TResult signInGoole(signInGooleAuthEvent value),
     TResult error(ErrorAuthEvent value),
     TResult signInGoogle(SignInGoogleAuthEvent value),
     @required TResult orElse(),
@@ -157,6 +166,7 @@ class _$InitialAuthEvent extends InitialAuthEvent {
         TResult signUp(String email, String password, String confirmPassword),
     @required TResult signIn(String email, String password),
     @required TResult logout(),
+    @required TResult signInGoole(),
     @required TResult error(),
     @required TResult signInGoogle(),
   }) {
@@ -164,6 +174,7 @@ class _$InitialAuthEvent extends InitialAuthEvent {
     assert(signUp != null);
     assert(signIn != null);
     assert(logout != null);
+    assert(signInGoole != null);
     assert(error != null);
     assert(signInGoogle != null);
     return initial();
@@ -176,6 +187,7 @@ class _$InitialAuthEvent extends InitialAuthEvent {
     TResult signUp(String email, String password, String confirmPassword),
     TResult signIn(String email, String password),
     TResult logout(),
+    TResult signInGoole(),
     TResult error(),
     TResult signInGoogle(),
     @required TResult orElse(),
@@ -194,6 +206,7 @@ class _$InitialAuthEvent extends InitialAuthEvent {
     @required TResult signUp(SignUpAuthEvent value),
     @required TResult signIn(SignInAuthEvent value),
     @required TResult logout(LogoutAuthEvent value),
+    @required TResult signInGoole(signInGooleAuthEvent value),
     @required TResult error(ErrorAuthEvent value),
     @required TResult signInGoogle(SignInGoogleAuthEvent value),
   }) {
@@ -201,6 +214,7 @@ class _$InitialAuthEvent extends InitialAuthEvent {
     assert(signUp != null);
     assert(signIn != null);
     assert(logout != null);
+    assert(signInGoole != null);
     assert(error != null);
     assert(signInGoogle != null);
     return initial(this);
@@ -213,6 +227,7 @@ class _$InitialAuthEvent extends InitialAuthEvent {
     TResult signUp(SignUpAuthEvent value),
     TResult signIn(SignInAuthEvent value),
     TResult logout(LogoutAuthEvent value),
+    TResult signInGoole(signInGooleAuthEvent value),
     TResult error(ErrorAuthEvent value),
     TResult signInGoogle(SignInGoogleAuthEvent value),
     @required TResult orElse(),
@@ -315,6 +330,7 @@ class _$SignUpAuthEvent extends SignUpAuthEvent {
         TResult signUp(String email, String password, String confirmPassword),
     @required TResult signIn(String email, String password),
     @required TResult logout(),
+    @required TResult signInGoole(),
     @required TResult error(),
     @required TResult signInGoogle(),
   }) {
@@ -322,6 +338,7 @@ class _$SignUpAuthEvent extends SignUpAuthEvent {
     assert(signUp != null);
     assert(signIn != null);
     assert(logout != null);
+    assert(signInGoole != null);
     assert(error != null);
     assert(signInGoogle != null);
     return signUp(email, password, confirmPassword);
@@ -334,6 +351,7 @@ class _$SignUpAuthEvent extends SignUpAuthEvent {
     TResult signUp(String email, String password, String confirmPassword),
     TResult signIn(String email, String password),
     TResult logout(),
+    TResult signInGoole(),
     TResult error(),
     TResult signInGoogle(),
     @required TResult orElse(),
@@ -352,6 +370,7 @@ class _$SignUpAuthEvent extends SignUpAuthEvent {
     @required TResult signUp(SignUpAuthEvent value),
     @required TResult signIn(SignInAuthEvent value),
     @required TResult logout(LogoutAuthEvent value),
+    @required TResult signInGoole(signInGooleAuthEvent value),
     @required TResult error(ErrorAuthEvent value),
     @required TResult signInGoogle(SignInGoogleAuthEvent value),
   }) {
@@ -359,6 +378,7 @@ class _$SignUpAuthEvent extends SignUpAuthEvent {
     assert(signUp != null);
     assert(signIn != null);
     assert(logout != null);
+    assert(signInGoole != null);
     assert(error != null);
     assert(signInGoogle != null);
     return signUp(this);
@@ -371,6 +391,7 @@ class _$SignUpAuthEvent extends SignUpAuthEvent {
     TResult signUp(SignUpAuthEvent value),
     TResult signIn(SignInAuthEvent value),
     TResult logout(LogoutAuthEvent value),
+    TResult signInGoole(signInGooleAuthEvent value),
     TResult error(ErrorAuthEvent value),
     TResult signInGoogle(SignInGoogleAuthEvent value),
     @required TResult orElse(),
@@ -471,6 +492,7 @@ class _$SignInAuthEvent extends SignInAuthEvent {
         TResult signUp(String email, String password, String confirmPassword),
     @required TResult signIn(String email, String password),
     @required TResult logout(),
+    @required TResult signInGoole(),
     @required TResult error(),
     @required TResult signInGoogle(),
   }) {
@@ -478,6 +500,7 @@ class _$SignInAuthEvent extends SignInAuthEvent {
     assert(signUp != null);
     assert(signIn != null);
     assert(logout != null);
+    assert(signInGoole != null);
     assert(error != null);
     assert(signInGoogle != null);
     return signIn(email, password);
@@ -490,6 +513,7 @@ class _$SignInAuthEvent extends SignInAuthEvent {
     TResult signUp(String email, String password, String confirmPassword),
     TResult signIn(String email, String password),
     TResult logout(),
+    TResult signInGoole(),
     TResult error(),
     TResult signInGoogle(),
     @required TResult orElse(),
@@ -508,6 +532,7 @@ class _$SignInAuthEvent extends SignInAuthEvent {
     @required TResult signUp(SignUpAuthEvent value),
     @required TResult signIn(SignInAuthEvent value),
     @required TResult logout(LogoutAuthEvent value),
+    @required TResult signInGoole(signInGooleAuthEvent value),
     @required TResult error(ErrorAuthEvent value),
     @required TResult signInGoogle(SignInGoogleAuthEvent value),
   }) {
@@ -515,6 +540,7 @@ class _$SignInAuthEvent extends SignInAuthEvent {
     assert(signUp != null);
     assert(signIn != null);
     assert(logout != null);
+    assert(signInGoole != null);
     assert(error != null);
     assert(signInGoogle != null);
     return signIn(this);
@@ -527,6 +553,7 @@ class _$SignInAuthEvent extends SignInAuthEvent {
     TResult signUp(SignUpAuthEvent value),
     TResult signIn(SignInAuthEvent value),
     TResult logout(LogoutAuthEvent value),
+    TResult signInGoole(signInGooleAuthEvent value),
     TResult error(ErrorAuthEvent value),
     TResult signInGoogle(SignInGoogleAuthEvent value),
     @required TResult orElse(),
@@ -593,6 +620,7 @@ class _$LogoutAuthEvent extends LogoutAuthEvent {
         TResult signUp(String email, String password, String confirmPassword),
     @required TResult signIn(String email, String password),
     @required TResult logout(),
+    @required TResult signInGoole(),
     @required TResult error(),
     @required TResult signInGoogle(),
   }) {
@@ -600,6 +628,7 @@ class _$LogoutAuthEvent extends LogoutAuthEvent {
     assert(signUp != null);
     assert(signIn != null);
     assert(logout != null);
+    assert(signInGoole != null);
     assert(error != null);
     assert(signInGoogle != null);
     return logout();
@@ -612,6 +641,7 @@ class _$LogoutAuthEvent extends LogoutAuthEvent {
     TResult signUp(String email, String password, String confirmPassword),
     TResult signIn(String email, String password),
     TResult logout(),
+    TResult signInGoole(),
     TResult error(),
     TResult signInGoogle(),
     @required TResult orElse(),
@@ -630,6 +660,7 @@ class _$LogoutAuthEvent extends LogoutAuthEvent {
     @required TResult signUp(SignUpAuthEvent value),
     @required TResult signIn(SignInAuthEvent value),
     @required TResult logout(LogoutAuthEvent value),
+    @required TResult signInGoole(signInGooleAuthEvent value),
     @required TResult error(ErrorAuthEvent value),
     @required TResult signInGoogle(SignInGoogleAuthEvent value),
   }) {
@@ -637,6 +668,7 @@ class _$LogoutAuthEvent extends LogoutAuthEvent {
     assert(signUp != null);
     assert(signIn != null);
     assert(logout != null);
+    assert(signInGoole != null);
     assert(error != null);
     assert(signInGoogle != null);
     return logout(this);
@@ -649,6 +681,7 @@ class _$LogoutAuthEvent extends LogoutAuthEvent {
     TResult signUp(SignUpAuthEvent value),
     TResult signIn(SignInAuthEvent value),
     TResult logout(LogoutAuthEvent value),
+    TResult signInGoole(signInGooleAuthEvent value),
     TResult error(ErrorAuthEvent value),
     TResult signInGoogle(SignInGoogleAuthEvent value),
     @required TResult orElse(),
@@ -664,6 +697,129 @@ class _$LogoutAuthEvent extends LogoutAuthEvent {
 abstract class LogoutAuthEvent extends AuthEvent {
   const LogoutAuthEvent._() : super._();
   const factory LogoutAuthEvent() = _$LogoutAuthEvent;
+}
+
+/// @nodoc
+abstract class $signInGooleAuthEventCopyWith<$Res> {
+  factory $signInGooleAuthEventCopyWith(signInGooleAuthEvent value,
+          $Res Function(signInGooleAuthEvent) then) =
+      _$signInGooleAuthEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$signInGooleAuthEventCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res>
+    implements $signInGooleAuthEventCopyWith<$Res> {
+  _$signInGooleAuthEventCopyWithImpl(
+      signInGooleAuthEvent _value, $Res Function(signInGooleAuthEvent) _then)
+      : super(_value, (v) => _then(v as signInGooleAuthEvent));
+
+  @override
+  signInGooleAuthEvent get _value => super._value as signInGooleAuthEvent;
+}
+
+/// @nodoc
+class _$signInGooleAuthEvent extends signInGooleAuthEvent {
+  const _$signInGooleAuthEvent() : super._();
+
+  @override
+  String toString() {
+    return 'AuthEvent.signInGoole()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is signInGooleAuthEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required
+        TResult signUp(String email, String password, String confirmPassword),
+    @required TResult signIn(String email, String password),
+    @required TResult logout(),
+    @required TResult signInGoole(),
+    @required TResult error(),
+    @required TResult signInGoogle(),
+  }) {
+    assert(initial != null);
+    assert(signUp != null);
+    assert(signIn != null);
+    assert(logout != null);
+    assert(signInGoole != null);
+    assert(error != null);
+    assert(signInGoogle != null);
+    return signInGoole();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult signUp(String email, String password, String confirmPassword),
+    TResult signIn(String email, String password),
+    TResult logout(),
+    TResult signInGoole(),
+    TResult error(),
+    TResult signInGoogle(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (signInGoole != null) {
+      return signInGoole();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult initial(InitialAuthEvent value),
+    @required TResult signUp(SignUpAuthEvent value),
+    @required TResult signIn(SignInAuthEvent value),
+    @required TResult logout(LogoutAuthEvent value),
+    @required TResult signInGoole(signInGooleAuthEvent value),
+    @required TResult error(ErrorAuthEvent value),
+    @required TResult signInGoogle(SignInGoogleAuthEvent value),
+  }) {
+    assert(initial != null);
+    assert(signUp != null);
+    assert(signIn != null);
+    assert(logout != null);
+    assert(signInGoole != null);
+    assert(error != null);
+    assert(signInGoogle != null);
+    return signInGoole(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(InitialAuthEvent value),
+    TResult signUp(SignUpAuthEvent value),
+    TResult signIn(SignInAuthEvent value),
+    TResult logout(LogoutAuthEvent value),
+    TResult signInGoole(signInGooleAuthEvent value),
+    TResult error(ErrorAuthEvent value),
+    TResult signInGoogle(SignInGoogleAuthEvent value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (signInGoole != null) {
+      return signInGoole(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class signInGooleAuthEvent extends AuthEvent {
+  const signInGooleAuthEvent._() : super._();
+  const factory signInGooleAuthEvent() = _$signInGooleAuthEvent;
 }
 
 /// @nodoc
@@ -709,6 +865,7 @@ class _$ErrorAuthEvent extends ErrorAuthEvent {
         TResult signUp(String email, String password, String confirmPassword),
     @required TResult signIn(String email, String password),
     @required TResult logout(),
+    @required TResult signInGoole(),
     @required TResult error(),
     @required TResult signInGoogle(),
   }) {
@@ -716,6 +873,7 @@ class _$ErrorAuthEvent extends ErrorAuthEvent {
     assert(signUp != null);
     assert(signIn != null);
     assert(logout != null);
+    assert(signInGoole != null);
     assert(error != null);
     assert(signInGoogle != null);
     return error();
@@ -728,6 +886,7 @@ class _$ErrorAuthEvent extends ErrorAuthEvent {
     TResult signUp(String email, String password, String confirmPassword),
     TResult signIn(String email, String password),
     TResult logout(),
+    TResult signInGoole(),
     TResult error(),
     TResult signInGoogle(),
     @required TResult orElse(),
@@ -746,6 +905,7 @@ class _$ErrorAuthEvent extends ErrorAuthEvent {
     @required TResult signUp(SignUpAuthEvent value),
     @required TResult signIn(SignInAuthEvent value),
     @required TResult logout(LogoutAuthEvent value),
+    @required TResult signInGoole(signInGooleAuthEvent value),
     @required TResult error(ErrorAuthEvent value),
     @required TResult signInGoogle(SignInGoogleAuthEvent value),
   }) {
@@ -753,6 +913,7 @@ class _$ErrorAuthEvent extends ErrorAuthEvent {
     assert(signUp != null);
     assert(signIn != null);
     assert(logout != null);
+    assert(signInGoole != null);
     assert(error != null);
     assert(signInGoogle != null);
     return error(this);
@@ -765,6 +926,7 @@ class _$ErrorAuthEvent extends ErrorAuthEvent {
     TResult signUp(SignUpAuthEvent value),
     TResult signIn(SignInAuthEvent value),
     TResult logout(LogoutAuthEvent value),
+    TResult signInGoole(signInGooleAuthEvent value),
     TResult error(ErrorAuthEvent value),
     TResult signInGoogle(SignInGoogleAuthEvent value),
     @required TResult orElse(),
@@ -826,6 +988,7 @@ class _$SignInGoogleAuthEvent extends SignInGoogleAuthEvent {
         TResult signUp(String email, String password, String confirmPassword),
     @required TResult signIn(String email, String password),
     @required TResult logout(),
+    @required TResult signInGoole(),
     @required TResult error(),
     @required TResult signInGoogle(),
   }) {
@@ -833,6 +996,7 @@ class _$SignInGoogleAuthEvent extends SignInGoogleAuthEvent {
     assert(signUp != null);
     assert(signIn != null);
     assert(logout != null);
+    assert(signInGoole != null);
     assert(error != null);
     assert(signInGoogle != null);
     return signInGoogle();
@@ -845,6 +1009,7 @@ class _$SignInGoogleAuthEvent extends SignInGoogleAuthEvent {
     TResult signUp(String email, String password, String confirmPassword),
     TResult signIn(String email, String password),
     TResult logout(),
+    TResult signInGoole(),
     TResult error(),
     TResult signInGoogle(),
     @required TResult orElse(),
@@ -863,6 +1028,7 @@ class _$SignInGoogleAuthEvent extends SignInGoogleAuthEvent {
     @required TResult signUp(SignUpAuthEvent value),
     @required TResult signIn(SignInAuthEvent value),
     @required TResult logout(LogoutAuthEvent value),
+    @required TResult signInGoole(signInGooleAuthEvent value),
     @required TResult error(ErrorAuthEvent value),
     @required TResult signInGoogle(SignInGoogleAuthEvent value),
   }) {
@@ -870,6 +1036,7 @@ class _$SignInGoogleAuthEvent extends SignInGoogleAuthEvent {
     assert(signUp != null);
     assert(signIn != null);
     assert(logout != null);
+    assert(signInGoole != null);
     assert(error != null);
     assert(signInGoogle != null);
     return signInGoogle(this);
@@ -882,6 +1049,7 @@ class _$SignInGoogleAuthEvent extends SignInGoogleAuthEvent {
     TResult signUp(SignUpAuthEvent value),
     TResult signIn(SignInAuthEvent value),
     TResult logout(LogoutAuthEvent value),
+    TResult signInGoole(signInGooleAuthEvent value),
     TResult error(ErrorAuthEvent value),
     TResult signInGoogle(SignInGoogleAuthEvent value),
     @required TResult orElse(),

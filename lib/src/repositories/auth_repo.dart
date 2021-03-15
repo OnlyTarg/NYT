@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:nyt_app/constants/exceptions.dart';
 
 import 'package:nyt_app/src/repositories/base_repo/base_authorization_repo.dart';
 
@@ -33,8 +34,12 @@ class AuthRepo extends BaseAuthorizationRepo {
 
   @override
   Future<void> logOut() async {
-    await _auth.signOut();
-    await googleSignIn.signOut();
+    try {
+      await _auth.signOut();
+      await googleSignIn.signOut();
+    } on dynamic {
+      rethrow;
+    }
   }
 
   @override
@@ -46,38 +51,51 @@ class AuthRepo extends BaseAuthorizationRepo {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
+        throw UserDoesNotExist;
       } else if (e.code == 'wrong-password') {
         print('Wrong password provided for that user.');
+        throw UserNotAuthorized;
       }
+    } on dynamic {
+      rethrow;
     }
   }
 
   @override
   // ignore: avoid_void_async
   void signOutGoogle() async {
-    await googleSignIn.signOut();
+    try {
+      await googleSignIn.signOut();
+    } on dynamic {
+      rethrow;
+    }
   }
 
   @override
   Future<User> signInWithGoogle() async {
-    final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
-    final GoogleSignInAuthentication googleSignInAuthentication =
-        await googleSignInAccount.authentication;
+    try {
+      final GoogleSignInAccount googleSignInAccount =
+          await googleSignIn.signIn();
+      final GoogleSignInAuthentication googleSignInAuthentication =
+          await googleSignInAccount.authentication;
 
-    final AuthCredential credential = GoogleAuthProvider.credential(
-        idToken: googleSignInAuthentication.idToken,
-        accessToken: googleSignInAuthentication.accessToken);
+      final AuthCredential credential = GoogleAuthProvider.credential(
+          idToken: googleSignInAuthentication.idToken,
+          accessToken: googleSignInAuthentication.accessToken);
 
-    final UserCredential authResult =
-        await _auth.signInWithCredential(credential);
-    final User user = authResult.user;
+      final UserCredential authResult =
+          await _auth.signInWithCredential(credential);
+      final User user = authResult.user;
 
-    assert(!user.isAnonymous);
-    assert(await user.getIdToken() != null);
+      assert(!user.isAnonymous);
+      assert(await user.getIdToken() != null);
 
-    final User currentUser = _auth.currentUser;
-    assert(currentUser.uid == user.uid);
+      final User currentUser = _auth.currentUser;
+      assert(currentUser.uid == user.uid);
 
-    return user;
+      return user;
+    } on dynamic {
+      throw GoogleAuthError();
+    }
   }
 }

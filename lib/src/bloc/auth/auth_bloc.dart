@@ -24,6 +24,7 @@ abstract class AuthEvent with _$AuthEvent {
   }) = SignInAuthEvent;
 
   const factory AuthEvent.logout() = LogoutAuthEvent;
+  const factory AuthEvent.signInGoole() = signInGooleAuthEvent;
   const factory AuthEvent.error() = ErrorAuthEvent;
   const factory AuthEvent.signInGoogle() = SignInGoogleAuthEvent;
 }
@@ -51,6 +52,7 @@ class AuthBLoC extends Bloc<AuthEvent, AuthState> {
         signInGoogle: _signInGoogle,
         initial: _initial,
         signIn: _signIn,
+        signInGoole: _signInGoogle,
         signUp: _signUp,
         logout: _logOut,
         error: _error,

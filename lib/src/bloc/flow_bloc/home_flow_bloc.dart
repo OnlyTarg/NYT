@@ -47,6 +47,7 @@ class HomeFlowBLoC extends Bloc<HomeFlowEvent, HomeFlowState> {
   }
 
   Stream<HomeFlowState> _showNewsPaper(String url) async* {
+    yield const HomeFlowState.loading();
     yield HomeFlowState.newsPaperLoaded(url);
     // ...
   }

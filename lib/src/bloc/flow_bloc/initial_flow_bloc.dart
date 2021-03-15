@@ -47,7 +47,7 @@ class InitialFlowBLoC extends Bloc<InitialFlowEvent, InitialFlowState> {
               }
             },
           );
-        } else {
+        } else if (connectionStatus is DisconnectedConnectionState) {
           add(const InitialFlowEvent.noInternet());
         }
       },

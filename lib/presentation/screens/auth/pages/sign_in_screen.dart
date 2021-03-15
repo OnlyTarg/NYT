@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
+import 'package:nyt_app/src/bloc/auth/auth_bloc.dart';
 import 'package:nyt_app/src/bloc/flow_bloc/auth_flow_bloc.dart';
 import 'package:nyt_app/src/bloc/forms/login_form_bloc.dart';
-import 'package:nyt_app/src/repositories/auth_repo.dart';
 
 class SignInScreen extends StatefulWidget {
   static Page page() => const MaterialPage<void>(
@@ -64,9 +64,8 @@ class _SignInScreenState extends State<SignInScreen> {
                       children: [
                         RaisedButton(
                           onPressed: () {
-                            //TODO: Change with bloc event
-                            final AuthRepo authRepo = AuthRepo();
-                            authRepo.signInWithGoogle();
+                            BlocProvider.of<AuthBLoC>(context)
+                                .add(const AuthEvent.signInGoogle());
                           },
                           child: Row(
                             children: [
