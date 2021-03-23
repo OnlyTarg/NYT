@@ -76,7 +76,7 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Text(
                       // ignore: lines_longer_than_80_chars
-                      'Hello dear ${FirebaseAuth.instance.currentUser.displayName ?? 'Friend'};!',
+                      'Hello dear ${FirebaseAuth.instance.currentUser.displayName ?? 'Guest'}',
                     ),
                   ],
                 ),

@@ -28,7 +28,7 @@ class _AuthFlowState extends State<AuthFlow> {
             return [
               SignInScreen.page(),
               if (authFlowState is SignUpAuthFlowState) SignUpScreen.page(),
-              if (authFlowState is SignInAuthFlowState) SignInScreen.page(),
+              //if (authFlowState is SignInAuthFlowState) SignInScreen.page(),
             ];
           },
         );

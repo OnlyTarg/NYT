@@ -24,7 +24,8 @@ abstract class AuthEvent with _$AuthEvent {
   }) = SignInAuthEvent;
 
   const factory AuthEvent.logout() = LogoutAuthEvent;
-  const factory AuthEvent.signInGoole() = signInGooleAuthEvent;
+  const factory AuthEvent.signInGoole() = SignInGooleAuthEvent;
+  const factory AuthEvent.signInAnonymous() = SignInAnonymousAuthEvent;
   const factory AuthEvent.error() = ErrorAuthEvent;
   const factory AuthEvent.signInGoogle() = SignInGoogleAuthEvent;
 }
@@ -37,6 +38,7 @@ abstract class AuthState with _$AuthState {
   const factory AuthState.loading() = LoadingAuthState;
   const factory AuthState.authorized() = AuthorizedAuthState;
   const factory AuthState.unAuthorized() = UnAuthorizedAuthState;
+  const factory AuthState.anonymous() = AnonymousAuthState;
   const factory AuthState.logOutSuccess() = LogOutSuccessAuthState;
   const factory AuthState.logInSuccess() = LogInSuccessAuthState;
   const factory AuthState.error() = ErrorAuthState;
@@ -52,6 +54,7 @@ class AuthBLoC extends Bloc<AuthEvent, AuthState> {
         signInGoogle: _signInGoogle,
         initial: _initial,
         signIn: _signIn,
+        signInAnonymous: _signInAnonymous,
         signInGoole: _signInGoogle,
         signUp: _signUp,
         logout: _logOut,
@@ -59,7 +62,7 @@ class AuthBLoC extends Bloc<AuthEvent, AuthState> {
       );
 
   Stream<AuthState> _initial() async* {
-    // ...
+    authRepo.signInAnonymous();
   }
 
   Stream<AuthState> _signUp(
@@ -91,6 +94,12 @@ class AuthBLoC extends Bloc<AuthEvent, AuthState> {
   Stream<AuthState> _signIn(String email, String password) async* {
     yield const AuthState.loading();
     authRepo.signIn(email: email, password: password);
+    yield const AuthState.logInSuccess();
+  }
+
+  Stream<AuthState> _signInAnonymous() async* {
+    yield const AuthState.loading();
+    authRepo.signInAnonymous();
     yield const AuthState.logInSuccess();
   }
 

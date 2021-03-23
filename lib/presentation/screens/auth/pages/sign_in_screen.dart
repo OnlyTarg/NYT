@@ -52,10 +52,20 @@ class _SignInScreenState extends State<SignInScreen> {
                         prefixIcon: Icon(Icons.lock),
                       ),
                     ),
-                    RaisedButton(
-                      onPressed: () => _loginFormBloc.submit(),
-                      child: const Text('LOGIN'),
-                    ),
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                      RaisedButton(
+                        onPressed: () => _loginFormBloc.submit(),
+                        child: const Text('LOGIN'),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: RaisedButton(
+                          onPressed: () => BlocProvider.of<AuthBLoC>(context)
+                              .add(const AuthEvent.signInAnonymous()),
+                          child: const Text('Guest'),
+                        ),
+                      ),
+                    ]),
                     const Divider(),
                     const Text('OR'),
                     const Divider(),
@@ -105,6 +115,6 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   void dispose() {
-      super.dispose();
+    super.dispose();
   }
 }

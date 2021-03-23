@@ -61,16 +61,6 @@ class AuthRepo extends BaseAuthorizationRepo {
   }
 
   @override
-  // ignore: avoid_void_async
-  void signOutGoogle() async {
-    try {
-      await googleSignIn.signOut();
-    } on dynamic {
-      rethrow;
-    }
-  }
-
-  @override
   Future<User> signInWithGoogle() async {
     try {
       final GoogleSignInAccount googleSignInAccount =
@@ -95,6 +85,22 @@ class AuthRepo extends BaseAuthorizationRepo {
       return user;
     } on dynamic {
       throw GoogleAuthError();
+    }
+  }
+
+  @override
+  Future<void> signInAnonymous() async {
+    try {
+      // ignore: unused_local_variable
+      final UserCredential userCredential =
+          await FirebaseAuth.instance.signInAnonymously();
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'operation-not-allowed') {
+        print('operation not allowed');
+        throw UserDoesNotExist;
+      }
+    } on dynamic {
+      rethrow;
     }
   }
 }
