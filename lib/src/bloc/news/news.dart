@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:nyt_app/constants/exceptions.dart';
 import 'package:nyt_app/models/news_item.dart';
 import 'package:nyt_app/src/repositories/news_repo.dart';
 
@@ -25,9 +26,8 @@ abstract class NewsState with _$NewsState {
 }
 
 class NewsBLoC extends Bloc<NewsEvent, NewsState> {
-  //fixme: try to use private variable in bloc
-  NewsRepo newsRepo;
-  NewsBLoC(this.newsRepo) : super(const InitialNewsState());
+  final NewsRepo _newsRepo;
+  NewsBLoC(this._newsRepo) : super(const InitialNewsState());
 
   @override
   Stream<NewsState> mapEventToState(NewsEvent event) =>
@@ -38,15 +38,17 @@ class NewsBLoC extends Bloc<NewsEvent, NewsState> {
 
   Stream<NewsState> _fetch() async* {
     yield const NewsState.loading();
-    final _newsList = await newsRepo.getNews();
+    final _newsList = await _newsRepo.getNews();
     yield NewsState.loaded(_newsList);
   }
 
   Stream<NewsState> _fetchLocal() async* {
     yield const NewsState.loading();
-    //FIXME: error handling?
-
-    final _newsList = await newsRepo.getNewsLocaly();
-    yield NewsState.loaded(_newsList);
+    try {
+      final _newsList = await _newsRepo.getNewsLocaly();
+      yield NewsState.loaded(_newsList);
+    } on dynamic {
+      throw NoLocalNews();
+    }
   }
 }

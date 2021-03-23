@@ -1,35 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nyt_app/models/news_item.dart';
-import 'package:nyt_app/presentation/screens/home/home_flow.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:nyt_app/presentation/widgets/news_item_card.dart';
 import 'package:nyt_app/src/bloc/auth/auth_bloc.dart';
 import 'package:nyt_app/src/bloc/flow_bloc/home_flow_bloc.dart';
 import 'package:nyt_app/src/bloc/news/news.dart';
 import 'package:nyt_app/src/repositories/news_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class HomeScreen extends StatefulWidget {
-  static Page page() => const MaterialPage<void>(child: HomeScreen());
+class HomeScreen extends StatelessWidget {
+  static Page page() => MaterialPage<void>(
+      child: BlocProvider(
+          create: (context) => NewsBLoC(NewsRepo()),
+          child: const HomeScreen()));
+
   const HomeScreen({
     Key key,
   }) : super(key: key);
-
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  NewsBLoC _newsBLoC;
-  HomeFlowBLoC _homeFlowBLoC;
-
-  @override
-  void initState() {
-    /// FIXME bad way to use bloc, why not to wrap page into bloc provider?
-    _homeFlowBLoC = HomeFlow.of(context).homeFlowBLoC;
-    _newsBLoC = NewsBLoC(NewsRepo());
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +26,8 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           FloatingActionButton(
             onPressed: () {
-              _homeFlowBLoC.add(const HomeFlowEvent.showLocation());
+              BlocProvider.of<HomeFlowBLoC>(context)
+                  .add(const HomeFlowEvent.showLocation());
             },
             child: const Text(
               'Location',
@@ -50,14 +38,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           const SizedBox(width: 10),
           FloatingActionButton(
-            onPressed: () => _newsBLoC.add(
+            onPressed: () => BlocProvider.of<NewsBLoC>(context).add(
               const NewsEvent.fetch(),
             ),
             child: const Text('Online'),
           ),
           const SizedBox(width: 10),
           FloatingActionButton(
-            onPressed: () => _newsBLoC.add(
+            onPressed: () => BlocProvider.of<NewsBLoC>(context).add(
               const NewsEvent.fetchLocal(),
             ),
             child: const Text('Offline'),
@@ -80,7 +68,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Center(
         child: BlocBuilder<NewsBLoC, NewsState>(
-          cubit: _newsBLoC,
           builder: (context, state) {
             if (state is InitialNewsState) {
               return Center(
@@ -105,7 +92,6 @@ class _HomeScreenState extends State<HomeScreen> {
               return ListView.builder(
                 itemCount: listOfNews.length,
                 itemBuilder: (context, index) => NewsItemCard(
-                  homeFlowBLoC: _homeFlowBLoC,
                   listOfNews: listOfNews,
                   index: index,
                 ),
@@ -114,48 +100,6 @@ class _HomeScreenState extends State<HomeScreen> {
             return const SizedBox.shrink();
           },
         ),
-      ),
-    );
-  }
-}
-
-// FIXME better separate widget into another file or mark as private _
-class NewsItemCard extends StatelessWidget {
-  final HomeFlowBLoC _homeFlowBLoC;
-  final List<NewsItem> listOfNews;
-  final int index;
-
-  const NewsItemCard({
-    @required HomeFlowBLoC homeFlowBLoC,
-    @required this.listOfNews,
-    @required this.index,
-    Key key,
-  })  : _homeFlowBLoC = homeFlowBLoC,
-        super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: InkWell(
-        onTap: () {
-          _homeFlowBLoC
-              .add(HomeFlowEvent.showNewsPaper(url: listOfNews[index].url));
-        },
-        splashColor: Colors.blue.withAlpha(30),
-        child: ListTile(
-            title: Text(listOfNews[index].title),
-            subtitle: Text(
-              listOfNews[index].description,
-            ),
-            leading: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: CachedNetworkImage(
-                  imageUrl: listOfNews[index].imageUrl,
-                  placeholder: (context, url) =>
-                      Image.asset('assets/icons/ic_google.png'),
-                  errorWidget: (context, url, error) =>
-                      const Icon(Icons.error)),
-            )),
       ),
     );
   }

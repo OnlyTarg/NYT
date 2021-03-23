@@ -6,39 +6,19 @@ import 'package:nyt_app/presentation/screens/home/pages/location_screen.dart';
 import 'package:nyt_app/presentation/screens/home/pages/news_view_screen.dart';
 import 'package:nyt_app/src/bloc/flow_bloc/home_flow_bloc.dart';
 
-class HomeFlow extends StatefulWidget {
+class HomeFlow extends StatelessWidget {
+  static Widget mainFlow() => BlocProvider(
+        create: (context) => HomeFlowBLoC(),
+        child: const HomeFlow(),
+      );
+
   const HomeFlow({
     Key key,
   }) : super(key: key);
 
-  static _HomeFlowState of(BuildContext context) =>
-      context.findAncestorStateOfType<_HomeFlowState>();
-
-  @override
-  _HomeFlowState createState() => _HomeFlowState();
-}
-
-class _HomeFlowState extends State<HomeFlow> {
-  //FIXME better create bloc with bloc provider and use stateless widget
-
-  HomeFlowBLoC homeFlowBLoC;
-
-  @override
-  void initState() {
-    homeFlowBLoC = HomeFlowBLoC();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    homeFlowBLoC.close();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeFlowBLoC, HomeFlowState>(
-      cubit: homeFlowBLoC,
       builder: (context, state) {
         return FlowBuilder(
           state: state,

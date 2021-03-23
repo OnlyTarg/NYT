@@ -8,16 +8,6 @@ import 'package:nyt_app/src/bloc/connection/connection_cubit.dart';
 import 'package:nyt_app/src/repositories/connection_repo.dart';
 part 'initial_flow_bloc.freezed.dart';
 
-/// FIXME why bloc is used here? any user event is called? why no cubit?
-@freezed
-abstract class InitialFlowEvent with _$InitialFlowEvent {
-  const InitialFlowEvent._();
-
-  const factory InitialFlowEvent.init({bool isAuthorized}) =
-      InitInitialFlowEvent;
-  const factory InitialFlowEvent.noInternet() = NoInternetInitialFlowEvent;
-}
-
 @freezed
 abstract class InitialFlowState with _$InitialFlowState {
   const InitialFlowState._();
@@ -28,12 +18,17 @@ abstract class InitialFlowState with _$InitialFlowState {
   const factory InitialFlowState.noInternet() = NoInternetInitialFlowState;
 }
 
-class InitialFlowBLoC extends Bloc<InitialFlowEvent, InitialFlowState> {
+class InitialFlowBLoC extends Cubit<InitialFlowState> {
   ConnectionBLoC connectionBLoC = ConnectionBLoC(ConnectionRepo());
   StreamSubscription onAuthStatusChange;
   StreamSubscription onConnectionChange;
 
-  InitialFlowBLoC() : super(const PrimaryInitialFlowState()) {
+  void dispose() {
+    onAuthStatusChange.cancel();
+    onConnectionChange.cancel();
+  }
+
+  InitialFlowBLoC() : super(const InitialFlowState.primary()) {
     onConnectionChange = connectionBLoC.listen(
       (connectionStatus) {
         if (connectionStatus is WiFiConnectionState ||
@@ -42,40 +37,24 @@ class InitialFlowBLoC extends Bloc<InitialFlowEvent, InitialFlowState> {
           onAuthStatusChange = FirebaseAuth.instance.authStateChanges().listen(
             (user) {
               if (user == null) {
-                add(const InitialFlowEvent.init(isAuthorized: false));
+                emit(const InitialFlowState.unAuthorized());
               } else {
-                add(const InitialFlowEvent.init(isAuthorized: true));
+                emit(const InitialFlowState.authorized());
               }
             },
           );
         } else if (connectionStatus is DisconnectedConnectionState) {
-          add(const InitialFlowEvent.noInternet());
+          emit(const InitialFlowState.noInternet());
         }
       },
     );
   }
 
-  @override
-  Stream<InitialFlowState> mapEventToState(InitialFlowEvent event) =>
-      event.when<Stream<InitialFlowState>>(
-        noInternet: _noInternet,
-        init: _init,
-      );
-
-  Stream<InitialFlowState> _init(bool isAuthorized) async* {
+  void init(bool isAuthorized) {
     if (isAuthorized) {
-      yield const InitialFlowState.authorized();
+      emit(const InitialFlowState.authorized());
     } else {
-      yield const InitialFlowState.unAuthorized();
+      emit(const InitialFlowState.unAuthorized());
     }
-  }
-
-  Stream<InitialFlowState> _noInternet() async* {
-    yield const NoInternetInitialFlowState();
-  }
-
-  void dispose() {
-    onAuthStatusChange.cancel();
-    onConnectionChange.cancel();
   }
 }

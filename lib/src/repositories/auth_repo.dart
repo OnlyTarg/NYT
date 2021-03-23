@@ -6,11 +6,9 @@ import 'package:nyt_app/src/repositories/base_repo/base_authorization_repo.dart'
 
 class AuthRepo extends BaseAuthorizationRepo {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  //FIXME why you need my contacts?
   final GoogleSignIn googleSignIn = GoogleSignIn(
     scopes: [
       'email',
-      'https://www.googleapis.com/auth/contacts.readonly',
     ],
   );
   @override

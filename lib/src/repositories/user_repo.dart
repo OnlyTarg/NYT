@@ -12,7 +12,7 @@ class UserRepo extends BaseUserRepo {
   Future<User> getLocalUser() async {
     final box = await Hive.openBox<User>(BaseUserRepo.user);
     final user = box.get(BaseUserRepo.user);
-    // FIXME no close
+    await box.close();
 
     return user;
   }
@@ -33,8 +33,7 @@ class UserRepo extends BaseUserRepo {
   Future<void> setLocalUser(User user) async {
     final box = await Hive.openBox<User>(BaseUserRepo.user);
     box.add(user);
-    // FIXME no await
-    box.close();
+    await box.close();
   }
   /* final box = await Hive.openBox<NewsItem>(BaseNewsRepo.newsBox);
     final List<NewsItem> _list = [];

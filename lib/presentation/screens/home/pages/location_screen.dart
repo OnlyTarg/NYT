@@ -2,35 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nyt_app/src/bloc/location/location_bloc.dart';
 
-class LocationScreen extends StatefulWidget {
+class LocationScreen extends StatelessWidget {
   const LocationScreen({
     Key key,
   }) : super(key: key);
 
-  static Page page() => const MaterialPage<void>(
-        child: LocationScreen(),
+  static Page page() => MaterialPage<void>(
+        child: BlocProvider(
+          create: (context) =>
+              LocationBLoC()..add(const LocationEvent.getCurrentLocation()),
+          child: const LocationScreen(),
+        ),
       );
-
-  @override
-  _LocationScreenState createState() => _LocationScreenState();
-}
-
-class _LocationScreenState extends State<LocationScreen> {
-  //FIXME better create bloc with bloc provider and use stateless widget
-  LocationBLoC _locationBLoC;
-
-  @override
-  void initState() {
-    _locationBLoC = LocationBLoC()
-      ..add(const LocationEvent.getCurrentLocation());
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _locationBLoC.close();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +22,6 @@ class _LocationScreenState extends State<LocationScreen> {
         title: const Text('Your current location'),
       ),
       body: BlocBuilder<LocationBLoC, LocationState>(
-        cubit: _locationBLoC,
         builder: (context, state) {
           if (state is LoadingLocationState) {
             return Center(
