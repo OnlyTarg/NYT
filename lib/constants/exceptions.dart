@@ -1,5 +1,13 @@
 import 'package:nyt_app/constants/base/base_exceptions.dart';
 
+class NoLocalNews implements BaseException {
+  @override
+  String get code => 'no_local_data';
+
+  @override
+  String get message => 'There are no local news now? try to get online first';
+}
+
 class UserNotAuthorized implements BaseException {
   @override
   String get code => 'not_authorized';

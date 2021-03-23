@@ -105,7 +105,6 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   void dispose() {
-    _loginFormBloc.close();
-    super.dispose();
+      super.dispose();
   }
 }

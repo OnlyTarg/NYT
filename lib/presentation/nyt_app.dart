@@ -8,12 +8,12 @@ import 'package:nyt_app/src/bloc/forms/login_form_bloc.dart';
 import 'package:nyt_app/src/repositories/auth_repo.dart';
 
 class NYTApp extends StatelessWidget {
+  final Future<FirebaseApp> _initialization;
+
   NYTApp({
     Key key,
-  }) : super(key: key);
-
-  // Create the initialization Future outside of `build`:
-  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+  })  : _initialization = Firebase.initializeApp(),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +21,6 @@ class NYTApp extends StatelessWidget {
       // Initialize FlutterFire:
       future: _initialization,
       builder: (context, snapshot) {
-        // Check for errors
-        if (snapshot.hasError) {
-          return null;
-        }
-
-        // Once complete, show your application
         if (snapshot.connectionState == ConnectionState.done) {
           return BlocProvider<AuthBLoC>(
             create: (context) => AuthBLoC(AuthRepo()),
@@ -53,14 +47,8 @@ class NYTApp extends StatelessWidget {
               ),
             ),
           );
-
-          /* return BlocProvider<AuthBLoC>(
-            create: (context) => AuthBLoC(AuthRepo()),
-            child: InitialScreen(),
-          ); */
         }
 
-        // Otherwise, show something whilst
         return const SizedBox.shrink();
       },
     );

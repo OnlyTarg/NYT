@@ -9,7 +9,6 @@ class AuthRepo extends BaseAuthorizationRepo {
   final GoogleSignIn googleSignIn = GoogleSignIn(
     scopes: [
       'email',
-      'https://www.googleapis.com/auth/contacts.readonly',
     ],
   );
   @override

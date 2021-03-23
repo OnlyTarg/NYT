@@ -14,7 +14,7 @@ class InitialFlow extends StatelessWidget {
     return BlocBuilder<InitialFlowBLoC, InitialFlowState>(
       builder: (context, state) {
         if (state is AuthorizedInitialFlowState) {
-          return const HomeFlow();
+          return HomeFlow.mainFlow();
         }
         if (state is UnAuthorizedInitialFlowState) {
           return BlocProvider(
